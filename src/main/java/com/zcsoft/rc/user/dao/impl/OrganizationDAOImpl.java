@@ -11,5 +11,12 @@ import com.zcsoft.rc.common.dao.impl.BaseDAOImpl;
 
 @Repository
 public class OrganizationDAOImpl extends BaseDAOImpl<Organization,java.lang.String> implements OrganizationDAO {
-	
+
+    @Override
+    public Integer queryMaxSequenceNumber(String parentId) {
+        Organization organization = new Organization();
+        organization.setParentId(parentId);
+
+        return query("queryMaxSequenceNumber", organization, Integer.TYPE);
+    }
 }

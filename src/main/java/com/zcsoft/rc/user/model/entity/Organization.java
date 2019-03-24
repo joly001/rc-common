@@ -2,6 +2,7 @@ package com.zcsoft.rc.user.model.entity;
 
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
+import com.sharingif.cube.components.sequence.Sequence;
 
 import java.util.Date;
 
@@ -10,24 +11,25 @@ public class Organization implements java.io.Serializable, IObjectDateOperationH
 	//columns START
     /**
      * id			db_column: ID 
-     */	
-	private java.lang.String id;
+     */
+	@Sequence(ref="uuidSequenceGenerator")
+	private String id;
     /**
      * 组织名称			db_column: ORG_NAME 
      */	
-	private java.lang.String orgName;
+	private String orgName;
     /**
      * 组织描述			db_column: ORG_DESC 
      */	
-	private java.lang.String orgDesc;
+	private String orgDesc;
     /**
      * 排序号			db_column: SEQUENCE_NUMBER 
      */	
-	private java.lang.Integer sequenceNumber;
+	private Integer sequenceNumber;
     /**
      * 上级id			db_column: PARENT_ID 
      */	
-	private java.lang.String parentId;
+	private String parentId;
     /**
      * 创建时间			db_column: CREATE_TIME 
      */	
@@ -38,34 +40,34 @@ public class Organization implements java.io.Serializable, IObjectDateOperationH
 	private Date modifyTime;
 	//columns END
 
-	public void setId(java.lang.String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public java.lang.String getId() {
+	public String getId() {
 		return this.id;
 	}
-	public void setOrgName(java.lang.String orgName) {
+	public void setOrgName(String orgName) {
 		this.orgName = orgName;
 	}
-	public java.lang.String getOrgName() {
+	public String getOrgName() {
 		return this.orgName;
 	}
-	public void setOrgDesc(java.lang.String orgDesc) {
+	public void setOrgDesc(String orgDesc) {
 		this.orgDesc = orgDesc;
 	}
-	public java.lang.String getOrgDesc() {
+	public String getOrgDesc() {
 		return this.orgDesc;
 	}
-	public void setSequenceNumber(java.lang.Integer sequenceNumber) {
+	public void setSequenceNumber(Integer sequenceNumber) {
 		this.sequenceNumber = sequenceNumber;
 	}
-	public java.lang.Integer getSequenceNumber() {
+	public Integer getSequenceNumber() {
 		return this.sequenceNumber;
 	}
-	public void setParentId(java.lang.String parentId) {
+	public void setParentId(String parentId) {
 		this.parentId = parentId;
 	}
-	public java.lang.String getParentId() {
+	public String getParentId() {
 		return this.parentId;
 	}
 	public void setCreateTime(Date createTime) {

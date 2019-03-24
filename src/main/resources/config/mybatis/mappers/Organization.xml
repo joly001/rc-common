@@ -187,6 +187,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			ID
 	</select>
+
+	<select id="queryMaxSequenceNumber" resultType="Integer">
+		SELECT
+			MAX(SEQUENCE_NUMBER)
+		FROM
+			ORGANIZATION
+		WHERE
+			<if test="null==parentId">
+				PARENT_ID IS NULL
+			</if>
+			<if test="null!=parentId">
+				PARENT_ID = #{parentId}
+			</if>
+	</select>
 	
 </mapper>
 
