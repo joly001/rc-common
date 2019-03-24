@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="user">
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="userColumns">
+    	<if test="null!=id">
+    		AND ID = #{id}
+    	</if>
+    	<if test="null!=username">
+    		AND USERNAME = #{username}
+    	</if>
+    	<if test="null!=password">
+    		AND PASSWORD = #{password}
+    	</if>
+    	<if test="null!=nick">
+    		AND NICK = #{nick}
+    	</if>
+    	<if test="null!=mobilePrefix">
+    		AND MOBILE_PREFIX = #{mobilePrefix}
+    	</if>
+    	<if test="null!=mobile">
+    		AND MOBILE = #{mobile}
+    	</if>
+    	<if test="null!=userType">
+    		AND USER_TYPE = #{userType}
+    	</if>
+    	<if test="null!=builderStatus">
+    		AND BUILDER_STATUS = #{builderStatus}
+    	</if>
+    	<if test="null!=admissionDate">
+    		AND ADMISSION_DATE = #{admissionDate}
+    	</if>
+    	<if test="null!=leaveDate">
+    		AND LEAVE_DATE = #{leaveDate}
+    	</if>
+    	<if test="null!=wristStrapCode">
+    		AND WRIST_STRAP_CODE = #{wristStrapCode}
+    	</if>
+    	<if test="null!=status">
+    		AND STATUS = #{status}
+    	</if>
+    	<if test="null!=loginToken">
+    		AND LOGIN_TOKEN = #{loginToken}
+    	</if>
+    	<if test="null!=loginTokenExpiratTime">
+    		AND LOGIN_TOKEN_EXPIRAT_TIME = #{loginTokenExpiratTime}
+    	</if>
+    	<if test="null!=loginDeviceCode">
+    		AND LOGIN_DEVICE_CODE = #{loginDeviceCode}
+    	</if>
+    	<if test="null!=lastLoginIp">
+    		AND LAST_LOGIN_IP = #{lastLoginIp}
+    	</if>
+    	<if test="null!=failLoginCounter">
+    		AND FAIL_LOGIN_COUNTER = #{failLoginCounter}
+    	</if>
+    	<if test="null!=organizationId">
+    		AND ORGANIZATION_ID = #{organizationId}
+    	</if>
+    	<if test="null!=createTime">
+    		AND CREATE_TIME = #{createTime}
+    	</if>
+    	<if test="null!=modifyTime">
+    		AND MODIFY_TIME = #{modifyTime}
+    	</if>
+	</sql>
+	
+	<sql id="userSetColumns">
+		    <if test="null!=id">
+		    ID = #{id},
+		    </if>
+		    <if test="null!=username">
+		    USERNAME = #{username},
+		    </if>
+		    <if test="null!=password">
+		    PASSWORD = #{password},
+		    </if>
+		    <if test="null!=nick">
+		    NICK = #{nick},
+		    </if>
+		    <if test="null!=mobilePrefix">
+		    MOBILE_PREFIX = #{mobilePrefix},
+		    </if>
+		    <if test="null!=mobile">
+		    MOBILE = #{mobile},
+		    </if>
+		    <if test="null!=userType">
+		    USER_TYPE = #{userType},
+		    </if>
+		    <if test="null!=builderStatus">
+		    BUILDER_STATUS = #{builderStatus},
+		    </if>
+		    <if test="null!=admissionDate">
+		    ADMISSION_DATE = #{admissionDate},
+		    </if>
+		    <if test="null!=leaveDate">
+		    LEAVE_DATE = #{leaveDate},
+		    </if>
+		    <if test="null!=wristStrapCode">
+		    WRIST_STRAP_CODE = #{wristStrapCode},
+		    </if>
+		    <if test="null!=status">
+		    STATUS = #{status},
+		    </if>
+		    <if test="null!=loginToken">
+		    LOGIN_TOKEN = #{loginToken},
+		    </if>
+		    <if test="null!=loginTokenExpiratTime">
+		    LOGIN_TOKEN_EXPIRAT_TIME = #{loginTokenExpiratTime},
+		    </if>
+		    <if test="null!=loginDeviceCode">
+		    LOGIN_DEVICE_CODE = #{loginDeviceCode},
+		    </if>
+		    <if test="null!=lastLoginIp">
+		    LAST_LOGIN_IP = #{lastLoginIp},
+		    </if>
+		    <if test="null!=failLoginCounter">
+		    FAIL_LOGIN_COUNTER = #{failLoginCounter},
+		    </if>
+		    <if test="null!=organizationId">
+		    ORGANIZATION_ID = #{organizationId},
+		    </if>
+		    <if test="null!=createTime">
+		    CREATE_TIME = #{createTime},
+		    </if>
+		    <if test="null!=modifyTime">
+		    MODIFY_TIME = #{modifyTime},
+		    </if>
+	</sql>
+
+	<resultMap id="userResultMap" type="com.zcsoft.rc.user.model.entity.User">
+        <result property="id" column="ID"/>
+        <result property="username" column="USERNAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="nick" column="NICK"/>
+        <result property="mobilePrefix" column="MOBILE_PREFIX"/>
+        <result property="mobile" column="MOBILE"/>
+        <result property="userType" column="USER_TYPE"/>
+        <result property="builderStatus" column="BUILDER_STATUS"/>
+        <result property="admissionDate" column="ADMISSION_DATE"/>
+        <result property="leaveDate" column="LEAVE_DATE"/>
+        <result property="wristStrapCode" column="WRIST_STRAP_CODE"/>
+        <result property="status" column="STATUS"/>
+        <result property="loginToken" column="LOGIN_TOKEN"/>
+        <result property="loginTokenExpiratTime" column="LOGIN_TOKEN_EXPIRAT_TIME"/>
+        <result property="loginDeviceCode" column="LOGIN_DEVICE_CODE"/>
+        <result property="lastLoginIp" column="LAST_LOGIN_IP"/>
+        <result property="failLoginCounter" column="FAIL_LOGIN_COUNTER"/>
+        <result property="organizationId" column="ORGANIZATION_ID"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="modifyTime" column="MODIFY_TIME"/>
+	</resultMap>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert">
+        INSERT INTO USER (
+        	ID
+        	,USERNAME
+        	,PASSWORD
+        	,NICK
+        	,MOBILE_PREFIX
+        	,MOBILE
+        	,USER_TYPE
+        	,BUILDER_STATUS
+        	,ADMISSION_DATE
+        	,LEAVE_DATE
+        	,WRIST_STRAP_CODE
+        	,STATUS
+        	,LOGIN_TOKEN
+        	,LOGIN_TOKEN_EXPIRAT_TIME
+        	,LOGIN_DEVICE_CODE
+        	,LAST_LOGIN_IP
+        	,FAIL_LOGIN_COUNTER
+        	,ORGANIZATION_ID
+        	,CREATE_TIME
+        	,MODIFY_TIME
+        ) VALUES (
+        	#{id}
+        	,#{username}
+        	,#{password}
+        	,#{nick}
+        	,#{mobilePrefix}
+        	,#{mobile}
+        	,#{userType}
+        	,#{builderStatus}
+        	,#{admissionDate}
+        	,#{leaveDate}
+        	,#{wristStrapCode}
+        	,#{status}
+        	,#{loginToken}
+        	,#{loginTokenExpiratTime}
+        	,#{loginDeviceCode}
+        	,#{lastLoginIp}
+        	,#{failLoginCounter}
+        	,#{organizationId}
+        	,#{createTime}
+        	,#{modifyTime}
+        )
+	</insert>
+	
+	<delete id="deleteById">
+	    DELETE FROM
+	    	USER 
+	    WHERE
+	    ID = #{id} 
+    </delete>
+    
+    <delete id="deleteByCondition">
+	    DELETE FROM
+	    	USER 
+	    WHERE
+	    	1=1
+		    <include refid="userColumns" />
+    </delete>
+    
+	<update id="updateById">
+	    UPDATE
+	    	USER 
+        <set>
+	        <include refid="userSetColumns" />
+		</set>
+	    WHERE
+	    ID = #{id} 
+	</update>
+	
+    <select id="queryById" resultMap="userResultMap">
+		SELECT
+			ID
+			,USERNAME
+			,PASSWORD
+			,NICK
+			,MOBILE_PREFIX
+			,MOBILE
+			,USER_TYPE
+			,BUILDER_STATUS
+			,ADMISSION_DATE
+			,LEAVE_DATE
+			,WRIST_STRAP_CODE
+			,STATUS
+			,LOGIN_TOKEN
+			,LOGIN_TOKEN_EXPIRAT_TIME
+			,LOGIN_DEVICE_CODE
+			,LAST_LOGIN_IP
+			,FAIL_LOGIN_COUNTER
+			,ORGANIZATION_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			USER 
+		WHERE 
+			ID = #{id} 
+	</select>
+	
+	<select id="queryList" resultMap="userResultMap">
+		SELECT
+			ID
+			,USERNAME
+			,PASSWORD
+			,NICK
+			,MOBILE_PREFIX
+			,MOBILE
+			,USER_TYPE
+			,BUILDER_STATUS
+			,ADMISSION_DATE
+			,LEAVE_DATE
+			,WRIST_STRAP_CODE
+			,STATUS
+			,LOGIN_TOKEN
+			,LOGIN_TOKEN_EXPIRAT_TIME
+			,LOGIN_DEVICE_CODE
+			,LAST_LOGIN_IP
+			,FAIL_LOGIN_COUNTER
+			,ORGANIZATION_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			USER
+		WHERE
+			1=1
+			<include refid="userColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryAll" resultMap="userResultMap">
+		SELECT
+			ID
+			,USERNAME
+			,PASSWORD
+			,NICK
+			,MOBILE_PREFIX
+			,MOBILE
+			,USER_TYPE
+			,BUILDER_STATUS
+			,ADMISSION_DATE
+			,LEAVE_DATE
+			,WRIST_STRAP_CODE
+			,STATUS
+			,LOGIN_TOKEN
+			,LOGIN_TOKEN_EXPIRAT_TIME
+			,LOGIN_DEVICE_CODE
+			,LAST_LOGIN_IP
+			,FAIL_LOGIN_COUNTER
+			,ORGANIZATION_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			USER 
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryPaginationListCount" resultType="Integer">
+		SELECT
+			COUNT(0)
+		FROM
+			USER 
+		WHERE
+			1=1 
+			<include refid="userColumns" />
+	</select>
+	
+	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="userResultMap">
+		SELECT
+			ID
+			,USERNAME
+			,PASSWORD
+			,NICK
+			,MOBILE_PREFIX
+			,MOBILE
+			,USER_TYPE
+			,BUILDER_STATUS
+			,ADMISSION_DATE
+			,LEAVE_DATE
+			,WRIST_STRAP_CODE
+			,STATUS
+			,LOGIN_TOKEN
+			,LOGIN_TOKEN_EXPIRAT_TIME
+			,LOGIN_DEVICE_CODE
+			,LAST_LOGIN_IP
+			,FAIL_LOGIN_COUNTER
+			,ORGANIZATION_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			USER
+		WHERE
+			1=1
+			<include refid="userColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+</mapper>
+

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="organization">
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="organizationColumns">
+    	<if test="null!=id">
+    		AND ID = #{id}
+    	</if>
+    	<if test="null!=orgName">
+    		AND ORG_NAME = #{orgName}
+    	</if>
+    	<if test="null!=orgDesc">
+    		AND ORG_DESC = #{orgDesc}
+    	</if>
+    	<if test="null!=sequenceNumber">
+    		AND SEQUENCE_NUMBER = #{sequenceNumber}
+    	</if>
+    	<if test="null!=parentId">
+    		AND PARENT_ID = #{parentId}
+    	</if>
+    	<if test="null!=createTime">
+    		AND CREATE_TIME = #{createTime}
+    	</if>
+    	<if test="null!=modifyTime">
+    		AND MODIFY_TIME = #{modifyTime}
+    	</if>
+	</sql>
+	
+	<sql id="organizationSetColumns">
+		    <if test="null!=id">
+		    ID = #{id},
+		    </if>
+		    <if test="null!=orgName">
+		    ORG_NAME = #{orgName},
+		    </if>
+		    <if test="null!=orgDesc">
+		    ORG_DESC = #{orgDesc},
+		    </if>
+		    <if test="null!=sequenceNumber">
+		    SEQUENCE_NUMBER = #{sequenceNumber},
+		    </if>
+		    <if test="null!=parentId">
+		    PARENT_ID = #{parentId},
+		    </if>
+		    <if test="null!=createTime">
+		    CREATE_TIME = #{createTime},
+		    </if>
+		    <if test="null!=modifyTime">
+		    MODIFY_TIME = #{modifyTime},
+		    </if>
+	</sql>
+
+	<resultMap id="organizationResultMap" type="com.zcsoft.rc.user.model.entity.Organization">
+        <result property="id" column="ID"/>
+        <result property="orgName" column="ORG_NAME"/>
+        <result property="orgDesc" column="ORG_DESC"/>
+        <result property="sequenceNumber" column="SEQUENCE_NUMBER"/>
+        <result property="parentId" column="PARENT_ID"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="modifyTime" column="MODIFY_TIME"/>
+	</resultMap>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert">
+        INSERT INTO ORGANIZATION (
+        	ID
+        	,ORG_NAME
+        	,ORG_DESC
+        	,SEQUENCE_NUMBER
+        	,PARENT_ID
+        	,CREATE_TIME
+        	,MODIFY_TIME
+        ) VALUES (
+        	#{id}
+        	,#{orgName}
+        	,#{orgDesc}
+        	,#{sequenceNumber}
+        	,#{parentId}
+        	,#{createTime}
+        	,#{modifyTime}
+        )
+	</insert>
+	
+	<delete id="deleteById">
+	    DELETE FROM
+	    	ORGANIZATION 
+	    WHERE
+	    ID = #{id} 
+    </delete>
+    
+    <delete id="deleteByCondition">
+	    DELETE FROM
+	    	ORGANIZATION 
+	    WHERE
+	    	1=1
+		    <include refid="organizationColumns" />
+    </delete>
+    
+	<update id="updateById">
+	    UPDATE
+	    	ORGANIZATION 
+        <set>
+	        <include refid="organizationSetColumns" />
+		</set>
+	    WHERE
+	    ID = #{id} 
+	</update>
+	
+    <select id="queryById" resultMap="organizationResultMap">
+		SELECT
+			ID
+			,ORG_NAME
+			,ORG_DESC
+			,SEQUENCE_NUMBER
+			,PARENT_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			ORGANIZATION 
+		WHERE 
+			ID = #{id} 
+	</select>
+	
+	<select id="queryList" resultMap="organizationResultMap">
+		SELECT
+			ID
+			,ORG_NAME
+			,ORG_DESC
+			,SEQUENCE_NUMBER
+			,PARENT_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			ORGANIZATION
+		WHERE
+			1=1
+			<include refid="organizationColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryAll" resultMap="organizationResultMap">
+		SELECT
+			ID
+			,ORG_NAME
+			,ORG_DESC
+			,SEQUENCE_NUMBER
+			,PARENT_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			ORGANIZATION 
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryPaginationListCount" resultType="Integer">
+		SELECT
+			COUNT(0)
+		FROM
+			ORGANIZATION 
+		WHERE
+			1=1 
+			<include refid="organizationColumns" />
+	</select>
+	
+	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="organizationResultMap">
+		SELECT
+			ID
+			,ORG_NAME
+			,ORG_DESC
+			,SEQUENCE_NUMBER
+			,PARENT_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			ORGANIZATION
+		WHERE
+			1=1
+			<include refid="organizationColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+</mapper>
+

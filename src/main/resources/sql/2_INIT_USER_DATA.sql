@@ -1,0 +1,1 @@
+INSERT INTO USER VALUES('570BB923C48149B28F4E6055196A9F9D','13888888888','password','admin','+86','13888888888','00',null,null,null,null,'NORMAL',null,null,null,null,0,null,NOW(),NOW());
