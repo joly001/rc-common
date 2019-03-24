@@ -19,4 +19,13 @@ public class OrganizationDAOImpl extends BaseDAOImpl<Organization,java.lang.Stri
 
         return query("queryMaxSequenceNumber", organization, Integer.TYPE);
     }
+
+    @Override
+    public Integer updateDecrementSequenceNumberByParentIdSequenceNumber(String parentId, Integer sequenceNumber) {
+        Organization organization = new Organization();
+        organization.setParentId(parentId);
+        organization.setSequenceNumber(sequenceNumber);
+
+        return update("updateDecrementSequenceNumberByParentIdSequenceNumber", organization);
+    }
 }

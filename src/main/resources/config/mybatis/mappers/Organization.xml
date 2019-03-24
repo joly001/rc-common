@@ -201,6 +201,22 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				PARENT_ID = #{parentId}
 			</if>
 	</select>
+
+	<update id="updateDecrementSequenceNumberByParentIdSequenceNumber">
+		UPDATE
+			ORGANIZATION
+		SET
+			SEQUENCE_NUMBER=(SEQUENCE_NUMBER-1)
+		WHERE
+			<if test="null==parentId">
+				PARENT_ID IS NULL
+			</if>
+			<if test="null!=parentId">
+				PARENT_ID = #{parentId}
+			</if>
+			AND
+				SEQUENCE_NUMBER > #{sequenceNumber}
+	</update>
 	
 </mapper>
 

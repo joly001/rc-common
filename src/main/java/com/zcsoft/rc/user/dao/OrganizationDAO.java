@@ -14,4 +14,12 @@ public interface OrganizationDAO extends BaseDAO<Organization,java.lang.String> 
      */
     Integer queryMaxSequenceNumber(String parentId);
 
+    /**
+     * 根据上级组织、序列号递减序列号
+     * @param parentId
+     * @param sequenceNumber
+     * @return
+     */
+    Integer updateDecrementSequenceNumberByParentIdSequenceNumber(String parentId, Integer sequenceNumber);
+
 }
