@@ -1,1 +1,1 @@
-INSERT INTO USER VALUES('570BB923C48149B28F4E6055196A9F9D','13888888888','password','admin','+86','13888888888','00',null,null,null,null,'NORMAL',null,null,null,null,0,null,NOW(),NOW());
+INSERT INTO USER VALUES('570BB923C48149B28F4E6055196A9F9D','admin','$2a$10$zNQ3kT8TQRgGBiy8FVHRnOCXV2OR.Ult.ujhOhCC4ad11JyAHyu3C','admin','+86','13888888888','00',null,null,null,null,'NORMAL',null,null,null,null,0,null,NOW(),NOW());
