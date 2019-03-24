@@ -91,7 +91,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<include refid="userRoleColumns" />
 		ORDER BY
 			USER_ID
-			ROLE_CODE
 	</select>
 	
 	<select id="queryAll" resultMap="userRoleResultMap">
@@ -102,7 +101,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			USER_ROLE 
 		ORDER BY
 			USER_ID
-			ROLE_CODE
 	</select>
 	
 	<select id="queryPaginationListCount" resultType="Integer">
@@ -126,7 +124,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<include refid="userRoleColumns" />
 		ORDER BY
 			USER_ID
-			ROLE_CODE
 	</select>
 	
 </mapper>
