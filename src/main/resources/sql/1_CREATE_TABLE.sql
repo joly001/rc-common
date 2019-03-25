@@ -41,7 +41,7 @@ CREATE TABLE ROLE
 (
    ID                   CHAR(32) NOT NULL COMMENT 'id',
    ROLE_NAME            VARCHAR(200) NOT NULL COMMENT '角色名称',
-   ROLE_DESC            VARCHAR(800) COMMENT '角色名称',
+   ROLE_DESC            VARCHAR(800) COMMENT '角色描述',
    ROLE_TYPE            CHAR(2) NOT NULL COMMENT '00:默认、01:自定义',
    CREATE_TIME          TIMESTAMP NULL COMMENT '创建时间',
    MODIFY_TIME          TIMESTAMP NULL COMMENT '修改时间',

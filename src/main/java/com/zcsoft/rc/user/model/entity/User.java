@@ -231,7 +231,7 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 
 	@Override
 	public TreeMap<String, String> getAuthorities() {
-		return null;
+		return this.authorities;
 	}
 
 	public void setAuthorities(TreeMap<String, String> authorities) {

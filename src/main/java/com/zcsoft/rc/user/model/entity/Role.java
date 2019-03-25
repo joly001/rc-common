@@ -17,7 +17,7 @@ public class Role implements java.io.Serializable, IObjectDateOperationHistory {
      */	
 	private java.lang.String roleName;
     /**
-     * 角色名称			db_column: ROLE_DESC 
+     * 角色描述			db_column: ROLE_DESC
      */	
 	private java.lang.String roleDesc;
     /**
