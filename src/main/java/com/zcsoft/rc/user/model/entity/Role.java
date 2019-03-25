@@ -2,6 +2,7 @@ package com.zcsoft.rc.user.model.entity;
 
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
+import com.sharingif.cube.components.sequence.Sequence;
 
 import java.util.Date;
 
@@ -10,7 +11,8 @@ public class Role implements java.io.Serializable, IObjectDateOperationHistory {
 	//columns START
     /**
      * id			db_column: ID 
-     */	
+     */
+	@Sequence(ref="uuidSequenceGenerator")
 	private java.lang.String id;
     /**
      * 角色名称			db_column: ROLE_NAME 
