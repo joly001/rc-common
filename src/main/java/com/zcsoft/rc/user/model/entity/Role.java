@@ -7,25 +7,34 @@ import com.sharingif.cube.components.sequence.Sequence;
 import java.util.Date;
 
 public class Role implements java.io.Serializable, IObjectDateOperationHistory {
-	
+
+	/**
+	 * 角色类型(00:默认)
+	 */
+	public static final String ROLE_TYPE_DEFAULT = "00";
+	/**
+	 * 角色类型(01:自定义)
+	 */
+	public static final String ROLE_TYPE_CUSTOM = "01";
+
 	//columns START
     /**
      * id			db_column: ID 
      */
 	@Sequence(ref="uuidSequenceGenerator")
-	private java.lang.String id;
+	private String id;
     /**
      * 角色名称			db_column: ROLE_NAME 
      */	
-	private java.lang.String roleName;
+	private String roleName;
     /**
      * 角色描述			db_column: ROLE_DESC
      */	
-	private java.lang.String roleDesc;
+	private String roleDesc;
     /**
      * 00:默认、01:自定义			db_column: ROLE_TYPE 
      */	
-	private java.lang.String roleType;
+	private String roleType;
     /**
      * 创建时间			db_column: CREATE_TIME 
      */	
@@ -36,28 +45,28 @@ public class Role implements java.io.Serializable, IObjectDateOperationHistory {
 	private Date modifyTime;
 	//columns END
 
-	public void setId(java.lang.String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public java.lang.String getId() {
+	public String getId() {
 		return this.id;
 	}
-	public void setRoleName(java.lang.String roleName) {
+	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	public java.lang.String getRoleName() {
+	public String getRoleName() {
 		return this.roleName;
 	}
-	public void setRoleDesc(java.lang.String roleDesc) {
+	public void setRoleDesc(String roleDesc) {
 		this.roleDesc = roleDesc;
 	}
-	public java.lang.String getRoleDesc() {
+	public String getRoleDesc() {
 		return this.roleDesc;
 	}
-	public void setRoleType(java.lang.String roleType) {
+	public void setRoleType(String roleType) {
 		this.roleType = roleType;
 	}
-	public java.lang.String getRoleType() {
+	public String getRoleType() {
 		return this.roleType;
 	}
 	public void setCreateTime(Date createTime) {
