@@ -170,9 +170,12 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			ROLE
 		WHERE
 			1=1
-			<include refid="roleColumns" />
+			<if test="null!=roleName">
+				AND	ROLE_NAME = #{roleName}"%",
+			</if>
 		ORDER BY
-			ID
+			ROLE_TYPE DESC
+			,CREATE_TIME DESC
 	</select>
 	
 </mapper>

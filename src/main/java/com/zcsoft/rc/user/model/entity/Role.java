@@ -3,6 +3,7 @@ package com.zcsoft.rc.user.model.entity;
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
 import com.sharingif.cube.components.sequence.Sequence;
+import com.zcsoft.rc.bms.api.user.entity.RoleListRsp;
 
 import java.util.Date;
 
