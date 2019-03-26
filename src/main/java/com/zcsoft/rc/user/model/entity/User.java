@@ -3,6 +3,7 @@ package com.zcsoft.rc.user.model.entity;
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
 import com.sharingif.cube.components.password.IPassword;
+import com.sharingif.cube.components.sequence.Sequence;
 import com.sharingif.cube.core.user.ICoreUser;
 import com.sharingif.cube.security.authentication.authority.IAuthorityRepertory;
 
@@ -10,11 +11,26 @@ import java.util.Date;
 import java.util.TreeMap;
 
 public class User implements java.io.Serializable, IObjectDateOperationHistory, ICoreUser, IPassword, IAuthorityRepertory<TreeMap<String, String>> {
-	
+
+	/**
+	 * 施工人员状态(00:入场)
+	 */
+	public static final String BUILDER_STATUS_IN = "00";
+	/**
+	 * 施工人员状态(00:入场、01:出厂)
+	 */
+	public static final String BUILDER_STATUS_OUT = "01";
+
+	/**
+	 * 用户状态(NORMAL:正常)
+	 */
+	public static final String STATUS_NORMAL = "NORMAL";
+
 	//columns START
     /**
      * id			db_column: ID 
-     */	
+     */
+	@Sequence(ref="uuidSequenceGenerator")
 	private String id;
     /**
      * 用户名			db_column: USERNAME 
@@ -37,7 +53,7 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
      */	
 	private String mobile;
     /**
-     * 用户类型(00:系统用户、01:施工人员、02:火车司机)			db_column: USER_TYPE 
+     * 用户类型(00:系统用户、01:火车司机、02:施工人员)			db_column: USER_TYPE
      */	
 	private String userType;
     /**
