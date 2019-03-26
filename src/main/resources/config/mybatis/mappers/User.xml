@@ -30,6 +30,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=userType">
     		AND USER_TYPE = #{userType}
     	</if>
+    	<if test="null!=builderUserType">
+    		AND BUILDER_USER_TYPE = #{builderUserType}
+    	</if>
     	<if test="null!=builderStatus">
     		AND BUILDER_STATUS = #{builderStatus}
     	</if>
@@ -93,6 +96,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=userType">
 		    USER_TYPE = #{userType},
 		    </if>
+		    <if test="null!=builderUserType">
+		    BUILDER_USER_TYPE = #{builderUserType},
+		    </if>
 		    <if test="null!=builderStatus">
 		    BUILDER_STATUS = #{builderStatus},
 		    </if>
@@ -142,6 +148,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         <result property="mobilePrefix" column="MOBILE_PREFIX"/>
         <result property="mobile" column="MOBILE"/>
         <result property="userType" column="USER_TYPE"/>
+        <result property="builderUserType" column="BUILDER_USER_TYPE"/>
         <result property="builderStatus" column="BUILDER_STATUS"/>
         <result property="admissionDate" column="ADMISSION_DATE"/>
         <result property="leaveDate" column="LEAVE_DATE"/>
@@ -167,6 +174,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,MOBILE_PREFIX
         	,MOBILE
         	,USER_TYPE
+        	,BUILDER_USER_TYPE
         	,BUILDER_STATUS
         	,ADMISSION_DATE
         	,LEAVE_DATE
@@ -188,6 +196,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,#{mobilePrefix}
         	,#{mobile}
         	,#{userType}
+        	,#{builderUserType}
         	,#{builderStatus}
         	,#{admissionDate}
         	,#{leaveDate}
@@ -238,6 +247,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,MOBILE_PREFIX
 			,MOBILE
 			,USER_TYPE
+			,BUILDER_USER_TYPE
 			,BUILDER_STATUS
 			,ADMISSION_DATE
 			,LEAVE_DATE
@@ -266,6 +276,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,MOBILE_PREFIX
 			,MOBILE
 			,USER_TYPE
+			,BUILDER_USER_TYPE
 			,BUILDER_STATUS
 			,ADMISSION_DATE
 			,LEAVE_DATE
@@ -297,6 +308,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,MOBILE_PREFIX
 			,MOBILE
 			,USER_TYPE
+			,BUILDER_USER_TYPE
 			,BUILDER_STATUS
 			,ADMISSION_DATE
 			,LEAVE_DATE
@@ -335,6 +347,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,MOBILE_PREFIX
 			,MOBILE
 			,USER_TYPE
+			,BUILDER_USER_TYPE
 			,BUILDER_STATUS
 			,ADMISSION_DATE
 			,LEAVE_DATE

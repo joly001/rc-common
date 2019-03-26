@@ -41,6 +41,10 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
      */	
 	private String userType;
     /**
+     * 施工人员类型(00:机车、01:列车、02:施工人员、03:安全防护员、04:作业负责人、05:监理、06:其它人员)			db_column: BUILDER_USER_TYPE 
+     */	
+	private String builderUserType;
+    /**
      * 施工人员状态(00:入场、01:出厂)			db_column: BUILDER_STATUS 
      */	
 	private String builderStatus;
@@ -105,7 +109,6 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	public String getUsername() {
 		return this.username;
 	}
@@ -138,6 +141,12 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 	}
 	public String getUserType() {
 		return this.userType;
+	}
+	public void setBuilderUserType(String builderUserType) {
+		this.builderUserType = builderUserType;
+	}
+	public String getBuilderUserType() {
+		return this.builderUserType;
 	}
 	public void setBuilderStatus(String builderStatus) {
 		this.builderStatus = builderStatus;
@@ -272,6 +281,7 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 					.append("MobilePrefix=").append(getMobilePrefix()).append(", ")
 					.append("Mobile=").append(getMobile()).append(", ")
 					.append("UserType=").append(getUserType()).append(", ")
+					.append("BuilderUserType=").append(getBuilderUserType()).append(", ")
 					.append("BuilderStatus=").append(getBuilderStatus()).append(", ")
 					.append("AdmissionDate=").append(getAdmissionDate()).append(", ")
 					.append("LeaveDate=").append(getLeaveDate()).append(", ")
@@ -287,5 +297,6 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 					.append("ModifyTime=").append(getModifyTime())
 		.append("]").toString();
 	}
+	
 }
 
