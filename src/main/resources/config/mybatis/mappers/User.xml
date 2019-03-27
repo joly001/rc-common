@@ -334,7 +334,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			USER
 		<where>
-			USER_TYPE != #{userType}
+			USER_TYPE = #{userType}
 			<if test="null!=organizationId">
 				AND ORGANIZATION_ID = #{organizationId}
 			</if>
@@ -381,7 +381,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			USER
 		<where>
-			USER_TYPE != #{userType}
+			USER_TYPE = #{userType}
 			<if test="null!=organizationId">
 				AND ORGANIZATION_ID = #{organizationId}
 			</if>

@@ -66,7 +66,7 @@ CREATE TABLE USER
    NICK                 VARCHAR(100) COMMENT '昵称',
    MOBILE_PREFIX        VARCHAR(10) COMMENT '手机前缀',
    MOBILE               VARCHAR(11) COMMENT '手机',
-   USER_TYPE            CHAR(2) NOT NULL COMMENT '用户类型(00:系统用户、01:火车司机、02:施工人员)',
+   USER_TYPE            CHAR(2) NOT NULL COMMENT '用户类型(00:系统用户、01:注册用户)',
    BUILDER_USER_TYPE    CHAR(2) COMMENT '施工人员类型(00:机车、01:列车、02:施工人员、03:安全防护员、04:作业负责人、05:监理、06:其它人员)',
    BUILDER_STATUS       CHAR(2) COMMENT '施工人员状态(00:入场、01:出场)',
    ADMISSION_DATE       DATE NULL COMMENT '入场时间',
