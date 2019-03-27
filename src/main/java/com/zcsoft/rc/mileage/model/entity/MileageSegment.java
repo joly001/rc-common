@@ -2,6 +2,7 @@ package com.zcsoft.rc.mileage.model.entity;
 
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
+import com.sharingif.cube.components.sequence.Sequence;
 
 import java.util.Date;
 
@@ -10,92 +11,89 @@ public class MileageSegment implements java.io.Serializable, IObjectDateOperatio
 	//columns START
     /**
      * id			db_column: ID 
-     */	
-	private java.lang.String id;
+     */
+	@Sequence(ref="uuidSequenceGenerator")
+	private String id;
     /**
-     * 里程区间名称			db_column: MILEAGE_SEGMENT_NAME 
-     */	
-	private java.lang.String mileageSegmentName;
+     * 里程区间名称			db_column: MILEAGE_SEGMENT_NAME
+     */
+	private String mileageSegmentName;
     /**
-     * 开始里程点id			db_column: START_MILEAGE_ID 
-     */	
-	private java.lang.String startMileageId;
+     * 开始里程点id			db_column: START_MILEAGE_ID
+     */
+	private String startMileageId;
     /**
-     * 开始里程点			db_column: START_MILEAGE_NAME 
-     */	
-	private java.lang.String startMileageName;
+     * 开始里程点			db_column: START_MILEAGE_NAME
+     */
+	private String startMileageName;
     /**
-     * 结束里程点id			db_column: END_MILEAGE_ID 
-     */	
-	private java.lang.String endMileageId;
+     * 结束里程点id			db_column: END_MILEAGE_ID
+     */
+	private String endMileageId;
     /**
-     * 结束里程点			db_column: END_MILEAGE_NAME 
-     */	
-	private java.lang.String endMileageName;
+     * 结束里程点			db_column: END_MILEAGE_NAME
+     */
+	private String endMileageName;
     /**
-     * 开始位置经度			db_column: START_LONGITUDE 
-     */	
+     * 开始位置经度			db_column: START_LONGITUDE
+     */
 	private Double startLongitude;
     /**
-     * 开始位置纬度			db_column: START_LATITUDE 
-     */	
+     * 开始位置纬度			db_column: START_LATITUDE
+     */
 	private Double startLatitude;
     /**
-     * 结束位置经度			db_column: END_LONGITUDE 
-     */	
+     * 结束位置经度			db_column: END_LONGITUDE
+     */
 	private Double endLongitude;
     /**
-     * 结束位置纬度			db_column: END_LATITUDE 
-     */	
+     * 结束位置纬度			db_column: END_LATITUDE
+     */
 	private Double endLatitude;
     /**
-     * 作业周期			db_column: WORKING_CYCLE 
-     */	
-	private java.lang.Integer workingCycle;
-    /**
-     * 创建时间			db_column: CREATE_TIME 
-     */	
+     * 创建时间			db_column: CREATE_TIME
+     */
 	private Date createTime;
     /**
-     * 修改时间			db_column: MODIFY_TIME 
-     */	
+     * 修改时间			db_column: MODIFY_TIME
+     */
 	private Date modifyTime;
 	//columns END
 
-	public void setId(java.lang.String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public java.lang.String getId() {
+	public String getId() {
 		return this.id;
 	}
-	public void setMileageSegmentName(java.lang.String mileageSegmentName) {
+	public void setMileageSegmentName(String mileageSegmentName) {
 		this.mileageSegmentName = mileageSegmentName;
 	}
-	public java.lang.String getMileageSegmentName() {
+	public String getMileageSegmentName() {
 		return this.mileageSegmentName;
 	}
-	public void setStartMileageId(java.lang.String startMileageId) {
+	public void setStartMileageId(String startMileageId) {
 		this.startMileageId = startMileageId;
 	}
-	public java.lang.String getStartMileageId() {
+	public String getStartMileageId() {
 		return this.startMileageId;
 	}
-	public void setStartMileageName(java.lang.String startMileageName) {
+	public void setStartMileageName(String startMileageName) {
 		this.startMileageName = startMileageName;
 	}
-	public java.lang.String getStartMileageName() {
+	public String getStartMileageName() {
 		return this.startMileageName;
 	}
-	public void setEndMileageId(java.lang.String endMileageId) {
+	public void setEndMileageId(String endMileageId) {
 		this.endMileageId = endMileageId;
 	}
-	public java.lang.String getEndMileageId() {
+	public String getEndMileageId() {
 		return this.endMileageId;
 	}
-	public void setEndMileageName(java.lang.String endMileageName) {
+	public void setEndMileageName(String endMileageName) {
 		this.endMileageName = endMileageName;
 	}
-	public java.lang.String getEndMileageName() {
+	public String getEndMileageName() {
 		return this.endMileageName;
 	}
 	public void setStartLongitude(Double startLongitude) {
@@ -122,12 +120,6 @@ public class MileageSegment implements java.io.Serializable, IObjectDateOperatio
 	public Double getEndLatitude() {
 		return this.endLatitude;
 	}
-	public void setWorkingCycle(java.lang.Integer workingCycle) {
-		this.workingCycle = workingCycle;
-	}
-	public java.lang.Integer getWorkingCycle() {
-		return this.workingCycle;
-	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
@@ -153,7 +145,6 @@ public class MileageSegment implements java.io.Serializable, IObjectDateOperatio
 					.append("StartLatitude=").append(getStartLatitude()).append(", ")
 					.append("EndLongitude=").append(getEndLongitude()).append(", ")
 					.append("EndLatitude=").append(getEndLatitude()).append(", ")
-					.append("WorkingCycle=").append(getWorkingCycle()).append(", ")
 					.append("CreateTime=").append(getCreateTime()).append(", ")
 					.append("ModifyTime=").append(getModifyTime())
 		.append("]").toString();

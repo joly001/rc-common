@@ -30,6 +30,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=endLatitude">
     		AND END_LATITUDE = #{endLatitude}
     	</if>
+    	<if test="null!=workingCycle">
+    		AND WORKING_CYCLE = #{workingCycle}
+    	</if>
     	<if test="null!=createTime">
     		AND CREATE_TIME = #{createTime}
     	</if>
@@ -60,6 +63,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=endLatitude">
 		    END_LATITUDE = #{endLatitude},
 		    </if>
+		    <if test="null!=workingCycle">
+		    WORKING_CYCLE = #{workingCycle},
+		    </if>
 		    <if test="null!=createTime">
 		    CREATE_TIME = #{createTime},
 		    </if>
@@ -76,6 +82,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         <result property="startLatitude" column="START_LATITUDE"/>
         <result property="endLongitude" column="END_LONGITUDE"/>
         <result property="endLatitude" column="END_LATITUDE"/>
+        <result property="workingCycle" column="WORKING_CYCLE"/>
         <result property="createTime" column="CREATE_TIME"/>
         <result property="modifyTime" column="MODIFY_TIME"/>
 	</resultMap>
@@ -90,6 +97,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,START_LATITUDE
         	,END_LONGITUDE
         	,END_LATITUDE
+        	,WORKING_CYCLE
         	,CREATE_TIME
         	,MODIFY_TIME
         ) VALUES (
@@ -100,6 +108,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,#{startLatitude}
         	,#{endLongitude}
         	,#{endLatitude}
+        	,#{workingCycle}
         	,#{createTime}
         	,#{modifyTime}
         )
@@ -139,6 +148,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,START_LATITUDE
 			,END_LONGITUDE
 			,END_LATITUDE
+			,WORKING_CYCLE
 			,CREATE_TIME
 			,MODIFY_TIME
 		FROM
@@ -156,6 +166,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,START_LATITUDE
 			,END_LONGITUDE
 			,END_LATITUDE
+			,WORKING_CYCLE
 			,CREATE_TIME
 			,MODIFY_TIME
 		FROM
@@ -176,6 +187,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,START_LATITUDE
 			,END_LONGITUDE
 			,END_LATITUDE
+			,WORKING_CYCLE
 			,CREATE_TIME
 			,MODIFY_TIME
 		FROM
@@ -190,7 +202,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			MILEAGE 
 		<where>
-			<include refid="mileageColumns" />
+			<if test="null!=mileageName">
+				AND MILEAGE_NAME LIKE #{mileageName}"%"
+			</if>
 		</where>
 	</select>
 	
@@ -203,12 +217,15 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,START_LATITUDE
 			,END_LONGITUDE
 			,END_LATITUDE
+			,WORKING_CYCLE
 			,CREATE_TIME
 			,MODIFY_TIME
 		FROM
 			MILEAGE
 		<where>
-			<include refid="mileageColumns" />
+			<if test="null!=mileageName">
+				AND MILEAGE_NAME LIKE #{mileageName}"%"
+			</if>
 		</where>
 		ORDER BY
 			ID
