@@ -13,6 +13,11 @@ import java.util.TreeMap;
 public class User implements java.io.Serializable, IObjectDateOperationHistory, ICoreUser, IPassword, IAuthorityRepertory<TreeMap<String, String>> {
 
 	/**
+	 * 用户类型(00:系统用户、01:火车司机、02:施工人员)
+	 */
+	public static final String USER_TYPE_SYS = "00";
+
+	/**
 	 * 施工人员状态(00:入场)
 	 */
 	public static final String BUILDER_STATUS_IN = "00";
