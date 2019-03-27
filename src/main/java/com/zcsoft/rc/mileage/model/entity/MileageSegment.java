@@ -3,6 +3,8 @@ package com.zcsoft.rc.mileage.model.entity;
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
 
+import java.util.Date;
+
 public class MileageSegment implements java.io.Serializable, IObjectDateOperationHistory {
 	
 	//columns START
@@ -33,19 +35,19 @@ public class MileageSegment implements java.io.Serializable, IObjectDateOperatio
     /**
      * 开始位置经度			db_column: START_LONGITUDE 
      */	
-	private BigDecimal startLongitude;
+	private Double startLongitude;
     /**
      * 开始位置纬度			db_column: START_LATITUDE 
      */	
-	private BigDecimal startLatitude;
+	private Double startLatitude;
     /**
      * 结束位置经度			db_column: END_LONGITUDE 
      */	
-	private BigDecimal endLongitude;
+	private Double endLongitude;
     /**
      * 结束位置纬度			db_column: END_LATITUDE 
      */	
-	private BigDecimal endLatitude;
+	private Double endLatitude;
     /**
      * 作业周期			db_column: WORKING_CYCLE 
      */	
@@ -96,28 +98,28 @@ public class MileageSegment implements java.io.Serializable, IObjectDateOperatio
 	public java.lang.String getEndMileageName() {
 		return this.endMileageName;
 	}
-	public void setStartLongitude(BigDecimal startLongitude) {
+	public void setStartLongitude(Double startLongitude) {
 		this.startLongitude = startLongitude;
 	}
-	public BigDecimal getStartLongitude() {
+	public Double getStartLongitude() {
 		return this.startLongitude;
 	}
-	public void setStartLatitude(BigDecimal startLatitude) {
+	public void setStartLatitude(Double startLatitude) {
 		this.startLatitude = startLatitude;
 	}
-	public BigDecimal getStartLatitude() {
+	public Double getStartLatitude() {
 		return this.startLatitude;
 	}
-	public void setEndLongitude(BigDecimal endLongitude) {
+	public void setEndLongitude(Double endLongitude) {
 		this.endLongitude = endLongitude;
 	}
-	public BigDecimal getEndLongitude() {
+	public Double getEndLongitude() {
 		return this.endLongitude;
 	}
-	public void setEndLatitude(BigDecimal endLatitude) {
+	public void setEndLatitude(Double endLatitude) {
 		this.endLatitude = endLatitude;
 	}
-	public BigDecimal getEndLatitude() {
+	public Double getEndLatitude() {
 		return this.endLatitude;
 	}
 	public void setWorkingCycle(java.lang.Integer workingCycle) {
