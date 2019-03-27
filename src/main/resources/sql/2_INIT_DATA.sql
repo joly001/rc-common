@@ -54,10 +54,10 @@ INSERT INTO AUTHORITY VALUES('mileage.controller.MileageController.update','里�
 INSERT INTO AUTHORITY VALUES('mileage.controller.MileageController.list','里程分页查询','86864D7CBB524B7A9D067641EBBB57AF',NOW(),NOW());
 INSERT INTO AUTHORITY VALUES('mileage.list','里程分页查询菜单','86864D7CBB524B7A9D067641EBBB57AF',NOW(),NOW());
 
-INSERT INTO AUTHORITY VALUES('mileage.controller.MileageController.add','里程区间添加','1DCE881FA9E94F1FA085D180864B50F1',NOW(),NOW());
-INSERT INTO AUTHORITY VALUES('mileage.controller.MileageController.delete','里程区间删除','A87C443C4D004FFB84875CBECF5E7793',NOW(),NOW());
-INSERT INTO AUTHORITY VALUES('mileage.controller.MileageController.update','里程区间修改','73B050B449B44E5084D5E7F2CF879470',NOW(),NOW());
-INSERT INTO AUTHORITY VALUES('mileage.controller.MileageController.list','里程区间分页查询','A81EA9552EBA43F7857ACF1F316214C2',NOW(),NOW());
+INSERT INTO AUTHORITY VALUES('mileage.controller.MileageSegmentController.add','里程区间添加','1DCE881FA9E94F1FA085D180864B50F1',NOW(),NOW());
+INSERT INTO AUTHORITY VALUES('mileage.controller.MileageSegmentController.delete','里程区间删除','A87C443C4D004FFB84875CBECF5E7793',NOW(),NOW());
+INSERT INTO AUTHORITY VALUES('mileage.controller.MileageSegmentController.update','里程区间修改','73B050B449B44E5084D5E7F2CF879470',NOW(),NOW());
+INSERT INTO AUTHORITY VALUES('mileage.controller.MileageSegmentController.list','里程区间分页查询','A81EA9552EBA43F7857ACF1F316214C2',NOW(),NOW());
 INSERT INTO AUTHORITY VALUES('mileageSegment.list','里程分页查询菜单','A81EA9552EBA43F7857ACF1F316214C2',NOW(),NOW());
 
 INSERT INTO ROLE VALUES('4476A107F7B049EDBDB417B02955ABF0','admin','管理员','00',NOW(),NOW());
