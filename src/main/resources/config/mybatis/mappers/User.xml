@@ -365,7 +365,18 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			USER
 		WHERE
 			1=1
-			<include refid="userColumns" />
+			<if test="null!=organizationId">
+				AND ORGANIZATION_ID = #{organizationId}
+			</if>
+			<if test="null!=nick">
+				OR NICK LIKE #{nick}"%"
+			</if>
+			<if test="null!=mobile">
+				OR MOBILE LIKE #{mobile}"%"
+			</if>
+			<if test="null!=wristStrapCode">
+				OR WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+			</if>
 		ORDER BY
 			ID
 	</select>
