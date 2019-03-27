@@ -332,10 +332,26 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			COUNT(0)
 		FROM
-			USER 
-		WHERE
-			1=1 
-			<include refid="userColumns" />
+			USER
+		<where>
+			<if test="null!=organizationId">
+				AND ORGANIZATION_ID = #{organizationId}
+			</if>
+			<if test="null!=nick | null!=mobile | null!=wristStrapCode">
+				AND
+				(
+				<if test="null!=nick">
+					NICK LIKE #{nick}"%"
+				</if>
+				<if test="null!=mobile">
+					OR MOBILE LIKE #{mobile}"%"
+				</if>
+				<if test="null!=wristStrapCode">
+					OR WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+				</if>
+				)
+			</if>
+		</where>
 	</select>
 	
 	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="userResultMap">
@@ -363,22 +379,27 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,MODIFY_TIME
 		FROM
 			USER
-		WHERE
-			1=1
+		<where>
 			<if test="null!=organizationId">
 				AND ORGANIZATION_ID = #{organizationId}
 			</if>
-			<if test="null!=nick">
-				OR NICK LIKE #{nick}"%"
+			<if test="null!=nick | null!=mobile | null!=wristStrapCode">
+				AND
+				(
+				<if test="null!=nick">
+					NICK LIKE #{nick}"%"
+				</if>
+				<if test="null!=mobile">
+					OR MOBILE LIKE #{mobile}"%"
+				</if>
+				<if test="null!=wristStrapCode">
+					OR WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+				</if>
+				)
 			</if>
-			<if test="null!=mobile">
-				OR MOBILE LIKE #{mobile}"%"
-			</if>
-			<if test="null!=wristStrapCode">
-				OR WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
-			</if>
+		</where>
 		ORDER BY
-			ID
+			CREATE_TIME DESC
 	</select>
 	
 </mapper>
