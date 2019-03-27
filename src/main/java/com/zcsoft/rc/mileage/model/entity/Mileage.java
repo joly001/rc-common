@@ -39,10 +39,6 @@ public class Mileage implements java.io.Serializable, IObjectDateOperationHistor
      */	
 	private Double endLatitude;
     /**
-     * 作业周期			db_column: WORKING_CYCLE 
-     */	
-	private Integer workingCycle;
-    /**
      * 创建时间			db_column: CREATE_TIME 
      */	
 	private Date createTime;
@@ -94,12 +90,6 @@ public class Mileage implements java.io.Serializable, IObjectDateOperationHistor
 	public Double getEndLatitude() {
 		return this.endLatitude;
 	}
-	public void setWorkingCycle(Integer workingCycle) {
-		this.workingCycle = workingCycle;
-	}
-	public Integer getWorkingCycle() {
-		return this.workingCycle;
-	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
@@ -122,7 +112,6 @@ public class Mileage implements java.io.Serializable, IObjectDateOperationHistor
 					.append("StartLatitude=").append(getStartLatitude()).append(", ")
 					.append("EndLongitude=").append(getEndLongitude()).append(", ")
 					.append("EndLatitude=").append(getEndLatitude()).append(", ")
-					.append("WorkingCycle=").append(getWorkingCycle()).append(", ")
 					.append("CreateTime=").append(getCreateTime()).append(", ")
 					.append("ModifyTime=").append(getModifyTime())
 		.append("]").toString();
