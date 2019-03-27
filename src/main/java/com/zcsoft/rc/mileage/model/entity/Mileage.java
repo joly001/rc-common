@@ -19,7 +19,7 @@ public class Mileage implements java.io.Serializable, IObjectDateOperationHistor
      */	
 	private String mileageName;
     /**
-     * 00:百米标、01:公里标			db_column: MILEAGE_TYPE 
+     * 里程类型(00:百米标、01:公里标)			db_column: MILEAGE_TYPE
      */	
 	private String mileageType;
     /**
