@@ -263,7 +263,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<include refid="mileageSegmentColumns" />
 		</where>
 		ORDER BY
-			ID
+			MILEAGE_SEGMENT_NAME
 	</select>
 	
 </mapper>

@@ -215,7 +215,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 		ORDER BY
-			ID
+			MILEAGE_NAME
 	</select>
 	
 </mapper>
