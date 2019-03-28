@@ -364,10 +364,18 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			WORK_SEGMENT
 		<where>
-			<include refid="workSegmentColumns" />
+			<if test="null!=workSegmentName">
+				AND WORK_SEGMENT_NAME LIKE #{workSegmentName}"%"
+			</if>
+			<if test="null!=mileageSegmentName">
+				AND MILEAGE_SEGMENT_NAME LIKE #{mileageSegmentName}"%"
+			</if>
+			<if test="null!=submitTime">
+				AND SUBMIT_TIME >= #{submitTime}
+			</if>
 		</where>
 		ORDER BY
-			ID
+			CREATE_TIME DESC
 	</select>
 	
 </mapper>
