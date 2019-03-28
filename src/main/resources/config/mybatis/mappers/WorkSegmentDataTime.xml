@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="workSegmentDataTime">
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="workSegmentDataTimeColumns">
+    	<if test="null!=id">
+    		AND ID = #{id}
+    	</if>
+    	<if test="null!=workSegmentId">
+    		AND WORK_SEGMENT_ID = #{workSegmentId}
+    	</if>
+    	<if test="null!=workTime">
+    		AND WORK_TIME = #{workTime}
+    	</if>
+	</sql>
+	
+	<sql id="workSegmentDataTimeSetColumns">
+		    <if test="null!=id">
+		    ID = #{id},
+		    </if>
+		    <if test="null!=workSegmentId">
+		    WORK_SEGMENT_ID = #{workSegmentId},
+		    </if>
+		    <if test="null!=workTime">
+		    WORK_TIME = #{workTime},
+		    </if>
+	</sql>
+
+	<resultMap id="workSegmentDataTimeResultMap" type="com.zcsoft.rc.mileage.model.entity.WorkSegmentDataTime">
+        <result property="id" column="ID"/>
+        <result property="workSegmentId" column="WORK_SEGMENT_ID"/>
+        <result property="workTime" column="WORK_TIME"/>
+	</resultMap>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert">
+        INSERT INTO WORK_SEGMENT_DATA_TIME (
+        	ID
+        	,WORK_SEGMENT_ID
+        	,WORK_TIME
+        ) VALUES (
+        	#{id}
+        	,#{workSegmentId}
+        	,#{workTime}
+        )
+	</insert>
+	
+	<delete id="deleteById">
+	    DELETE FROM
+	    	WORK_SEGMENT_DATA_TIME 
+	    WHERE
+	    ID = #{id} 
+    </delete>
+    
+    <delete id="deleteByCondition">
+	    DELETE FROM
+	    	WORK_SEGMENT_DATA_TIME 
+	    WHERE
+	    	1=1
+		    <include refid="workSegmentDataTimeColumns" />
+    </delete>
+    
+	<update id="updateById">
+	    UPDATE
+	    	WORK_SEGMENT_DATA_TIME 
+        <set>
+	        <include refid="workSegmentDataTimeSetColumns" />
+		</set>
+	    WHERE
+	    ID = #{id} 
+	</update>
+	
+    <select id="queryById" resultMap="workSegmentDataTimeResultMap">
+		SELECT
+			ID
+			,WORK_SEGMENT_ID
+			,WORK_TIME
+		FROM
+			WORK_SEGMENT_DATA_TIME 
+		WHERE 
+			ID = #{id} 
+	</select>
+	
+	<select id="queryList" resultMap="workSegmentDataTimeResultMap">
+		SELECT
+			ID
+			,WORK_SEGMENT_ID
+			,WORK_TIME
+		FROM
+			WORK_SEGMENT_DATA_TIME
+		WHERE
+			1=1
+			<include refid="workSegmentDataTimeColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryAll" resultMap="workSegmentDataTimeResultMap">
+		SELECT
+			ID
+			,WORK_SEGMENT_ID
+			,WORK_TIME
+		FROM
+			WORK_SEGMENT_DATA_TIME 
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryPaginationListCount" resultType="Integer">
+		SELECT
+			COUNT(0)
+		FROM
+			WORK_SEGMENT_DATA_TIME 
+		<where>
+			<include refid="workSegmentDataTimeColumns" />
+		</where>
+	</select>
+	
+	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="workSegmentDataTimeResultMap">
+		SELECT
+			ID
+			,WORK_SEGMENT_ID
+			,WORK_TIME
+		FROM
+			WORK_SEGMENT_DATA_TIME
+		<where>
+			<include refid="workSegmentDataTimeColumns" />
+		</where>
+		ORDER BY
+			ID
+	</select>
+	
+</mapper>
+

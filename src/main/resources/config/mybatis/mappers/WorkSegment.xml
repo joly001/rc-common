@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="workSegment">
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="workSegmentColumns">
+    	<if test="null!=id">
+    		AND ID = #{id}
+    	</if>
+    	<if test="null!=workSegmentName">
+    		AND WORK_SEGMENT_NAME = #{workSegmentName}
+    	</if>
+    	<if test="null!=mileageSegmentId">
+    		AND MILEAGE_SEGMENT_ID = #{mileageSegmentId}
+    	</if>
+    	<if test="null!=mileageSegmentName">
+    		AND MILEAGE_SEGMENT_NAME = #{mileageSegmentName}
+    	</if>
+    	<if test="null!=startMileageId">
+    		AND START_MILEAGE_ID = #{startMileageId}
+    	</if>
+    	<if test="null!=startMileageName">
+    		AND START_MILEAGE_NAME = #{startMileageName}
+    	</if>
+    	<if test="null!=endMileageId">
+    		AND END_MILEAGE_ID = #{endMileageId}
+    	</if>
+    	<if test="null!=endMileageName">
+    		AND END_MILEAGE_NAME = #{endMileageName}
+    	</if>
+    	<if test="null!=startLongitude">
+    		AND START_LONGITUDE = #{startLongitude}
+    	</if>
+    	<if test="null!=startLatitude">
+    		AND START_LATITUDE = #{startLatitude}
+    	</if>
+    	<if test="null!=endLongitude">
+    		AND END_LONGITUDE = #{endLongitude}
+    	</if>
+    	<if test="null!=endLatitude">
+    		AND END_LATITUDE = #{endLatitude}
+    	</if>
+    	<if test="null!=workType">
+    		AND WORK_TYPE = #{workType}
+    	</if>
+    	<if test="null!=workDate">
+    		AND WORK_DATE = #{workDate}
+    	</if>
+    	<if test="null!=safetyProtectionPersonnel">
+    		AND SAFETY_PROTECTION_PERSONNEL = #{safetyProtectionPersonnel}
+    	</if>
+    	<if test="null!=workPersonnel">
+    		AND WORK_PERSONNEL = #{workPersonnel}
+    	</if>
+    	<if test="null!=submitUserId">
+    		AND SUBMIT_USER_ID = #{submitUserId}
+    	</if>
+    	<if test="null!=submitUserName">
+    		AND SUBMIT_USER_NAME = #{submitUserName}
+    	</if>
+    	<if test="null!=submitTime">
+    		AND SUBMIT_TIME = #{submitTime}
+    	</if>
+    	<if test="null!=createTime">
+    		AND CREATE_TIME = #{createTime}
+    	</if>
+    	<if test="null!=modifyTime">
+    		AND MODIFY_TIME = #{modifyTime}
+    	</if>
+	</sql>
+	
+	<sql id="workSegmentSetColumns">
+		    <if test="null!=id">
+		    ID = #{id},
+		    </if>
+		    <if test="null!=workSegmentName">
+		    WORK_SEGMENT_NAME = #{workSegmentName},
+		    </if>
+		    <if test="null!=mileageSegmentId">
+		    MILEAGE_SEGMENT_ID = #{mileageSegmentId},
+		    </if>
+		    <if test="null!=mileageSegmentName">
+		    MILEAGE_SEGMENT_NAME = #{mileageSegmentName},
+		    </if>
+		    <if test="null!=startMileageId">
+		    START_MILEAGE_ID = #{startMileageId},
+		    </if>
+		    <if test="null!=startMileageName">
+		    START_MILEAGE_NAME = #{startMileageName},
+		    </if>
+		    <if test="null!=endMileageId">
+		    END_MILEAGE_ID = #{endMileageId},
+		    </if>
+		    <if test="null!=endMileageName">
+		    END_MILEAGE_NAME = #{endMileageName},
+		    </if>
+		    <if test="null!=startLongitude">
+		    START_LONGITUDE = #{startLongitude},
+		    </if>
+		    <if test="null!=startLatitude">
+		    START_LATITUDE = #{startLatitude},
+		    </if>
+		    <if test="null!=endLongitude">
+		    END_LONGITUDE = #{endLongitude},
+		    </if>
+		    <if test="null!=endLatitude">
+		    END_LATITUDE = #{endLatitude},
+		    </if>
+		    <if test="null!=workType">
+		    WORK_TYPE = #{workType},
+		    </if>
+		    <if test="null!=workDate">
+		    WORK_DATE = #{workDate},
+		    </if>
+		    <if test="null!=safetyProtectionPersonnel">
+		    SAFETY_PROTECTION_PERSONNEL = #{safetyProtectionPersonnel},
+		    </if>
+		    <if test="null!=workPersonnel">
+		    WORK_PERSONNEL = #{workPersonnel},
+		    </if>
+		    <if test="null!=submitUserId">
+		    SUBMIT_USER_ID = #{submitUserId},
+		    </if>
+		    <if test="null!=submitUserName">
+		    SUBMIT_USER_NAME = #{submitUserName},
+		    </if>
+		    <if test="null!=submitTime">
+		    SUBMIT_TIME = #{submitTime},
+		    </if>
+		    <if test="null!=createTime">
+		    CREATE_TIME = #{createTime},
+		    </if>
+		    <if test="null!=modifyTime">
+		    MODIFY_TIME = #{modifyTime},
+		    </if>
+	</sql>
+
+	<resultMap id="workSegmentResultMap" type="com.zcsoft.rc.mileage.model.entity.WorkSegment">
+        <result property="id" column="ID"/>
+        <result property="workSegmentName" column="WORK_SEGMENT_NAME"/>
+        <result property="mileageSegmentId" column="MILEAGE_SEGMENT_ID"/>
+        <result property="mileageSegmentName" column="MILEAGE_SEGMENT_NAME"/>
+        <result property="startMileageId" column="START_MILEAGE_ID"/>
+        <result property="startMileageName" column="START_MILEAGE_NAME"/>
+        <result property="endMileageId" column="END_MILEAGE_ID"/>
+        <result property="endMileageName" column="END_MILEAGE_NAME"/>
+        <result property="startLongitude" column="START_LONGITUDE"/>
+        <result property="startLatitude" column="START_LATITUDE"/>
+        <result property="endLongitude" column="END_LONGITUDE"/>
+        <result property="endLatitude" column="END_LATITUDE"/>
+        <result property="workType" column="WORK_TYPE"/>
+        <result property="workDate" column="WORK_DATE"/>
+        <result property="safetyProtectionPersonnel" column="SAFETY_PROTECTION_PERSONNEL"/>
+        <result property="workPersonnel" column="WORK_PERSONNEL"/>
+        <result property="submitUserId" column="SUBMIT_USER_ID"/>
+        <result property="submitUserName" column="SUBMIT_USER_NAME"/>
+        <result property="submitTime" column="SUBMIT_TIME"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="modifyTime" column="MODIFY_TIME"/>
+	</resultMap>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert">
+        INSERT INTO WORK_SEGMENT (
+        	ID
+        	,WORK_SEGMENT_NAME
+        	,MILEAGE_SEGMENT_ID
+        	,MILEAGE_SEGMENT_NAME
+        	,START_MILEAGE_ID
+        	,START_MILEAGE_NAME
+        	,END_MILEAGE_ID
+        	,END_MILEAGE_NAME
+        	,START_LONGITUDE
+        	,START_LATITUDE
+        	,END_LONGITUDE
+        	,END_LATITUDE
+        	,WORK_TYPE
+        	,WORK_DATE
+        	,SAFETY_PROTECTION_PERSONNEL
+        	,WORK_PERSONNEL
+        	,SUBMIT_USER_ID
+        	,SUBMIT_USER_NAME
+        	,SUBMIT_TIME
+        	,CREATE_TIME
+        	,MODIFY_TIME
+        ) VALUES (
+        	#{id}
+        	,#{workSegmentName}
+        	,#{mileageSegmentId}
+        	,#{mileageSegmentName}
+        	,#{startMileageId}
+        	,#{startMileageName}
+        	,#{endMileageId}
+        	,#{endMileageName}
+        	,#{startLongitude}
+        	,#{startLatitude}
+        	,#{endLongitude}
+        	,#{endLatitude}
+        	,#{workType}
+        	,#{workDate}
+        	,#{safetyProtectionPersonnel}
+        	,#{workPersonnel}
+        	,#{submitUserId}
+        	,#{submitUserName}
+        	,#{submitTime}
+        	,#{createTime}
+        	,#{modifyTime}
+        )
+	</insert>
+	
+	<delete id="deleteById">
+	    DELETE FROM
+	    	WORK_SEGMENT 
+	    WHERE
+	    ID = #{id} 
+    </delete>
+    
+    <delete id="deleteByCondition">
+	    DELETE FROM
+	    	WORK_SEGMENT 
+	    WHERE
+	    	1=1
+		    <include refid="workSegmentColumns" />
+    </delete>
+    
+	<update id="updateById">
+	    UPDATE
+	    	WORK_SEGMENT 
+        <set>
+	        <include refid="workSegmentSetColumns" />
+		</set>
+	    WHERE
+	    ID = #{id} 
+	</update>
+	
+    <select id="queryById" resultMap="workSegmentResultMap">
+		SELECT
+			ID
+			,WORK_SEGMENT_NAME
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,WORK_TYPE
+			,WORK_DATE
+			,SAFETY_PROTECTION_PERSONNEL
+			,WORK_PERSONNEL
+			,SUBMIT_USER_ID
+			,SUBMIT_USER_NAME
+			,SUBMIT_TIME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_SEGMENT 
+		WHERE 
+			ID = #{id} 
+	</select>
+	
+	<select id="queryList" resultMap="workSegmentResultMap">
+		SELECT
+			ID
+			,WORK_SEGMENT_NAME
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,WORK_TYPE
+			,WORK_DATE
+			,SAFETY_PROTECTION_PERSONNEL
+			,WORK_PERSONNEL
+			,SUBMIT_USER_ID
+			,SUBMIT_USER_NAME
+			,SUBMIT_TIME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_SEGMENT
+		WHERE
+			1=1
+			<include refid="workSegmentColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryAll" resultMap="workSegmentResultMap">
+		SELECT
+			ID
+			,WORK_SEGMENT_NAME
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,WORK_TYPE
+			,WORK_DATE
+			,SAFETY_PROTECTION_PERSONNEL
+			,WORK_PERSONNEL
+			,SUBMIT_USER_ID
+			,SUBMIT_USER_NAME
+			,SUBMIT_TIME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_SEGMENT 
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryPaginationListCount" resultType="Integer">
+		SELECT
+			COUNT(0)
+		FROM
+			WORK_SEGMENT 
+		<where>
+			<include refid="workSegmentColumns" />
+		</where>
+	</select>
+	
+	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="workSegmentResultMap">
+		SELECT
+			ID
+			,WORK_SEGMENT_NAME
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,WORK_TYPE
+			,WORK_DATE
+			,SAFETY_PROTECTION_PERSONNEL
+			,WORK_PERSONNEL
+			,SUBMIT_USER_ID
+			,SUBMIT_USER_NAME
+			,SUBMIT_TIME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_SEGMENT
+		<where>
+			<include refid="workSegmentColumns" />
+		</where>
+		ORDER BY
+			ID
+	</select>
+	
+</mapper>
+
