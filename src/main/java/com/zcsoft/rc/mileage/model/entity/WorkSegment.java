@@ -2,62 +2,66 @@ package com.zcsoft.rc.mileage.model.entity;
 
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
+import com.sharingif.cube.components.sequence.Sequence;
+
+import java.util.Date;
 
 public class WorkSegment implements java.io.Serializable, IObjectDateOperationHistory {
 	
 	//columns START
     /**
      * id			db_column: ID 
-     */	
-	private java.lang.String id;
+     */
+	@Sequence(ref="uuidSequenceGenerator")
+	private String id;
     /**
      * 作业面名称			db_column: WORK_SEGMENT_NAME 
      */	
-	private java.lang.String workSegmentName;
+	private String workSegmentName;
     /**
      * 里程区间id			db_column: MILEAGE_SEGMENT_ID 
      */	
-	private java.lang.String mileageSegmentId;
+	private String mileageSegmentId;
     /**
      * 里程区间名称			db_column: MILEAGE_SEGMENT_NAME 
      */	
-	private java.lang.String mileageSegmentName;
+	private String mileageSegmentName;
     /**
      * 开始里程点id			db_column: START_MILEAGE_ID 
      */	
-	private java.lang.String startMileageId;
+	private String startMileageId;
     /**
      * 开始里程点			db_column: START_MILEAGE_NAME 
      */	
-	private java.lang.String startMileageName;
+	private String startMileageName;
     /**
      * 结束里程点id			db_column: END_MILEAGE_ID 
      */	
-	private java.lang.String endMileageId;
+	private String endMileageId;
     /**
      * 结束里程点			db_column: END_MILEAGE_NAME 
      */	
-	private java.lang.String endMileageName;
+	private String endMileageName;
     /**
      * 开始位置经度			db_column: START_LONGITUDE 
      */	
-	private BigDecimal startLongitude;
+	private Double startLongitude;
     /**
      * 开始位置纬度			db_column: START_LATITUDE 
      */	
-	private BigDecimal startLatitude;
+	private Double startLatitude;
     /**
      * 结束位置经度			db_column: END_LONGITUDE 
      */	
-	private BigDecimal endLongitude;
+	private Double endLongitude;
     /**
      * 结束位置纬度			db_column: END_LATITUDE 
      */	
-	private BigDecimal endLatitude;
+	private Double endLatitude;
     /**
      * 作业类型(00:上行、01:下行)			db_column: WORK_TYPE 
      */	
-	private java.lang.String workType;
+	private String workType;
     /**
      * 作业时间			db_column: WORK_DATE 
      */	
@@ -65,19 +69,19 @@ public class WorkSegment implements java.io.Serializable, IObjectDateOperationHi
     /**
      * 安全防护人员数			db_column: SAFETY_PROTECTION_PERSONNEL 
      */	
-	private java.lang.Integer safetyProtectionPersonnel;
+	private Integer safetyProtectionPersonnel;
     /**
      * 现场人员数			db_column: WORK_PERSONNEL 
      */	
-	private java.lang.Integer workPersonnel;
+	private Integer workPersonnel;
     /**
      * 提交人员id			db_column: SUBMIT_USER_ID 
      */	
-	private java.lang.String submitUserId;
+	private String submitUserId;
     /**
      * 提交人员名称			db_column: SUBMIT_USER_NAME 
      */	
-	private java.lang.String submitUserName;
+	private String submitUserName;
     /**
      * 提交时间			db_column: SUBMIT_TIME 
      */	
@@ -92,82 +96,82 @@ public class WorkSegment implements java.io.Serializable, IObjectDateOperationHi
 	private Date modifyTime;
 	//columns END
 
-	public void setId(java.lang.String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public java.lang.String getId() {
+	public String getId() {
 		return this.id;
 	}
-	public void setWorkSegmentName(java.lang.String workSegmentName) {
+	public void setWorkSegmentName(String workSegmentName) {
 		this.workSegmentName = workSegmentName;
 	}
-	public java.lang.String getWorkSegmentName() {
+	public String getWorkSegmentName() {
 		return this.workSegmentName;
 	}
-	public void setMileageSegmentId(java.lang.String mileageSegmentId) {
+	public void setMileageSegmentId(String mileageSegmentId) {
 		this.mileageSegmentId = mileageSegmentId;
 	}
-	public java.lang.String getMileageSegmentId() {
+	public String getMileageSegmentId() {
 		return this.mileageSegmentId;
 	}
-	public void setMileageSegmentName(java.lang.String mileageSegmentName) {
+	public void setMileageSegmentName(String mileageSegmentName) {
 		this.mileageSegmentName = mileageSegmentName;
 	}
-	public java.lang.String getMileageSegmentName() {
+	public String getMileageSegmentName() {
 		return this.mileageSegmentName;
 	}
-	public void setStartMileageId(java.lang.String startMileageId) {
+	public void setStartMileageId(String startMileageId) {
 		this.startMileageId = startMileageId;
 	}
-	public java.lang.String getStartMileageId() {
+	public String getStartMileageId() {
 		return this.startMileageId;
 	}
-	public void setStartMileageName(java.lang.String startMileageName) {
+	public void setStartMileageName(String startMileageName) {
 		this.startMileageName = startMileageName;
 	}
-	public java.lang.String getStartMileageName() {
+	public String getStartMileageName() {
 		return this.startMileageName;
 	}
-	public void setEndMileageId(java.lang.String endMileageId) {
+	public void setEndMileageId(String endMileageId) {
 		this.endMileageId = endMileageId;
 	}
-	public java.lang.String getEndMileageId() {
+	public String getEndMileageId() {
 		return this.endMileageId;
 	}
-	public void setEndMileageName(java.lang.String endMileageName) {
+	public void setEndMileageName(String endMileageName) {
 		this.endMileageName = endMileageName;
 	}
-	public java.lang.String getEndMileageName() {
+	public String getEndMileageName() {
 		return this.endMileageName;
 	}
-	public void setStartLongitude(BigDecimal startLongitude) {
+	public void setStartLongitude(Double startLongitude) {
 		this.startLongitude = startLongitude;
 	}
-	public BigDecimal getStartLongitude() {
+	public Double getStartLongitude() {
 		return this.startLongitude;
 	}
-	public void setStartLatitude(BigDecimal startLatitude) {
+	public void setStartLatitude(Double startLatitude) {
 		this.startLatitude = startLatitude;
 	}
-	public BigDecimal getStartLatitude() {
+	public Double getStartLatitude() {
 		return this.startLatitude;
 	}
-	public void setEndLongitude(BigDecimal endLongitude) {
+	public void setEndLongitude(Double endLongitude) {
 		this.endLongitude = endLongitude;
 	}
-	public BigDecimal getEndLongitude() {
+	public Double getEndLongitude() {
 		return this.endLongitude;
 	}
-	public void setEndLatitude(BigDecimal endLatitude) {
+	public void setEndLatitude(Double endLatitude) {
 		this.endLatitude = endLatitude;
 	}
-	public BigDecimal getEndLatitude() {
+	public Double getEndLatitude() {
 		return this.endLatitude;
 	}
-	public void setWorkType(java.lang.String workType) {
+	public void setWorkType(String workType) {
 		this.workType = workType;
 	}
-	public java.lang.String getWorkType() {
+	public String getWorkType() {
 		return this.workType;
 	}
 	public void setWorkDate(Date workDate) {
@@ -176,28 +180,28 @@ public class WorkSegment implements java.io.Serializable, IObjectDateOperationHi
 	public Date getWorkDate() {
 		return this.workDate;
 	}
-	public void setSafetyProtectionPersonnel(java.lang.Integer safetyProtectionPersonnel) {
+	public void setSafetyProtectionPersonnel(Integer safetyProtectionPersonnel) {
 		this.safetyProtectionPersonnel = safetyProtectionPersonnel;
 	}
-	public java.lang.Integer getSafetyProtectionPersonnel() {
+	public Integer getSafetyProtectionPersonnel() {
 		return this.safetyProtectionPersonnel;
 	}
-	public void setWorkPersonnel(java.lang.Integer workPersonnel) {
+	public void setWorkPersonnel(Integer workPersonnel) {
 		this.workPersonnel = workPersonnel;
 	}
-	public java.lang.Integer getWorkPersonnel() {
+	public Integer getWorkPersonnel() {
 		return this.workPersonnel;
 	}
-	public void setSubmitUserId(java.lang.String submitUserId) {
+	public void setSubmitUserId(String submitUserId) {
 		this.submitUserId = submitUserId;
 	}
-	public java.lang.String getSubmitUserId() {
+	public String getSubmitUserId() {
 		return this.submitUserId;
 	}
-	public void setSubmitUserName(java.lang.String submitUserName) {
+	public void setSubmitUserName(String submitUserName) {
 		this.submitUserName = submitUserName;
 	}
-	public java.lang.String getSubmitUserName() {
+	public String getSubmitUserName() {
 		return this.submitUserName;
 	}
 	public void setSubmitTime(Date submitTime) {

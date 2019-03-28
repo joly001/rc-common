@@ -15,8 +15,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=workSegmentId">
     		AND WORK_SEGMENT_ID = #{workSegmentId}
     	</if>
-    	<if test="null!=workTime">
-    		AND WORK_TIME = #{workTime}
+    	<if test="null!=startworkTime">
+    		AND STARTWORK_TIME = #{startworkTime}
+    	</if>
+    	<if test="null!=endWorkTime">
+    		AND END_WORK_TIME = #{endWorkTime}
     	</if>
 	</sql>
 	
@@ -27,15 +30,19 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=workSegmentId">
 		    WORK_SEGMENT_ID = #{workSegmentId},
 		    </if>
-		    <if test="null!=workTime">
-		    WORK_TIME = #{workTime},
+		    <if test="null!=startworkTime">
+		    STARTWORK_TIME = #{startworkTime},
+		    </if>
+		    <if test="null!=endWorkTime">
+		    END_WORK_TIME = #{endWorkTime},
 		    </if>
 	</sql>
 
 	<resultMap id="workSegmentDataTimeResultMap" type="com.zcsoft.rc.mileage.model.entity.WorkSegmentDataTime">
         <result property="id" column="ID"/>
         <result property="workSegmentId" column="WORK_SEGMENT_ID"/>
-        <result property="workTime" column="WORK_TIME"/>
+        <result property="startworkTime" column="STARTWORK_TIME"/>
+        <result property="endWorkTime" column="END_WORK_TIME"/>
 	</resultMap>
 
 	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
@@ -43,11 +50,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         INSERT INTO WORK_SEGMENT_DATA_TIME (
         	ID
         	,WORK_SEGMENT_ID
-        	,WORK_TIME
+        	,STARTWORK_TIME
+        	,END_WORK_TIME
         ) VALUES (
         	#{id}
         	,#{workSegmentId}
-        	,#{workTime}
+        	,#{startworkTime}
+        	,#{endWorkTime}
         )
 	</insert>
 	
@@ -80,7 +89,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			ID
 			,WORK_SEGMENT_ID
-			,WORK_TIME
+			,STARTWORK_TIME
+			,END_WORK_TIME
 		FROM
 			WORK_SEGMENT_DATA_TIME 
 		WHERE 
@@ -91,7 +101,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			ID
 			,WORK_SEGMENT_ID
-			,WORK_TIME
+			,STARTWORK_TIME
+			,END_WORK_TIME
 		FROM
 			WORK_SEGMENT_DATA_TIME
 		WHERE
@@ -105,7 +116,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			ID
 			,WORK_SEGMENT_ID
-			,WORK_TIME
+			,STARTWORK_TIME
+			,END_WORK_TIME
 		FROM
 			WORK_SEGMENT_DATA_TIME 
 		ORDER BY
@@ -126,7 +138,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			ID
 			,WORK_SEGMENT_ID
-			,WORK_TIME
+			,STARTWORK_TIME
+			,END_WORK_TIME
 		FROM
 			WORK_SEGMENT_DATA_TIME
 		<where>

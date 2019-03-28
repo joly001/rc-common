@@ -1,49 +1,60 @@
 package com.zcsoft.rc.mileage.model.entity;
 
 
-import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
+import java.util.Date;
 
-public class WorkSegmentDataTime implements java.io.Serializable, IObjectDateOperationHistory {
+public class WorkSegmentDataTime implements java.io.Serializable {
 	
 	//columns START
     /**
      * id			db_column: ID 
      */	
-	private java.lang.String id;
+	private String id;
     /**
      * 作业面id			db_column: WORK_SEGMENT_ID 
      */	
-	private java.lang.String workSegmentId;
+	private String workSegmentId;
     /**
-     * 作业时间			db_column: WORK_TIME 
+     * 开始作业时间			db_column: STARTWORK_TIME 
      */	
-	private Date workTime;
+	private Date startworkTime;
+    /**
+     * 结束作业时间			db_column: END_WORK_TIME 
+     */	
+	private Date endWorkTime;
 	//columns END
 
-	public void setId(java.lang.String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public java.lang.String getId() {
+	public String getId() {
 		return this.id;
 	}
-	public void setWorkSegmentId(java.lang.String workSegmentId) {
+	public void setWorkSegmentId(String workSegmentId) {
 		this.workSegmentId = workSegmentId;
 	}
-	public java.lang.String getWorkSegmentId() {
+	public String getWorkSegmentId() {
 		return this.workSegmentId;
 	}
-	public void setWorkTime(Date workTime) {
-		this.workTime = workTime;
+	public void setStartworkTime(Date startworkTime) {
+		this.startworkTime = startworkTime;
 	}
-	public Date getWorkTime() {
-		return this.workTime;
+	public Date getStartworkTime() {
+		return this.startworkTime;
+	}
+	public void setEndWorkTime(Date endWorkTime) {
+		this.endWorkTime = endWorkTime;
+	}
+	public Date getEndWorkTime() {
+		return this.endWorkTime;
 	}
 
 	public String toString() {
 		return new StringBuilder("WorkSegmentDataTime [")
 			.append("Id=").append(getId()).append(", ")
 					.append("WorkSegmentId=").append(getWorkSegmentId()).append(", ")
-					.append("WorkTime=").append(getWorkTime())
+					.append("StartworkTime=").append(getStartworkTime()).append(", ")
+					.append("EndWorkTime=").append(getEndWorkTime())
 		.append("]").toString();
 	}
 	
