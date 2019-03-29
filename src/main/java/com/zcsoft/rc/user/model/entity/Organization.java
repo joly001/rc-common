@@ -3,7 +3,6 @@ package com.zcsoft.rc.user.model.entity;
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
 import com.sharingif.cube.components.sequence.Sequence;
-import com.zcsoft.rc.bms.api.user.entity.OrganizationAllRsp;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -83,16 +82,6 @@ public class Organization implements java.io.Serializable, IObjectDateOperationH
 	}
 	public Date getModifyTime() {
 		return this.modifyTime;
-	}
-
-	public OrganizationAllRsp convertToOrganizationAllRsp() {
-		OrganizationAllRsp organizationAllRsp = new OrganizationAllRsp();
-		organizationAllRsp.setId(getId());
-		organizationAllRsp.setOrgName(getOrgName());
-		organizationAllRsp.setSequenceNumber(getSequenceNumber());
-		organizationAllRsp.setChildOrgList(new ArrayList<>());
-
-		return organizationAllRsp;
 	}
 
 	public String toString() {

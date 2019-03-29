@@ -2,9 +2,7 @@ package com.zcsoft.rc.user.model.entity;
 
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
-import com.zcsoft.rc.bms.api.user.entity.AuthoritiesAllRsp;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class AuthorityGroup implements java.io.Serializable, IObjectDateOperationHistory {
@@ -71,16 +69,6 @@ public class AuthorityGroup implements java.io.Serializable, IObjectDateOperatio
 	}
 	public Date getModifyTime() {
 		return this.modifyTime;
-	}
-
-	public AuthoritiesAllRsp convertToAuthoritiesAllRsp() {
-		AuthoritiesAllRsp authoritiesAllRsp = new AuthoritiesAllRsp();
-		authoritiesAllRsp.setId(getId());
-		authoritiesAllRsp.setName(getAuthorityGroupName());
-		authoritiesAllRsp.setSequenceNumber(getSequenceNumber());
-		authoritiesAllRsp.setAuthorities(new ArrayList<>());
-
-		return authoritiesAllRsp;
 	}
 
 	public String toString() {
