@@ -212,9 +212,17 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			COUNT(0)
 		FROM
-			MACHINERY 
+			MACHINERY
 		<where>
-			<include refid="machineryColumns" />
+			<if test="null!=machineryName">
+				AND MACHINERY_NAME LIKE #{machineryName}"%"
+			</if>
+			<if test="null!=wristStrapCode">
+				AND WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+			</if>
+			<if test="null!=nick">
+				AND NICK LIKE #{nick}"%"
+			</if>
 		</where>
 	</select>
 	
@@ -234,10 +242,18 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			MACHINERY
 		<where>
-			<include refid="machineryColumns" />
+			<if test="null!=machineryName">
+				OR MACHINERY_NAME LIKE #{machineryName}"%"
+			</if>
+			<if test="null!=wristStrapCode">
+				OR WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+			</if>
+			<if test="null!=nick">
+				OR NICK LIKE #{nick}"%"
+			</if>
 		</where>
 		ORDER BY
-			ID
+			CREATE_TIME DESC
 	</select>
 	
 </mapper>
