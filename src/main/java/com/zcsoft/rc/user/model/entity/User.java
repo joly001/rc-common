@@ -124,7 +124,7 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 	//columns END
 
 	private TreeMap<String, String> authorities;
-	private boolean ifFlow;
+	private Boolean follow;
 
 	public void setId(String id) {
 		this.id = id;
@@ -273,12 +273,12 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 		this.authorities = authorities;
 	}
 
-	public boolean isIfFlow() {
-		return ifFlow;
+	public Boolean getFollow() {
+		return follow;
 	}
 
-	public void setIfFlow(boolean ifFlow) {
-		this.ifFlow = ifFlow;
+	public void setFollow(Boolean follow) {
+		this.follow = follow;
 	}
 
 	@Override

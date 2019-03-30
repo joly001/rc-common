@@ -65,7 +65,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	        <include refid="userFollowSetColumns" />
 		</set>
 	    WHERE
-	    USER_ID = #{userId}  AND 
+	    USER_ID = #{userId}
+		AND
 	    USER_FOLLOW_ID = #{userFollowId} 
 	</update>
 	
@@ -76,7 +77,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			USER_FOLLOW 
 		WHERE 
-			USER_ID = #{id}  AND 
+			USER_ID = #{id}
+			AND
 			USER_FOLLOW_ID = #{id} 
 	</select>
 	
@@ -90,7 +92,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			1=1
 			<include refid="userFollowColumns" />
 		ORDER BY
-			USER_ID
 			USER_FOLLOW_ID
 	</select>
 	

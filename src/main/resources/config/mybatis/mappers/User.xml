@@ -431,7 +431,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<result property="builderStatus" column="BUILDER_STATUS"/>
 		<result property="admissionDate" column="ADMISSION_DATE"/>
 		<result property="leaveDate" column="LEAVE_DATE"/>
-		<result property="ifFlow" column="LEAVE_DATE"/>
+		<result property="follow" column="FOLLOW"/>
 	</resultMap>
 	<select id="queryUserFollowListByOrganizationId" resultMap="userResultMap">
 		SELECT
@@ -441,7 +441,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,U.BUILDER_STATUS
 			,U.ADMISSION_DATE
 			,U.LEAVE_DATE
-			,IF(UF.USER_FOLLOW_ID IS NULL,true,false)
+			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
 		FROM
 				USER U
 			LEFT JOIN
@@ -451,7 +451,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 					FROM
 						USER_FOLLOW
 					WHERE
-						UF.USER_ID = #{userId}
+						USER_ID = #{userId}
 				) UF
 			ON
 				U.ID = UF.USER_FOLLOW_ID
