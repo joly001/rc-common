@@ -403,6 +403,63 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			CREATE_TIME DESC
 	</select>
+
+	<select id="queryUserFollowListByUserId" resultMap="userResultMap">
+		SELECT
+			U.ID
+			,U.NICK
+			,U.MOBILE
+			,U.BUILDER_STATUS
+			,U.ADMISSION_DATE
+			,U.LEAVE_DATE
+		FROM
+				USER U
+			JOIN
+				USER_FOLLOW UF
+			ON
+				U.ID = UF.USER_FOLLOW_ID
+		WHERE
+				UF.USER_ID = #{userId}
+		ORDER BY
+			ADMISSION_DATE
+	</select>
+
+	<resultMap id="userFollowResultMap" type="com.zcsoft.rc.user.model.entity.User">
+		<result property="id" column="ID"/>
+		<result property="nick" column="NICK"/>
+		<result property="mobile" column="MOBILE"/>
+		<result property="builderStatus" column="BUILDER_STATUS"/>
+		<result property="admissionDate" column="ADMISSION_DATE"/>
+		<result property="leaveDate" column="LEAVE_DATE"/>
+		<result property="ifFlow" column="LEAVE_DATE"/>
+	</resultMap>
+	<select id="queryUserFollowListByOrganizationId" resultMap="userResultMap">
+		SELECT
+			U.ID
+			,U.NICK
+			,U.MOBILE
+			,U.BUILDER_STATUS
+			,U.ADMISSION_DATE
+			,U.LEAVE_DATE
+			,IF(UF.USER_FOLLOW_ID IS NULL,true,false)
+		FROM
+				USER U
+			LEFT JOIN
+				(
+					SELECT
+						*
+					FROM
+						USER_FOLLOW
+					WHERE
+						UF.USER_ID = #{userId}
+				) UF
+			ON
+				U.ID = UF.USER_FOLLOW_ID
+		WHERE
+			U.ORGANIZATION_ID = #{organizationId}
+		ORDER BY
+			ADMISSION_DATE
+	</select>
 	
 </mapper>
 

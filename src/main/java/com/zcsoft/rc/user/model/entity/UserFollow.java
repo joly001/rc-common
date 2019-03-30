@@ -1,8 +1,6 @@
 package com.zcsoft.rc.user.model.entity;
 
 
-import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
-
 public class UserFollow implements java.io.Serializable {
 	
 	//columns START

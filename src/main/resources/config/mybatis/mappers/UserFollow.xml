@@ -102,7 +102,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			USER_FOLLOW 
 		ORDER BY
 			USER_ID
-			USER_FOLLOW_ID
 	</select>
 	
 	<select id="queryPaginationListCount" resultType="Integer">
@@ -126,8 +125,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		</where>
 		ORDER BY
 			USER_ID
-			USER_FOLLOW_ID
 	</select>
+
+	<delete id="deleteByUserIdOrganizationId">
+		DELETE UF FROM
+				USER_FOLLOW UF
+			JOIN
+				USER U
+			ON
+				USER_FOLLOW_ID = U.ID
+		WHERE
+				UF.USER_ID = #{userId}
+			AND
+				U.ORGANIZATION_ID = #{organizationId}
+	</delete>
 	
 </mapper>
 
