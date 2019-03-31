@@ -20,8 +20,9 @@ public interface UserDAO extends BaseDAO<User,java.lang.String> {
      * 根据组织id查询用户关注列表
      * @param userId
      * @param organizationId
+     * @param followType
      * @return
      */
-    List<User> queryUserFollowListByOrganizationId(String userId, String organizationId);
+    List<User> queryUserFollowListByOrganizationId(String userId, String organizationId, String followType);
 
 }

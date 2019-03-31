@@ -15,6 +15,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=userFollowId">
     		AND USER_FOLLOW_ID = #{userFollowId}
     	</if>
+    	<if test="null!=followType">
+    		AND FOLLOW_TYPE = #{followType}
+    	</if>
 	</sql>
 	
 	<sql id="userFollowSetColumns">
@@ -24,11 +27,15 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=userFollowId">
 		    USER_FOLLOW_ID = #{userFollowId},
 		    </if>
+		    <if test="null!=followType">
+		    FOLLOW_TYPE = #{followType},
+		    </if>
 	</sql>
 
 	<resultMap id="userFollowResultMap" type="com.zcsoft.rc.user.model.entity.UserFollow">
         <result property="userId" column="USER_ID"/>
         <result property="userFollowId" column="USER_FOLLOW_ID"/>
+        <result property="followType" column="FOLLOW_TYPE"/>
 	</resultMap>
 
 	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
@@ -36,9 +43,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         INSERT INTO USER_FOLLOW (
         	USER_ID
         	,USER_FOLLOW_ID
+        	,FOLLOW_TYPE
         ) VALUES (
         	#{userId}
         	,#{userFollowId}
+        	,#{followType}
         )
 	</insert>
 	
@@ -46,8 +55,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	    DELETE FROM
 	    	USER_FOLLOW 
 	    WHERE
-	    USER_ID = #{id}  AND 
-	    USER_FOLLOW_ID = #{id} 
+	    USER_ID = #{id}
     </delete>
     
     <delete id="deleteByCondition">
@@ -66,39 +74,38 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		</set>
 	    WHERE
 	    USER_ID = #{userId}
-		AND
-	    USER_FOLLOW_ID = #{userFollowId} 
 	</update>
 	
     <select id="queryById" resultMap="userFollowResultMap">
 		SELECT
 			USER_ID
 			,USER_FOLLOW_ID
+			,FOLLOW_TYPE
 		FROM
 			USER_FOLLOW 
 		WHERE 
 			USER_ID = #{id}
-			AND
-			USER_FOLLOW_ID = #{id} 
 	</select>
 	
 	<select id="queryList" resultMap="userFollowResultMap">
 		SELECT
 			USER_ID
 			,USER_FOLLOW_ID
+			,FOLLOW_TYPE
 		FROM
 			USER_FOLLOW
 		WHERE
 			1=1
 			<include refid="userFollowColumns" />
 		ORDER BY
-			USER_FOLLOW_ID
+			USER_ID
 	</select>
 	
 	<select id="queryAll" resultMap="userFollowResultMap">
 		SELECT
 			USER_ID
 			,USER_FOLLOW_ID
+			,FOLLOW_TYPE
 		FROM
 			USER_FOLLOW 
 		ORDER BY
@@ -119,6 +126,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			USER_ID
 			,USER_FOLLOW_ID
+			,FOLLOW_TYPE
 		FROM
 			USER_FOLLOW
 		<where>
@@ -137,6 +145,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				USER_FOLLOW_ID = U.ID
 		WHERE
 				UF.USER_ID = #{userId}
+			AND
+				UF.FOLLOW_TYPE = #{followType}
 			AND
 				U.ORGANIZATION_ID = #{organizationId}
 	</delete>

@@ -16,10 +16,11 @@ import java.util.Map;
 public class UserFollowDAOImpl extends BaseDAOImpl<UserFollow,java.lang.String> implements UserFollowDAO {
 
     @Override
-    public int deleteByUserIdOrganizationId(String userId, String organizationId) {
+    public int deleteByUserIdOrganizationId(String userId, String organizationId, String followType) {
         Map<String, String> parameter = new HashMap<>();
         parameter.put("userId", userId);
         parameter.put("organizationId", organizationId);
+        parameter.put("followType", followType);
 
         return delete("deleteByUserIdOrganizationId", parameter);
     }

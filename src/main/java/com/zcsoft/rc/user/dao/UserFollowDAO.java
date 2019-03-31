@@ -11,8 +11,9 @@ public interface UserFollowDAO extends BaseDAO<UserFollow,java.lang.String> {
      * 根据用户、组织id删除关注
      * @param userId
      * @param organizationId
+     * @param followType
      * @return
      */
-    int deleteByUserIdOrganizationId(String userId, String organizationId);
+    int deleteByUserIdOrganizationId(String userId, String organizationId, String followType);
 
 }
