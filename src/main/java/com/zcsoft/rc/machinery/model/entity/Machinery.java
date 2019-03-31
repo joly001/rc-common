@@ -56,6 +56,8 @@ public class Machinery implements java.io.Serializable, IObjectDateOperationHist
 	private Date modifyTime;
 	//columns END
 
+	private Boolean follow;
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -123,21 +125,31 @@ public class Machinery implements java.io.Serializable, IObjectDateOperationHist
 		return this.modifyTime;
 	}
 
-	public String toString() {
-		return new StringBuilder("Machinery [")
-			.append("Id=").append(getId()).append(", ")
-					.append("PlateNumber=").append(getPlateNumber()).append(", ")
-					.append("MachineryName=").append(getMachineryName()).append(", ")
-					.append("MachineryType=").append(getMachineryType()).append(", ")
-					.append("UserId=").append(getUserId()).append(", ")
-					.append("Nick=").append(getNick()).append(", ")
-					.append("Mobile=").append(getMobile()).append(", ")
-					.append("WorkRadius=").append(getWorkRadius()).append(", ")
-					.append("WristStrapCode=").append(getWristStrapCode()).append(", ")
-					.append("CreateTime=").append(getCreateTime()).append(", ")
-					.append("ModifyTime=").append(getModifyTime())
-		.append("]").toString();
+	public Boolean getFollow() {
+		return follow;
 	}
-	
+
+	public void setFollow(Boolean follow) {
+		this.follow = follow;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("Machinery{");
+		sb.append("id='").append(id).append('\'');
+		sb.append(", plateNumber='").append(plateNumber).append('\'');
+		sb.append(", machineryName='").append(machineryName).append('\'');
+		sb.append(", machineryType='").append(machineryType).append('\'');
+		sb.append(", userId='").append(userId).append('\'');
+		sb.append(", nick='").append(nick).append('\'');
+		sb.append(", mobile='").append(mobile).append('\'');
+		sb.append(", workRadius=").append(workRadius);
+		sb.append(", wristStrapCode='").append(wristStrapCode).append('\'');
+		sb.append(", createTime=").append(createTime);
+		sb.append(", modifyTime=").append(modifyTime);
+		sb.append(", follow=").append(follow);
+		sb.append('}');
+		return sb.toString();
+	}
 }
 
