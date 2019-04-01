@@ -66,6 +66,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=organizationId">
     		AND ORGANIZATION_ID = #{organizationId}
     	</if>
+    	<if test="null!=userPicture">
+    		AND USER_PICTURE = #{userPicture}
+    	</if>
     	<if test="null!=createTime">
     		AND CREATE_TIME = #{createTime}
     	</if>
@@ -132,6 +135,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=organizationId">
 		    ORGANIZATION_ID = #{organizationId},
 		    </if>
+		    <if test="null!=userPicture">
+		    USER_PICTURE = #{userPicture},
+		    </if>
 		    <if test="null!=createTime">
 		    CREATE_TIME = #{createTime},
 		    </if>
@@ -160,6 +166,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         <result property="lastLoginIp" column="LAST_LOGIN_IP"/>
         <result property="failLoginCounter" column="FAIL_LOGIN_COUNTER"/>
         <result property="organizationId" column="ORGANIZATION_ID"/>
+        <result property="userPicture" column="USER_PICTURE"/>
         <result property="createTime" column="CREATE_TIME"/>
         <result property="modifyTime" column="MODIFY_TIME"/>
 	</resultMap>
@@ -186,6 +193,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,LAST_LOGIN_IP
         	,FAIL_LOGIN_COUNTER
         	,ORGANIZATION_ID
+        	,USER_PICTURE
         	,CREATE_TIME
         	,MODIFY_TIME
         ) VALUES (
@@ -208,6 +216,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,#{lastLoginIp}
         	,#{failLoginCounter}
         	,#{organizationId}
+        	,#{userPicture}
         	,#{createTime}
         	,#{modifyTime}
         )
@@ -259,6 +268,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,LAST_LOGIN_IP
 			,FAIL_LOGIN_COUNTER
 			,ORGANIZATION_ID
+			,USER_PICTURE
 			,CREATE_TIME
 			,MODIFY_TIME
 		FROM
@@ -288,6 +298,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,LAST_LOGIN_IP
 			,FAIL_LOGIN_COUNTER
 			,ORGANIZATION_ID
+			,USER_PICTURE
 			,CREATE_TIME
 			,MODIFY_TIME
 		FROM
@@ -320,6 +331,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,LAST_LOGIN_IP
 			,FAIL_LOGIN_COUNTER
 			,ORGANIZATION_ID
+			,USER_PICTURE
 			,CREATE_TIME
 			,MODIFY_TIME
 		FROM
@@ -376,6 +388,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,LAST_LOGIN_IP
 			,FAIL_LOGIN_COUNTER
 			,ORGANIZATION_ID
+			,USER_PICTURE
 			,CREATE_TIME
 			,MODIFY_TIME
 		FROM
@@ -401,7 +414,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 		ORDER BY
-			CREATE_TIME DESC
+			ID
 	</select>
 
 	<select id="queryUserFollowListByUserId" resultMap="userResultMap">
