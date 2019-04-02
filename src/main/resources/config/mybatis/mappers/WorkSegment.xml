@@ -296,7 +296,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			1=1
 			<include refid="workSegmentColumns" />
 		ORDER BY
-			WORK_SEGMENT_NAME
+			START_MILEAGE_NAME
 	</select>
 	
 	<select id="queryAll" resultMap="workSegmentResultMap">
