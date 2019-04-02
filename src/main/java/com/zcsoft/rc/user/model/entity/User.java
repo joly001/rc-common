@@ -66,7 +66,7 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
      */	
 	private String userType;
     /**
-     * 施工人员类型(00:机车、01:列车、02:施工人员、03:安全防护员、04:作业负责人、05:监理、06:其它人员)			db_column: BUILDER_USER_TYPE 
+     * 施工人员类型(00:机车、01:列车、02:作业人员、03:作业负责人、04:安全员、05:防护员、06:监理、07:其它人员)			db_column: BUILDER_USER_TYPE
      */	
 	private String builderUserType;
     /**
