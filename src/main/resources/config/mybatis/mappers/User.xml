@@ -445,6 +445,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<result property="admissionDate" column="ADMISSION_DATE"/>
 		<result property="leaveDate" column="LEAVE_DATE"/>
 		<result property="follow" column="FOLLOW"/>
+		<result property="createTime" column="CREATE_TIME"/>
 	</resultMap>
 	<select id="queryUserFollowListByOrganizationId" resultMap="userResultMap">
 		SELECT
@@ -455,6 +456,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,U.ADMISSION_DATE
 			,U.LEAVE_DATE
 			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
+			,UF.CREATE_TIME
 		FROM
 				USER U
 			LEFT JOIN

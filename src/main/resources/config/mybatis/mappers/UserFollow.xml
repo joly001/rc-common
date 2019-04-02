@@ -18,6 +18,12 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=followType">
     		AND FOLLOW_TYPE = #{followType}
     	</if>
+    	<if test="null!=createTime">
+    		AND CREATE_TIME = #{createTime}
+    	</if>
+    	<if test="null!=modifyTime">
+    		AND MODIFY_TIME = #{modifyTime}
+    	</if>
 	</sql>
 	
 	<sql id="userFollowSetColumns">
@@ -30,12 +36,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=followType">
 		    FOLLOW_TYPE = #{followType},
 		    </if>
+		    <if test="null!=createTime">
+		    CREATE_TIME = #{createTime},
+		    </if>
+		    <if test="null!=modifyTime">
+		    MODIFY_TIME = #{modifyTime},
+		    </if>
 	</sql>
 
 	<resultMap id="userFollowResultMap" type="com.zcsoft.rc.user.model.entity.UserFollow">
         <result property="userId" column="USER_ID"/>
         <result property="userFollowId" column="USER_FOLLOW_ID"/>
         <result property="followType" column="FOLLOW_TYPE"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="modifyTime" column="MODIFY_TIME"/>
 	</resultMap>
 
 	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
@@ -44,10 +58,10 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	USER_ID
         	,USER_FOLLOW_ID
         	,FOLLOW_TYPE
+        	,CREATE_TIME
+        	,MODIFY_TIME
         ) VALUES (
         	#{userId}
-        	,#{userFollowId}
-        	,#{followType}
         )
 	</insert>
 	
@@ -81,6 +95,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			USER_ID
 			,USER_FOLLOW_ID
 			,FOLLOW_TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
 		FROM
 			USER_FOLLOW 
 		WHERE 
@@ -92,6 +108,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			USER_ID
 			,USER_FOLLOW_ID
 			,FOLLOW_TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
 		FROM
 			USER_FOLLOW
 		WHERE
@@ -106,6 +124,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			USER_ID
 			,USER_FOLLOW_ID
 			,FOLLOW_TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
 		FROM
 			USER_FOLLOW 
 		ORDER BY
@@ -127,6 +147,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			USER_ID
 			,USER_FOLLOW_ID
 			,FOLLOW_TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
 		FROM
 			USER_FOLLOW
 		<where>

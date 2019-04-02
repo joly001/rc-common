@@ -24,4 +24,13 @@ public class MachineryDAOImpl extends BaseDAOImpl<Machinery,java.lang.String> im
 
         return selectList("queryUserFollowList", parameter);
     }
+
+    @Override
+    public List<Machinery> queryUserMachineryList(String userId, String followType) {
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("userId", userId);
+        parameter.put("followType", followType);
+
+        return selectList("queryUserMachineryList", parameter);
+    }
 }

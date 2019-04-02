@@ -17,4 +17,12 @@ public interface MachineryDAO extends BaseDAO<Machinery,java.lang.String> {
      */
     List<Machinery> queryUserFollowList(String userId, String followType);
 
+    /**
+     * 用户关注机械列表
+     * @param userId
+     * @param followType
+     * @return
+     */
+    List<Machinery> queryUserMachineryList(String userId, String followType);
+
 }

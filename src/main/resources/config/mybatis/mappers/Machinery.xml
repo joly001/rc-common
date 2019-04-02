@@ -289,6 +289,51 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			CREATE_TIME
 	</select>
+
+	<resultMap id="userMachineryResultMap" type="com.zcsoft.rc.machinery.model.entity.Machinery">
+		<result property="id" column="ID"/>
+		<result property="plateNumber" column="PLATE_NUMBER"/>
+		<result property="machineryName" column="MACHINERY_NAME"/>
+		<result property="machineryType" column="MACHINERY_TYPE"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="nick" column="NICK"/>
+		<result property="mobile" column="MOBILE"/>
+		<result property="workRadius" column="WORK_RADIUS"/>
+		<result property="wristStrapCode" column="WRIST_STRAP_CODE"/>
+		<result property="createTime" column="CREATE_TIME"/>
+		<result property="follow" column="FOLLOW"/>
+	</resultMap>
+	<select id="queryUserMachineryList" resultMap="userMachineryResultMap">
+		SELECT
+			ID
+			,PLATE_NUMBER
+			,MACHINERY_NAME
+			,MACHINERY_TYPE
+			,M.USER_ID
+			,NICK
+			,MOBILE
+			,WORK_RADIUS
+			,WRIST_STRAP_CODE
+			,UF.CREATE_TIME
+			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
+		FROM
+				MACHINERY M
+			LEFT
+				(
+					SELECT
+						*
+					FROM
+						USER_FOLLOW
+					WHERE
+							USER_ID = #{userId}
+						AND
+							FOLLOW_TYPE = #{followType}
+				) UF
+			ON
+				M.ID = UF.USER_FOLLOW_ID
+		ORDER BY
+			CREATE_TIME
+	</select>
 	
 </mapper>
 

@@ -217,6 +217,44 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			AND
 				SEQUENCE_NUMBER > #{sequenceNumber}
 	</update>
+
+	<resultMap id="userFollowOrganizationResultMap" type="com.zcsoft.rc.user.model.entity.Organization">
+		<result property="id" column="ID"/>
+		<result property="orgName" column="ORG_NAME"/>
+		<result property="orgDesc" column="ORG_DESC"/>
+		<result property="sequenceNumber" column="SEQUENCE_NUMBER"/>
+		<result property="parentId" column="PARENT_ID"/>
+		<result property="createTime" column="CREATE_TIME"/>
+		<result property="modifyTime" column="MODIFY_TIME"/>
+		<result property="follow" column="FOLLOW"/>
+	</resultMap>
+
+	<select id="queryUserFollowOrganizationList" resultMap="userFollowOrganizationResultMap">
+		SELECT
+			ID
+			,ORG_NAME
+			,ORG_DESC
+			,SEQUENCE_NUMBER
+			,PARENT_ID
+			,UF.CREATE_TIME
+			,UF.MODIFY_TIME
+			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
+		FROM
+				ORGANIZATION O
+			LEFT
+				(
+					SELECT
+						*
+					FROM
+						USER_FOLLOW
+					WHERE
+							USER_ID = #{userId}
+						AND
+							FOLLOW_TYPE = #{followType}
+				) UF
+			ON
+				O.ID = UF.USER_FOLLOW_ID
+	</select>
 	
 </mapper>
 

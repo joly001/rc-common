@@ -41,6 +41,8 @@ public class Organization implements java.io.Serializable, IObjectDateOperationH
 	private Date modifyTime;
 	//columns END
 
+	private Boolean follow;
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -82,6 +84,14 @@ public class Organization implements java.io.Serializable, IObjectDateOperationH
 	}
 	public Date getModifyTime() {
 		return this.modifyTime;
+	}
+
+	public Boolean getFollow() {
+		return follow;
+	}
+
+	public void setFollow(Boolean follow) {
+		this.follow = follow;
 	}
 
 	public String toString() {

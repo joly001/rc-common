@@ -8,6 +8,10 @@ import com.zcsoft.rc.user.model.entity.Organization;
 import com.zcsoft.rc.user.dao.OrganizationDAO;
 import com.zcsoft.rc.common.dao.impl.BaseDAOImpl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 @Repository
 public class OrganizationDAOImpl extends BaseDAOImpl<Organization,java.lang.String> implements OrganizationDAO {
@@ -27,5 +31,14 @@ public class OrganizationDAOImpl extends BaseDAOImpl<Organization,java.lang.Stri
         organization.setSequenceNumber(sequenceNumber);
 
         return update("updateDecrementSequenceNumberByParentIdSequenceNumber", organization);
+    }
+
+    @Override
+    public List<Organization> queryUserFollowOrganizationList(String userId, String followType) {
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("userId", userId);
+        parameter.put("followType", followType);
+
+        return selectList("queryUserFollowOrganizationList", parameter);
     }
 }

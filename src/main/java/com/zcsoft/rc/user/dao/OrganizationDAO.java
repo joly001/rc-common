@@ -4,6 +4,8 @@ package com.zcsoft.rc.user.dao;
 import com.zcsoft.rc.user.model.entity.Organization;
 import com.zcsoft.rc.common.dao.BaseDAO;
 
+import java.util.List;
+
 
 public interface OrganizationDAO extends BaseDAO<Organization,java.lang.String> {
 
@@ -21,5 +23,13 @@ public interface OrganizationDAO extends BaseDAO<Organization,java.lang.String> 
      * @return
      */
     Integer updateDecrementSequenceNumberByParentIdSequenceNumber(String parentId, Integer sequenceNumber);
+
+    /**
+     * 组织用户关注
+     * @param userId
+     * @param followType
+     * @return
+     */
+    List<Organization> queryUserFollowOrganizationList(String userId, String followType);
 
 }
