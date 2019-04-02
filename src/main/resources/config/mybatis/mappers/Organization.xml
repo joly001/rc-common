@@ -240,8 +240,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,UF.MODIFY_TIME
 			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
 		FROM
-				ORGANIZATION O
-			LEFT
+				ORGANIZATION
+			LEFT JOIN
 				(
 					SELECT
 						*
@@ -253,7 +253,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 							FOLLOW_TYPE = #{followType}
 				) UF
 			ON
-				O.ID = UF.USER_FOLLOW_ID
+				ID = UF.USER_FOLLOW_ID
 	</select>
 	
 </mapper>
