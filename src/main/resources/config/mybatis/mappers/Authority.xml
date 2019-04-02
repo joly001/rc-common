@@ -161,6 +161,36 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			AUTHORITY_CODE
 	</select>
+
+	<select id="queryListByUserId" resultMap="authorityResultMap">
+		SELECT
+			AUT.AUTHORITY_CODE
+			,AUT.AUTHORITY_NAME
+			,AUT.AUTHORITY_GROUP_ID
+			,AUT.CREATE_TIME
+			,AUT.MODIFY_TIME
+		FROM
+			(
+				SELECT
+					AUTHORITY_CODE
+				FROM
+					USER_ROLE UR
+				JOIN
+					ROLE_AUTHORITY RA
+				ON
+					UR.ROLE_CODE = RA.ROLE_CODE
+				WHERE
+					USER_ID = #{userId}
+			) UR
+			JOIN
+				AUTHORITY_GROUP AG
+			ON
+				UR.AUTHORITY_CODE = AG.ID
+			JOIN
+				AUTHORITY AUT
+			ON
+				AUT.AUTHORITY_GROUP_ID = AG.ID
+	</select>
 	
 </mapper>
 
