@@ -268,8 +268,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,MOBILE
 			,WORK_RADIUS
 			,WRIST_STRAP_CODE
-			,CREATE_TIME
-			,MODIFY_TIME
+			,M.CREATE_TIME
+			,M.MODIFY_TIME
 			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
 		FROM
 				MACHINERY M
@@ -287,7 +287,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			ON
 				M.ID = UF.USER_FOLLOW_ID
 		ORDER BY
-			CREATE_TIME
+			M.CREATE_TIME
 	</select>
 
 	<resultMap id="userMachineryResultMap" type="com.zcsoft.rc.machinery.model.entity.Machinery">
@@ -318,7 +318,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
 		FROM
 				MACHINERY M
-			LEFT
+			JOIN
 				(
 					SELECT
 						*
@@ -332,7 +332,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			ON
 				M.ID = UF.USER_FOLLOW_ID
 		ORDER BY
-			CREATE_TIME
+			UF.CREATE_TIME
 	</select>
 	
 </mapper>
