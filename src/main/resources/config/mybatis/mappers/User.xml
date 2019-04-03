@@ -425,6 +425,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,U.BUILDER_STATUS
 			,U.ADMISSION_DATE
 			,U.LEAVE_DATE
+			,UF.CREATE_TIME
 		FROM
 				USER U
 			JOIN
