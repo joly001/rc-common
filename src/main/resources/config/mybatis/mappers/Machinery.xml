@@ -93,6 +93,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         <result property="createTime" column="CREATE_TIME"/>
         <result property="modifyTime" column="MODIFY_TIME"/>
 		<result property="follow" column="FOLLOW"/>
+		<result property="userPicture" column="USER_PICTURE"/>
 	</resultMap>
 
 	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
@@ -260,15 +261,15 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="queryUserFollowList" resultMap="machineryResultMap">
 		SELECT
 			M.ID
-			,PLATE_NUMBER
-			,MACHINERY_NAME
-			,MACHINERY_TYPE
+			,M.PLATE_NUMBER
+			,M.MACHINERY_NAME
+			,M.MACHINERY_TYPE
 			,M.USER_ID
 			,U.USER_PICTURE
-			,NICK
-			,MOBILE
-			,WORK_RADIUS
-			,WRIST_STRAP_CODE
+			,M.NICK
+			,M.MOBILE
+			,M.WORK_RADIUS
+			,M.WRIST_STRAP_CODE
 			,M.CREATE_TIME
 			,M.MODIFY_TIME
 			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
@@ -307,18 +308,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<result property="wristStrapCode" column="WRIST_STRAP_CODE"/>
 		<result property="createTime" column="CREATE_TIME"/>
 		<result property="follow" column="FOLLOW"/>
+		<result property="userPicture" column="USER_PICTURE"/>
 	</resultMap>
 	<select id="queryUserMachineryList" resultMap="userMachineryResultMap">
 		SELECT
-			ID
-			,PLATE_NUMBER
-			,MACHINERY_NAME
-			,MACHINERY_TYPE
+			M.ID
+			,M.PLATE_NUMBER
+			,M.MACHINERY_NAME
+			,M.MACHINERY_TYPE
 			,M.USER_ID
-			,NICK
-			,MOBILE
-			,WORK_RADIUS
-			,WRIST_STRAP_CODE
+			,U.USER_PICTURE
+			,M.NICK
+			,M.MOBILE
+			,M.WORK_RADIUS
+			,M.WRIST_STRAP_CODE
 			,UF.CREATE_TIME
 			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
 		FROM
@@ -336,6 +339,10 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				) UF
 			ON
 				M.ID = UF.USER_FOLLOW_ID
+			JOIN
+				USER U
+			ON
+				M.USER_ID = U.ID
 		ORDER BY
 			UF.CREATE_TIME
 	</select>
