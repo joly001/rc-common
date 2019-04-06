@@ -259,7 +259,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 	<select id="queryUserFollowList" resultMap="machineryResultMap">
 		SELECT
-			ID
+			M.ID
 			,PLATE_NUMBER
 			,MACHINERY_NAME
 			,MACHINERY_TYPE
