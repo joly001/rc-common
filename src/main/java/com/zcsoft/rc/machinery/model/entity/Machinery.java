@@ -57,72 +57,101 @@ public class Machinery implements java.io.Serializable, IObjectDateOperationHist
 	//columns END
 
 	private Boolean follow;
+	/**
+	 * 用户图片
+	 */
+	private String userPicture;
+
+	public String getId() {
+		return id;
+	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getId() {
-		return this.id;
+
+	public String getPlateNumber() {
+		return plateNumber;
 	}
+
 	public void setPlateNumber(String plateNumber) {
 		this.plateNumber = plateNumber;
 	}
-	public String getPlateNumber() {
-		return this.plateNumber;
+
+	public String getMachineryName() {
+		return machineryName;
 	}
+
 	public void setMachineryName(String machineryName) {
 		this.machineryName = machineryName;
 	}
-	public String getMachineryName() {
-		return this.machineryName;
+
+	public String getMachineryType() {
+		return machineryType;
 	}
+
 	public void setMachineryType(String machineryType) {
 		this.machineryType = machineryType;
 	}
-	public String getMachineryType() {
-		return this.machineryType;
+
+	public String getUserId() {
+		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getUserId() {
-		return this.userId;
+
+	public String getNick() {
+		return nick;
 	}
+
 	public void setNick(String nick) {
 		this.nick = nick;
 	}
-	public String getNick() {
-		return this.nick;
+
+	public String getMobile() {
+		return mobile;
 	}
+
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public String getMobile() {
-		return this.mobile;
+
+	public Integer getWorkRadius() {
+		return workRadius;
 	}
+
 	public void setWorkRadius(Integer workRadius) {
 		this.workRadius = workRadius;
 	}
-	public Integer getWorkRadius() {
-		return this.workRadius;
+
+	public String getWristStrapCode() {
+		return wristStrapCode;
 	}
+
 	public void setWristStrapCode(String wristStrapCode) {
 		this.wristStrapCode = wristStrapCode;
 	}
-	public String getWristStrapCode() {
-		return this.wristStrapCode;
+
+	@Override
+	public Date getCreateTime() {
+		return createTime;
 	}
+
+	@Override
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-	public Date getCreateTime() {
-		return this.createTime;
+
+	@Override
+	public Date getModifyTime() {
+		return modifyTime;
 	}
+
+	@Override
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
-	}
-	public Date getModifyTime() {
-		return this.modifyTime;
 	}
 
 	public Boolean getFollow() {
@@ -131,6 +160,14 @@ public class Machinery implements java.io.Serializable, IObjectDateOperationHist
 
 	public void setFollow(Boolean follow) {
 		this.follow = follow;
+	}
+
+	public String getUserPicture() {
+		return userPicture;
+	}
+
+	public void setUserPicture(String userPicture) {
+		this.userPicture = userPicture;
 	}
 
 	@Override
@@ -148,6 +185,7 @@ public class Machinery implements java.io.Serializable, IObjectDateOperationHist
 		sb.append(", createTime=").append(createTime);
 		sb.append(", modifyTime=").append(modifyTime);
 		sb.append(", follow=").append(follow);
+		sb.append(", userPicture='").append(userPicture).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}

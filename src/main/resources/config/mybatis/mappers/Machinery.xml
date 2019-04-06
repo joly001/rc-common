@@ -264,6 +264,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,MACHINERY_NAME
 			,MACHINERY_TYPE
 			,M.USER_ID
+			,U.USER_PICTURE
 			,NICK
 			,MOBILE
 			,WORK_RADIUS
@@ -286,6 +287,10 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				) UF
 			ON
 				M.ID = UF.USER_FOLLOW_ID
+			JOIN
+				USER U
+			ON
+				M.USER_ID = U.ID;
 		ORDER BY
 			M.CREATE_TIME
 	</select>

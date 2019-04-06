@@ -425,6 +425,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,U.BUILDER_STATUS
 			,U.ADMISSION_DATE
 			,U.LEAVE_DATE
+			,USER_PICTURE
+			,BUILDER_USER_TYPE
 			,UF.CREATE_TIME
 		FROM
 				USER U
@@ -446,6 +448,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<result property="admissionDate" column="ADMISSION_DATE"/>
 		<result property="leaveDate" column="LEAVE_DATE"/>
 		<result property="follow" column="FOLLOW"/>
+		<result property="userPicture" column="USER_PICTURE"/>
+		<result property="builderUserType" column="BUILDER_USER_TYPE"/>
 		<result property="createTime" column="CREATE_TIME"/>
 	</resultMap>
 	<select id="queryUserFollowListByOrganizationId" resultMap="userResultMap">
@@ -457,6 +461,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,U.ADMISSION_DATE
 			,U.LEAVE_DATE
 			,IF(UF.USER_FOLLOW_ID IS NULL,FALSE ,TRUE) AS FOLLOW
+			,USER_PICTURE
+			,BUILDER_USER_TYPE
 			,UF.CREATE_TIME
 		FROM
 				USER U
