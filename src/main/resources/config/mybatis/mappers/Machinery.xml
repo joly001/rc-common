@@ -290,7 +290,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			JOIN
 				USER U
 			ON
-				M.USER_ID = U.ID;
+				M.USER_ID = U.ID
 		ORDER BY
 			M.CREATE_TIME
 	</select>
