@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="workWarning">
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="workWarningColumns">
+    	<if test="null!=id">
+    		AND ID = #{id}
+    	</if>
+    	<if test="null!=mileageSegmentId">
+    		AND MILEAGE_SEGMENT_ID = #{mileageSegmentId}
+    	</if>
+    	<if test="null!=mileageSegmentName">
+    		AND MILEAGE_SEGMENT_NAME = #{mileageSegmentName}
+    	</if>
+    	<if test="null!=workSegmentId">
+    		AND WORK_SEGMENT_ID = #{workSegmentId}
+    	</if>
+    	<if test="null!=workSegmentName">
+    		AND WORK_SEGMENT_NAME = #{workSegmentName}
+    	</if>
+    	<if test="null!=workSegmentStartLongitude">
+    		AND WORK_SEGMENT_START_LONGITUDE = #{workSegmentStartLongitude}
+    	</if>
+    	<if test="null!=workSegmentStartLatitude">
+    		AND WORK_SEGMENT_START_LATITUDE = #{workSegmentStartLatitude}
+    	</if>
+    	<if test="null!=workSegmentEndLongitude">
+    		AND WORK_SEGMENT_END_LONGITUDE = #{workSegmentEndLongitude}
+    	</if>
+    	<if test="null!=workSegmentEndLatitude">
+    		AND WORK_SEGMENT_END_LATITUDE = #{workSegmentEndLatitude}
+    	</if>
+    	<if test="null!=userId">
+    		AND USER_ID = #{userId}
+    	</if>
+    	<if test="null!=builderUserType">
+    		AND BUILDER_USER_TYPE = #{builderUserType}
+    	</if>
+    	<if test="null!=depId">
+    		AND DEP_ID = #{depId}
+    	</if>
+    	<if test="null!=depName">
+    		AND DEP_NAME = #{depName}
+    	</if>
+    	<if test="null!=orgId">
+    		AND ORG_ID = #{orgId}
+    	</if>
+    	<if test="null!=orgName">
+    		AND ORG_NAME = #{orgName}
+    	</if>
+    	<if test="null!=nick">
+    		AND NICK = #{nick}
+    	</if>
+    	<if test="null!=mobile">
+    		AND MOBILE = #{mobile}
+    	</if>
+    	<if test="null!=status">
+    		AND STATUS = #{status}
+    	</if>
+    	<if test="null!=type">
+    		AND TYPE = #{type}
+    	</if>
+    	<if test="null!=createTime">
+    		AND CREATE_TIME = #{createTime}
+    	</if>
+    	<if test="null!=modifyTime">
+    		AND MODIFY_TIME = #{modifyTime}
+    	</if>
+	</sql>
+	
+	<sql id="workWarningSetColumns">
+		    <if test="null!=id">
+		    ID = #{id},
+		    </if>
+		    <if test="null!=mileageSegmentId">
+		    MILEAGE_SEGMENT_ID = #{mileageSegmentId},
+		    </if>
+		    <if test="null!=mileageSegmentName">
+		    MILEAGE_SEGMENT_NAME = #{mileageSegmentName},
+		    </if>
+		    <if test="null!=workSegmentId">
+		    WORK_SEGMENT_ID = #{workSegmentId},
+		    </if>
+		    <if test="null!=workSegmentName">
+		    WORK_SEGMENT_NAME = #{workSegmentName},
+		    </if>
+		    <if test="null!=workSegmentStartLongitude">
+		    WORK_SEGMENT_START_LONGITUDE = #{workSegmentStartLongitude},
+		    </if>
+		    <if test="null!=workSegmentStartLatitude">
+		    WORK_SEGMENT_START_LATITUDE = #{workSegmentStartLatitude},
+		    </if>
+		    <if test="null!=workSegmentEndLongitude">
+		    WORK_SEGMENT_END_LONGITUDE = #{workSegmentEndLongitude},
+		    </if>
+		    <if test="null!=workSegmentEndLatitude">
+		    WORK_SEGMENT_END_LATITUDE = #{workSegmentEndLatitude},
+		    </if>
+		    <if test="null!=userId">
+		    USER_ID = #{userId},
+		    </if>
+		    <if test="null!=builderUserType">
+		    BUILDER_USER_TYPE = #{builderUserType},
+		    </if>
+		    <if test="null!=depId">
+		    DEP_ID = #{depId},
+		    </if>
+		    <if test="null!=depName">
+		    DEP_NAME = #{depName},
+		    </if>
+		    <if test="null!=orgId">
+		    ORG_ID = #{orgId},
+		    </if>
+		    <if test="null!=orgName">
+		    ORG_NAME = #{orgName},
+		    </if>
+		    <if test="null!=nick">
+		    NICK = #{nick},
+		    </if>
+		    <if test="null!=mobile">
+		    MOBILE = #{mobile},
+		    </if>
+		    <if test="null!=status">
+		    STATUS = #{status},
+		    </if>
+		    <if test="null!=type">
+		    TYPE = #{type},
+		    </if>
+		    <if test="null!=createTime">
+		    CREATE_TIME = #{createTime},
+		    </if>
+		    <if test="null!=modifyTime">
+		    MODIFY_TIME = #{modifyTime},
+		    </if>
+	</sql>
+
+	<resultMap id="workWarningResultMap" type="com.zcsoft.rc.warning.model.entity.WorkWarning">
+        <result property="id" column="ID"/>
+        <result property="mileageSegmentId" column="MILEAGE_SEGMENT_ID"/>
+        <result property="mileageSegmentName" column="MILEAGE_SEGMENT_NAME"/>
+        <result property="workSegmentId" column="WORK_SEGMENT_ID"/>
+        <result property="workSegmentName" column="WORK_SEGMENT_NAME"/>
+        <result property="workSegmentStartLongitude" column="WORK_SEGMENT_START_LONGITUDE"/>
+        <result property="workSegmentStartLatitude" column="WORK_SEGMENT_START_LATITUDE"/>
+        <result property="workSegmentEndLongitude" column="WORK_SEGMENT_END_LONGITUDE"/>
+        <result property="workSegmentEndLatitude" column="WORK_SEGMENT_END_LATITUDE"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="builderUserType" column="BUILDER_USER_TYPE"/>
+        <result property="depId" column="DEP_ID"/>
+        <result property="depName" column="DEP_NAME"/>
+        <result property="orgId" column="ORG_ID"/>
+        <result property="orgName" column="ORG_NAME"/>
+        <result property="nick" column="NICK"/>
+        <result property="mobile" column="MOBILE"/>
+        <result property="status" column="STATUS"/>
+        <result property="type" column="TYPE"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="modifyTime" column="MODIFY_TIME"/>
+	</resultMap>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert">
+        INSERT INTO WORK_WARNING (
+        	ID
+        	,MILEAGE_SEGMENT_ID
+        	,MILEAGE_SEGMENT_NAME
+        	,WORK_SEGMENT_ID
+        	,WORK_SEGMENT_NAME
+        	,WORK_SEGMENT_START_LONGITUDE
+        	,WORK_SEGMENT_START_LATITUDE
+        	,WORK_SEGMENT_END_LONGITUDE
+        	,WORK_SEGMENT_END_LATITUDE
+        	,USER_ID
+        	,BUILDER_USER_TYPE
+        	,DEP_ID
+        	,DEP_NAME
+        	,ORG_ID
+        	,ORG_NAME
+        	,NICK
+        	,MOBILE
+        	,STATUS
+        	,TYPE
+        	,CREATE_TIME
+        	,MODIFY_TIME
+        ) VALUES (
+        	#{id}
+        	,#{mileageSegmentId}
+        	,#{mileageSegmentName}
+        	,#{workSegmentId}
+        	,#{workSegmentName}
+        	,#{workSegmentStartLongitude}
+        	,#{workSegmentStartLatitude}
+        	,#{workSegmentEndLongitude}
+        	,#{workSegmentEndLatitude}
+        	,#{userId}
+        	,#{builderUserType}
+        	,#{depId}
+        	,#{depName}
+        	,#{orgId}
+        	,#{orgName}
+        	,#{nick}
+        	,#{mobile}
+        	,#{status}
+        	,#{type}
+        	,#{createTime}
+        	,#{modifyTime}
+        )
+	</insert>
+	
+	<delete id="deleteById">
+	    DELETE FROM
+	    	WORK_WARNING 
+	    WHERE
+	    ID = #{id} 
+    </delete>
+    
+    <delete id="deleteByCondition">
+	    DELETE FROM
+	    	WORK_WARNING 
+	    WHERE
+	    	1=1
+		    <include refid="workWarningColumns" />
+    </delete>
+    
+	<update id="updateById">
+	    UPDATE
+	    	WORK_WARNING 
+        <set>
+	        <include refid="workWarningSetColumns" />
+		</set>
+	    WHERE
+	    ID = #{id} 
+	</update>
+	
+    <select id="queryById" resultMap="workWarningResultMap">
+		SELECT
+			ID
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,WORK_SEGMENT_ID
+			,WORK_SEGMENT_NAME
+			,WORK_SEGMENT_START_LONGITUDE
+			,WORK_SEGMENT_START_LATITUDE
+			,WORK_SEGMENT_END_LONGITUDE
+			,WORK_SEGMENT_END_LATITUDE
+			,USER_ID
+			,BUILDER_USER_TYPE
+			,DEP_ID
+			,DEP_NAME
+			,ORG_ID
+			,ORG_NAME
+			,NICK
+			,MOBILE
+			,STATUS
+			,TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_WARNING 
+		WHERE 
+			ID = #{id} 
+	</select>
+	
+	<select id="queryList" resultMap="workWarningResultMap">
+		SELECT
+			ID
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,WORK_SEGMENT_ID
+			,WORK_SEGMENT_NAME
+			,WORK_SEGMENT_START_LONGITUDE
+			,WORK_SEGMENT_START_LATITUDE
+			,WORK_SEGMENT_END_LONGITUDE
+			,WORK_SEGMENT_END_LATITUDE
+			,USER_ID
+			,BUILDER_USER_TYPE
+			,DEP_ID
+			,DEP_NAME
+			,ORG_ID
+			,ORG_NAME
+			,NICK
+			,MOBILE
+			,STATUS
+			,TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_WARNING
+		WHERE
+			1=1
+			<include refid="workWarningColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryAll" resultMap="workWarningResultMap">
+		SELECT
+			ID
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,WORK_SEGMENT_ID
+			,WORK_SEGMENT_NAME
+			,WORK_SEGMENT_START_LONGITUDE
+			,WORK_SEGMENT_START_LATITUDE
+			,WORK_SEGMENT_END_LONGITUDE
+			,WORK_SEGMENT_END_LATITUDE
+			,USER_ID
+			,BUILDER_USER_TYPE
+			,DEP_ID
+			,DEP_NAME
+			,ORG_ID
+			,ORG_NAME
+			,NICK
+			,MOBILE
+			,STATUS
+			,TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_WARNING 
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryPaginationListCount" resultType="Integer">
+		SELECT
+			COUNT(0)
+		FROM
+			WORK_WARNING 
+		<where>
+			<include refid="workWarningColumns" />
+		</where>
+	</select>
+	
+	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="workWarningResultMap">
+		SELECT
+			ID
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,WORK_SEGMENT_ID
+			,WORK_SEGMENT_NAME
+			,WORK_SEGMENT_START_LONGITUDE
+			,WORK_SEGMENT_START_LATITUDE
+			,WORK_SEGMENT_END_LONGITUDE
+			,WORK_SEGMENT_END_LATITUDE
+			,USER_ID
+			,BUILDER_USER_TYPE
+			,DEP_ID
+			,DEP_NAME
+			,ORG_ID
+			,ORG_NAME
+			,NICK
+			,MOBILE
+			,STATUS
+			,TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_WARNING
+		<where>
+			<include refid="workWarningColumns" />
+		</where>
+		ORDER BY
+			ID
+	</select>
+	
+</mapper>
+
