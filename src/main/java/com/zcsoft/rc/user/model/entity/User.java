@@ -35,6 +35,40 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 	 */
 	public static final String STATUS_NORMAL = "NORMAL";
 
+	/**
+	 * 施工人员类型(00:机车)
+	 */
+	public static final String BUILDER_USER_TYPE_LOCOMOTIVE = "00";
+	/**
+	 * 施工人员类型(01:列车)
+	 */
+	public static final String BUILDER_USER_TYPE_TRAIN = "01";
+	/**
+	 * 施工人员类型(02:作业人员)
+	 */
+	public static final String BUILDER_USER_TYPE_WORK = "02";
+	/**
+	 * 施工人员类型(03:作业负责人)
+	 */
+	public static final String BUILDER_USER_TYPE_LEADING_OFFICIAL = "03";
+	/**
+	 * 施工人员类型(04:安全员)
+	 */
+	public static final String BUILDER_USER_TYPE_SAFETY = "04";
+	/**
+	 * 施工人员类型(05:防护员)
+	 */
+	public static final String BUILDER_USER_TYPE_PROTECTOR = "05";
+	/**
+	 * 施工人员类型(06:监理)
+	 */
+	public static final String BUILDER_USER_TYPE_SUPERVISOR = "06";
+	/**
+	 * 施工人员类型(07:其它人员)
+	 */
+	public static final String BUILDER_USER_TYPE_OTHER = "07";
+
+
 	//columns START
     /**
      * id			db_column: ID 
