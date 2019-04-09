@@ -11,5 +11,10 @@ import com.zcsoft.rc.common.dao.impl.BaseDAOImpl;
 
 @Repository
 public class WorkSegmentDAOImpl extends BaseDAOImpl<WorkSegment,java.lang.String> implements WorkSegmentDAO {
-	
+
+    @Override
+    public WorkSegment queryByStartLongitudeEndLongitude(double longitude) {
+        return selectOne("queryByStartLongitudeEndLongitude", longitude);
+    }
+
 }
