@@ -1,6 +1,8 @@
 package com.zcsoft.rc.mileage.model.entity;
 
 
+import com.sharingif.cube.components.sequence.Sequence;
+
 import java.util.Date;
 
 public class WorkSegmentDataTime implements java.io.Serializable {
@@ -8,7 +10,8 @@ public class WorkSegmentDataTime implements java.io.Serializable {
 	//columns START
     /**
      * id			db_column: ID 
-     */	
+     */
+	@Sequence(ref="uuidSequenceGenerator")
 	private String id;
     /**
      * 作业面id			db_column: WORK_SEGMENT_ID 
