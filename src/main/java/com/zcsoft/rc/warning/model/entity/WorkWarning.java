@@ -8,26 +8,30 @@ import java.util.Date;
 
 public class WorkWarning implements java.io.Serializable, IObjectDateOperationHistory {
 
-    /**
-     * 状态(CREATE:创建)
-     */
-    public static final String STATUS_CREATE = "CREATE";
-    /**
-     * 状态(FINISH:结束)
-     */
-    public static final String STATUS_FINISH = "FINISH";
+	/**
+	 * 状态(CREATE:创建)
+	 */
+	public static final String STATUS_CREATE = "CREATE";
+	/**
+	 * 状态(FINISH:结束)
+	 */
+	public static final String STATUS_FINISH = "FINISH";
 
-    /**
-     * 类型(00:接近警告线)
-     */
-    public static final String TYPE_APPROACHING_THE_WARNING_LINE = "00";
+	/**
+	 * 类型(00:接近警告线)
+	 */
+	public static final String TYPE_APPROACHING_THE_WARNING_LINE = "00";
 
 	//columns START
     /**
      * id			db_column: ID 
      */
-    @Sequence(ref="uuidSequenceGenerator")
+	@Sequence(ref="uuidSequenceGenerator")
 	private String id;
+    /**
+     * 警告id			db_column: WORK_WARNING_ID 
+     */	
+	private String workWarningId;
     /**
      * 里程区间id			db_column: MILEAGE_SEGMENT_ID 
      */	
@@ -123,6 +127,12 @@ public class WorkWarning implements java.io.Serializable, IObjectDateOperationHi
 	}
 	public String getId() {
 		return this.id;
+	}
+	public void setWorkWarningId(String workWarningId) {
+		this.workWarningId = workWarningId;
+	}
+	public String getWorkWarningId() {
+		return this.workWarningId;
 	}
 	public void setMileageSegmentId(String mileageSegmentId) {
 		this.mileageSegmentId = mileageSegmentId;
@@ -260,6 +270,7 @@ public class WorkWarning implements java.io.Serializable, IObjectDateOperationHi
 	public String toString() {
 		return new StringBuilder("WorkWarning [")
 			.append("Id=").append(getId()).append(", ")
+					.append("WorkWarningId=").append(getWorkWarningId()).append(", ")
 					.append("MileageSegmentId=").append(getMileageSegmentId()).append(", ")
 					.append("MileageSegmentName=").append(getMileageSegmentName()).append(", ")
 					.append("WorkSegmentId=").append(getWorkSegmentId()).append(", ")

@@ -12,6 +12,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=id">
     		AND ID = #{id}
     	</if>
+    	<if test="null!=workWarningId">
+    		AND WORK_WARNING_ID = #{workWarningId}
+    	</if>
     	<if test="null!=mileageSegmentId">
     		AND MILEAGE_SEGMENT_ID = #{mileageSegmentId}
     	</if>
@@ -84,6 +87,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=id">
 		    ID = #{id},
 		    </if>
+		    <if test="null!=workWarningId">
+		    WORK_WARNING_ID = #{workWarningId},
+		    </if>
 		    <if test="null!=mileageSegmentId">
 		    MILEAGE_SEGMENT_ID = #{mileageSegmentId},
 		    </if>
@@ -154,6 +160,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 	<resultMap id="workWarningResultMap" type="com.zcsoft.rc.warning.model.entity.WorkWarning">
         <result property="id" column="ID"/>
+        <result property="workWarningId" column="WORK_WARNING_ID"/>
         <result property="mileageSegmentId" column="MILEAGE_SEGMENT_ID"/>
         <result property="mileageSegmentName" column="MILEAGE_SEGMENT_NAME"/>
         <result property="workSegmentId" column="WORK_SEGMENT_ID"/>
@@ -182,6 +189,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<insert id="insert">
         INSERT INTO WORK_WARNING (
         	ID
+        	,WORK_WARNING_ID
         	,MILEAGE_SEGMENT_ID
         	,MILEAGE_SEGMENT_NAME
         	,WORK_SEGMENT_ID
@@ -206,6 +214,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,MODIFY_TIME
         ) VALUES (
         	#{id}
+        	,#{workWarningId}
         	,#{mileageSegmentId}
         	,#{mileageSegmentName}
         	,#{workSegmentId}
@@ -259,6 +268,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     <select id="queryById" resultMap="workWarningResultMap">
 		SELECT
 			ID
+			,WORK_WARNING_ID
 			,MILEAGE_SEGMENT_ID
 			,MILEAGE_SEGMENT_NAME
 			,WORK_SEGMENT_ID
@@ -290,6 +300,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="queryList" resultMap="workWarningResultMap">
 		SELECT
 			ID
+			,WORK_WARNING_ID
 			,MILEAGE_SEGMENT_ID
 			,MILEAGE_SEGMENT_NAME
 			,WORK_SEGMENT_ID
@@ -324,6 +335,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="queryAll" resultMap="workWarningResultMap">
 		SELECT
 			ID
+			,WORK_WARNING_ID
 			,MILEAGE_SEGMENT_ID
 			,MILEAGE_SEGMENT_NAME
 			,WORK_SEGMENT_ID
@@ -365,6 +377,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="workWarningResultMap">
 		SELECT
 			ID
+			,WORK_WARNING_ID
 			,MILEAGE_SEGMENT_ID
 			,MILEAGE_SEGMENT_NAME
 			,WORK_SEGMENT_ID
@@ -396,13 +409,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			CREATE_TIME DESC
 	</select>
 
-	<update id="updateStatusByUserIdStatus">
+	<update id="updateStatusByWorkWarningIdStatus">
 		UPDATE
 			WORK_WARNING
 		SET
 			STATUS = #{updateStatus}
 		WHERE
-			USER_ID = #{userId}
+			WORK_WARNING_ID = #{workWarningId}
 		AND
 			STATUS = #{currentStatus}
 	</update>

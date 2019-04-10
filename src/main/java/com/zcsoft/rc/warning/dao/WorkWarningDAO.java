@@ -9,11 +9,11 @@ public interface WorkWarningDAO extends BaseDAO<WorkWarning,java.lang.String> {
 
     /**
      * 根据userId、状态修改状态
-     * @param userId
+     * @param workWarningId
      * @param currentStatus
      * @param updateStatus
      * @return
      */
-    int updateStatusByUserIdStatus(String userId, String currentStatus, String updateStatus);
+    int updateStatusByWorkWarningIdStatus(String workWarningId, String currentStatus, String updateStatus);
 
 }

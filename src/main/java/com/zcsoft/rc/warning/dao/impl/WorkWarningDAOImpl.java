@@ -16,12 +16,12 @@ import java.util.Map;
 public class WorkWarningDAOImpl extends BaseDAOImpl<WorkWarning,java.lang.String> implements WorkWarningDAO {
 
     @Override
-    public int updateStatusByUserIdStatus(String userId, String currentStatus, String updateStatus) {
+    public int updateStatusByWorkWarningIdStatus(String workWarningId, String currentStatus, String updateStatus) {
         Map<String, Object> parameter = new HashMap<>();
-        parameter.put("userId", userId);
+        parameter.put("workWarningId", workWarningId);
         parameter.put("currentStatus", currentStatus);
         parameter.put("updateStatus", updateStatus);
 
-        return update("updateStatusByUserIdStatus", parameter);
+        return update("updateStatusByWorkWarningIdStatus", parameter);
     }
 }
