@@ -395,6 +395,17 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			CREATE_TIME DESC
 	</select>
+
+	<update id="updateStatusByUserIdStatus">
+		UPDATE
+			WORK_WARNING
+		SET
+			STATUS = #{updateStatus}
+		WHERE
+			USER_ID = #{userId}
+		AND
+			STATUS = #{currentStatus}
+	</update>
 	
 </mapper>
 
