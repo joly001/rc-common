@@ -216,7 +216,7 @@ CREATE TABLE WORK_WARNING
 	 WORK_SEGMENT_END_LATITUDE		      DECIMAL(30,20) NOT NULL COMMENT '作业面结束位置纬度',
 	 USER_ID              CHAR(32) NOT NULL COMMENT '用户id',
 	 BUILDER_USER_TYPE    CHAR(2) NOT NULL COMMENT '施工人员类型(00:机车、01:列车、02:作业人员、03:作业负责人、04:安全员、05:防护员、06:监理、07:其它人员)',
-	 DEP_ID               CHAR(2) NOT NULL COMMENT '部门id',
+	 DEP_ID               CHAR(32) NOT NULL COMMENT '部门id',
 	 DEP_NAME             VARCHAR(200) NOT NULL COMMENT '部门名称',
 	 ORG_ID               CHAR(32) NOT NULL COMMENT '组织id',
    ORG_NAME             VARCHAR(200) COMMENT '组织名称',

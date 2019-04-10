@@ -2,6 +2,7 @@ package com.zcsoft.rc.warning.model.entity;
 
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
+import com.sharingif.cube.components.sequence.Sequence;
 
 import java.util.Date;
 
@@ -24,7 +25,8 @@ public class WorkWarning implements java.io.Serializable, IObjectDateOperationHi
 	//columns START
     /**
      * id			db_column: ID 
-     */	
+     */
+	@Sequence(ref="uuidSequenceGenerator")
 	private String id;
     /**
      * 里程区间id			db_column: MILEAGE_SEGMENT_ID 
