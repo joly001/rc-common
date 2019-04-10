@@ -8,25 +8,25 @@ import java.util.Date;
 
 public class WorkWarning implements java.io.Serializable, IObjectDateOperationHistory {
 
-	/**
-	 * 状态(CREATE:创建)
-	 */
-	public static final String STATUS_CREATE = "CREATE";
-	/**
-	 * 状态(FINISH:结束)
-	 */
-	public static final String STATUS_FINISH = "FINISH";
+    /**
+     * 状态(CREATE:创建)
+     */
+    public static final String STATUS_CREATE = "CREATE";
+    /**
+     * 状态(FINISH:结束)
+     */
+    public static final String STATUS_FINISH = "FINISH";
 
-	/**
-	 * 类型(00:接近警告线)
-	 */
-	public static final String TYPE_APPROACHING_THE_WARNING_LINE = "00";
+    /**
+     * 类型(00:接近警告线)
+     */
+    public static final String TYPE_APPROACHING_THE_WARNING_LINE = "00";
 
 	//columns START
     /**
      * id			db_column: ID 
      */
-	@Sequence(ref="uuidSequenceGenerator")
+    @Sequence(ref="uuidSequenceGenerator")
 	private String id;
     /**
      * 里程区间id			db_column: MILEAGE_SEGMENT_ID 
@@ -100,6 +100,14 @@ public class WorkWarning implements java.io.Serializable, IObjectDateOperationHi
      * 类型(00:接近警告线)			db_column: TYPE 
      */	
 	private String type;
+    /**
+     * 警告位置经度			db_column: LONGITUDE 
+     */	
+	private Double longitude;
+    /**
+     * 警告位置纬度			db_column: LATITUDE 
+     */	
+	private Double latitude;
     /**
      * 创建时间			db_column: CREATE_TIME 
      */	
@@ -224,6 +232,18 @@ public class WorkWarning implements java.io.Serializable, IObjectDateOperationHi
 	public String getType() {
 		return this.type;
 	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+	public Double getLongitude() {
+		return this.longitude;
+	}
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+	public Double getLatitude() {
+		return this.latitude;
+	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
@@ -258,6 +278,8 @@ public class WorkWarning implements java.io.Serializable, IObjectDateOperationHi
 					.append("Mobile=").append(getMobile()).append(", ")
 					.append("Status=").append(getStatus()).append(", ")
 					.append("Type=").append(getType()).append(", ")
+					.append("Longitude=").append(getLongitude()).append(", ")
+					.append("Latitude=").append(getLatitude()).append(", ")
 					.append("CreateTime=").append(getCreateTime()).append(", ")
 					.append("ModifyTime=").append(getModifyTime())
 		.append("]").toString();
