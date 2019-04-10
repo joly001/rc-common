@@ -408,6 +408,44 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				START_LONGITUDE >= #{longitude}
 			AND
 				END_LONGITUDE <= #{longitude}
+		ORDER BY
+			WORK_DATE DESC
+		LIMIT 1
+		]]>
+	</select>
+
+	<select id="queryListByWorkDate" resultMap="workSegmentResultMap">
+		<![CDATA[
+		SELECT
+			ID
+			,WORK_SEGMENT_NAME
+			,MILEAGE_SEGMENT_ID
+			,MILEAGE_SEGMENT_NAME
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,WORK_TYPE
+			,WORK_DATE
+			,SAFETY_PROTECTION_PERSONNEL
+			,WORK_PERSONNEL
+			,SUBMIT_USER_ID
+			,SUBMIT_USER_NAME
+			,SUBMIT_TIME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			WORK_SEGMENT
+		WHERE
+				WORK_DATE >= #{startWorkDate}
+			AND
+				WORK_DATE <= #{endWorkDate}
+		ORDER BY
+			START_MILEAGE_NAME
 		]]>
 	</select>
 
