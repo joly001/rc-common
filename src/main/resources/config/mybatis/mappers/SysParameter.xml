@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="sysParameter">
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="sysParameterColumns">
+    	<if test="null!=id">
+    		AND ID = #{id}
+    	</if>
+    	<if test="null!=channel">
+    		AND CHANNEL = #{channel}
+    	</if>
+    	<if test="null!=version">
+    		AND VERSION = #{version}
+    	</if>
+    	<if test="null!=parameterName">
+    		AND PARAMETER_NAME = #{parameterName}
+    	</if>
+    	<if test="null!=parameterValue">
+    		AND PARAMETER_VALUE = #{parameterValue}
+    	</if>
+    	<if test="null!=parameterDesc">
+    		AND PARAMETER_DESC = #{parameterDesc}
+    	</if>
+    	<if test="null!=type">
+    		AND TYPE = #{type}
+    	</if>
+    	<if test="null!=createTime">
+    		AND CREATE_TIME = #{createTime}
+    	</if>
+    	<if test="null!=modifyTime">
+    		AND MODIFY_TIME = #{modifyTime}
+    	</if>
+	</sql>
+	
+	<sql id="sysParameterSetColumns">
+		    <if test="null!=id">
+		    ID = #{id},
+		    </if>
+		    <if test="null!=channel">
+		    CHANNEL = #{channel},
+		    </if>
+		    <if test="null!=version">
+		    VERSION = #{version},
+		    </if>
+		    <if test="null!=parameterName">
+		    PARAMETER_NAME = #{parameterName},
+		    </if>
+		    <if test="null!=parameterValue">
+		    PARAMETER_VALUE = #{parameterValue},
+		    </if>
+		    <if test="null!=parameterDesc">
+		    PARAMETER_DESC = #{parameterDesc},
+		    </if>
+		    <if test="null!=type">
+		    TYPE = #{type},
+		    </if>
+		    <if test="null!=createTime">
+		    CREATE_TIME = #{createTime},
+		    </if>
+		    <if test="null!=modifyTime">
+		    MODIFY_TIME = #{modifyTime},
+		    </if>
+	</sql>
+
+	<resultMap id="sysParameterResultMap" type="com.zcsoft.rc.sys.model.entity.SysParameter">
+        <result property="id" column="ID"/>
+        <result property="channel" column="CHANNEL"/>
+        <result property="version" column="VERSION"/>
+        <result property="parameterName" column="PARAMETER_NAME"/>
+        <result property="parameterValue" column="PARAMETER_VALUE"/>
+        <result property="parameterDesc" column="PARAMETER_DESC"/>
+        <result property="type" column="TYPE"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="modifyTime" column="MODIFY_TIME"/>
+	</resultMap>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert">
+        INSERT INTO SYS_PARAMETER (
+        	ID
+        	,CHANNEL
+        	,VERSION
+        	,PARAMETER_NAME
+        	,PARAMETER_VALUE
+        	,PARAMETER_DESC
+        	,TYPE
+        	,CREATE_TIME
+        	,MODIFY_TIME
+        ) VALUES (
+        	#{id}
+        	,#{channel}
+        	,#{version}
+        	,#{parameterName}
+        	,#{parameterValue}
+        	,#{parameterDesc}
+        	,#{type}
+        	,#{createTime}
+        	,#{modifyTime}
+        )
+	</insert>
+	
+	<delete id="deleteById">
+	    DELETE FROM
+	    	SYS_PARAMETER 
+	    WHERE
+	    ID = #{id} 
+    </delete>
+    
+    <delete id="deleteByCondition">
+	    DELETE FROM
+	    	SYS_PARAMETER 
+	    WHERE
+	    	1=1
+		    <include refid="sysParameterColumns" />
+    </delete>
+    
+	<update id="updateById">
+	    UPDATE
+	    	SYS_PARAMETER 
+        <set>
+	        <include refid="sysParameterSetColumns" />
+		</set>
+	    WHERE
+	    ID = #{id} 
+	</update>
+	
+    <select id="queryById" resultMap="sysParameterResultMap">
+		SELECT
+			ID
+			,CHANNEL
+			,VERSION
+			,PARAMETER_NAME
+			,PARAMETER_VALUE
+			,PARAMETER_DESC
+			,TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			SYS_PARAMETER 
+		WHERE 
+			ID = #{id} 
+	</select>
+	
+	<select id="queryList" resultMap="sysParameterResultMap">
+		SELECT
+			ID
+			,CHANNEL
+			,VERSION
+			,PARAMETER_NAME
+			,PARAMETER_VALUE
+			,PARAMETER_DESC
+			,TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			SYS_PARAMETER
+		WHERE
+			1=1
+			<include refid="sysParameterColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryAll" resultMap="sysParameterResultMap">
+		SELECT
+			ID
+			,CHANNEL
+			,VERSION
+			,PARAMETER_NAME
+			,PARAMETER_VALUE
+			,PARAMETER_DESC
+			,TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			SYS_PARAMETER 
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryPaginationListCount" resultType="Integer">
+		SELECT
+			COUNT(0)
+		FROM
+			SYS_PARAMETER 
+		<where>
+			<include refid="sysParameterColumns" />
+		</where>
+	</select>
+	
+	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="sysParameterResultMap">
+		SELECT
+			ID
+			,CHANNEL
+			,VERSION
+			,PARAMETER_NAME
+			,PARAMETER_VALUE
+			,PARAMETER_DESC
+			,TYPE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			SYS_PARAMETER
+		<where>
+			<include refid="sysParameterColumns" />
+		</where>
+		ORDER BY
+			ID
+	</select>
+	
+</mapper>
+
