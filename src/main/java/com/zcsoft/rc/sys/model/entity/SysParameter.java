@@ -7,6 +7,11 @@ import com.sharingif.cube.components.sequence.Sequence;
 import java.util.Date;
 
 public class SysParameter implements java.io.Serializable, IObjectDateOperationHistory {
+
+	/**
+	 * 安全红线
+	 */
+	public static final String KEY_CORDON = "CORDON";
 	
 	//columns START
     /**
