@@ -13,6 +13,15 @@ import java.util.TreeMap;
 public class User implements java.io.Serializable, IObjectDateOperationHistory, ICoreUser, IPassword, IAuthorityRepertory<TreeMap<String, String>> {
 
 	/**
+	 * 操作系统(ANDROID:Android、IOS:ios)
+	 */
+	public static final String OPERATING_SYSTEM_ANDROID = "Android";
+	/**
+	 * 操作系统(ANDROID:Android、IOS:ios)
+	 */
+	public static final String OPERATINGSYSTEM_IOS = "ios";
+
+	/**
 	 * 用户类型(00:系统用户)
 	 */
 	public static final String USER_TYPE_SYS = "00";
