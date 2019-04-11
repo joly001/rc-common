@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="notice">
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="noticeColumns">
+    	<if test="null!=id">
+    		AND ID = #{id}
+    	</if>
+    	<if test="null!=type">
+    		AND TYPE = #{type}
+    	</if>
+    	<if test="null!=content">
+    		AND CONTENT = #{content}
+    	</if>
+    	<if test="null!=dataId">
+    		AND DATA_ID = #{dataId}
+    	</if>
+    	<if test="null!=messagingToken">
+    		AND MESSAGING_TOKEN = #{messagingToken}
+    	</if>
+    	<if test="null!=status">
+    		AND STATUS = #{status}
+    	</if>
+    	<if test="null!=createTime">
+    		AND CREATE_TIME = #{createTime}
+    	</if>
+    	<if test="null!=modifyTime">
+    		AND MODIFY_TIME = #{modifyTime}
+    	</if>
+	</sql>
+	
+	<sql id="noticeSetColumns">
+		    <if test="null!=id">
+		    ID = #{id},
+		    </if>
+		    <if test="null!=type">
+		    TYPE = #{type},
+		    </if>
+		    <if test="null!=content">
+		    CONTENT = #{content},
+		    </if>
+		    <if test="null!=dataId">
+		    DATA_ID = #{dataId},
+		    </if>
+		    <if test="null!=messagingToken">
+		    MESSAGING_TOKEN = #{messagingToken},
+		    </if>
+		    <if test="null!=status">
+		    STATUS = #{status},
+		    </if>
+		    <if test="null!=createTime">
+		    CREATE_TIME = #{createTime},
+		    </if>
+		    <if test="null!=modifyTime">
+		    MODIFY_TIME = #{modifyTime},
+		    </if>
+	</sql>
+
+	<resultMap id="noticeResultMap" type="com.zcsoft.rc.notice.model.entity.Notice">
+        <result property="id" column="ID"/>
+        <result property="type" column="TYPE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="dataId" column="DATA_ID"/>
+        <result property="messagingToken" column="MESSAGING_TOKEN"/>
+        <result property="status" column="STATUS"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="modifyTime" column="MODIFY_TIME"/>
+	</resultMap>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert">
+        INSERT INTO NOTICE (
+        	ID
+        	,TYPE
+        	,CONTENT
+        	,DATA_ID
+        	,MESSAGING_TOKEN
+        	,STATUS
+        	,CREATE_TIME
+        	,MODIFY_TIME
+        ) VALUES (
+        	#{id}
+        	,#{type}
+        	,#{content}
+        	,#{dataId}
+        	,#{messagingToken}
+        	,#{status}
+        	,#{createTime}
+        	,#{modifyTime}
+        )
+	</insert>
+	
+	<delete id="deleteById">
+	    DELETE FROM
+	    	NOTICE 
+	    WHERE
+	    ID = #{id} 
+    </delete>
+    
+    <delete id="deleteByCondition">
+	    DELETE FROM
+	    	NOTICE 
+	    WHERE
+	    	1=1
+		    <include refid="noticeColumns" />
+    </delete>
+    
+	<update id="updateById">
+	    UPDATE
+	    	NOTICE 
+        <set>
+	        <include refid="noticeSetColumns" />
+		</set>
+	    WHERE
+	    ID = #{id} 
+	</update>
+	
+    <select id="queryById" resultMap="noticeResultMap">
+		SELECT
+			ID
+			,TYPE
+			,CONTENT
+			,DATA_ID
+			,MESSAGING_TOKEN
+			,STATUS
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			NOTICE 
+		WHERE 
+			ID = #{id} 
+	</select>
+	
+	<select id="queryList" resultMap="noticeResultMap">
+		SELECT
+			ID
+			,TYPE
+			,CONTENT
+			,DATA_ID
+			,MESSAGING_TOKEN
+			,STATUS
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			NOTICE
+		WHERE
+			1=1
+			<include refid="noticeColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryAll" resultMap="noticeResultMap">
+		SELECT
+			ID
+			,TYPE
+			,CONTENT
+			,DATA_ID
+			,MESSAGING_TOKEN
+			,STATUS
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			NOTICE 
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryPaginationListCount" resultType="Integer">
+		SELECT
+			COUNT(0)
+		FROM
+			NOTICE 
+		<where>
+			<include refid="noticeColumns" />
+		</where>
+	</select>
+	
+	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="noticeResultMap">
+		SELECT
+			ID
+			,TYPE
+			,CONTENT
+			,DATA_ID
+			,MESSAGING_TOKEN
+			,STATUS
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			NOTICE
+		<where>
+			<include refid="noticeColumns" />
+		</where>
+		ORDER BY
+			ID
+	</select>
+	
+</mapper>
+
