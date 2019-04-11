@@ -37,6 +37,18 @@ public class Notice implements java.io.Serializable, IObjectDateOperationHistory
      */	
 	private String type;
     /**
+     * 操作系统(ANDROID:Android、IOS:ios)			db_column: OPERATING_SYSTEM 
+     */	
+	private String operatingSystem;
+    /**
+     * 操作系统子版本			db_column: OPERATING_SYSTEM_SUB 
+     */	
+	private String operatingSystemSub;
+    /**
+     * 消息推送Token			db_column: MESSAGING_TOKEN 
+     */	
+	private String messagingToken;
+    /**
      * 通知内容			db_column: CONTENT 
      */	
 	private String content;
@@ -44,10 +56,6 @@ public class Notice implements java.io.Serializable, IObjectDateOperationHistory
      * 数据ID			db_column: DATA_ID 
      */	
 	private String dataId;
-    /**
-     * 消息推送Token			db_column: MESSAGING_TOKEN 
-     */	
-	private String messagingToken;
     /**
      * 状态(UNTREATED:未处理、PROCESSING:处理中、SUCCESS:成功、FAIL:失败)			db_column: STATUS 
      */	
@@ -74,6 +82,24 @@ public class Notice implements java.io.Serializable, IObjectDateOperationHistory
 	public String getType() {
 		return this.type;
 	}
+	public void setOperatingSystem(String operatingSystem) {
+		this.operatingSystem = operatingSystem;
+	}
+	public String getOperatingSystem() {
+		return this.operatingSystem;
+	}
+	public void setOperatingSystemSub(String operatingSystemSub) {
+		this.operatingSystemSub = operatingSystemSub;
+	}
+	public String getOperatingSystemSub() {
+		return this.operatingSystemSub;
+	}
+	public void setMessagingToken(String messagingToken) {
+		this.messagingToken = messagingToken;
+	}
+	public String getMessagingToken() {
+		return this.messagingToken;
+	}
 	public void setContent(String content) {
 		this.content = content;
 	}
@@ -85,12 +111,6 @@ public class Notice implements java.io.Serializable, IObjectDateOperationHistory
 	}
 	public String getDataId() {
 		return this.dataId;
-	}
-	public void setMessagingToken(String messagingToken) {
-		this.messagingToken = messagingToken;
-	}
-	public String getMessagingToken() {
-		return this.messagingToken;
 	}
 	public void setStatus(String status) {
 		this.status = status;
@@ -115,9 +135,11 @@ public class Notice implements java.io.Serializable, IObjectDateOperationHistory
 		return new StringBuilder("Notice [")
 			.append("Id=").append(getId()).append(", ")
 					.append("Type=").append(getType()).append(", ")
+					.append("OperatingSystem=").append(getOperatingSystem()).append(", ")
+					.append("OperatingSystemSub=").append(getOperatingSystemSub()).append(", ")
+					.append("MessagingToken=").append(getMessagingToken()).append(", ")
 					.append("Content=").append(getContent()).append(", ")
 					.append("DataId=").append(getDataId()).append(", ")
-					.append("MessagingToken=").append(getMessagingToken()).append(", ")
 					.append("Status=").append(getStatus()).append(", ")
 					.append("CreateTime=").append(getCreateTime()).append(", ")
 					.append("ModifyTime=").append(getModifyTime())

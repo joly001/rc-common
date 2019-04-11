@@ -78,6 +78,12 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=messagingToken">
     		AND MESSAGING_TOKEN = #{messagingToken}
     	</if>
+    	<if test="null!=operatingSystem">
+    		AND OPERATING_SYSTEM = #{operatingSystem}
+    	</if>
+    	<if test="null!=operatingSystemSub">
+    		AND OPERATING_SYSTEM_SUB = #{operatingSystemSub}
+    	</if>
 	</sql>
 	
 	<sql id="userSetColumns">
@@ -150,6 +156,12 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=messagingToken">
 		    MESSAGING_TOKEN = #{messagingToken},
 		    </if>
+		    <if test="null!=operatingSystem">
+		    OPERATING_SYSTEM = #{operatingSystem},
+		    </if>
+		    <if test="null!=operatingSystemSub">
+		    OPERATING_SYSTEM_SUB = #{operatingSystemSub},
+		    </if>
 	</sql>
 
 	<resultMap id="userResultMap" type="com.zcsoft.rc.user.model.entity.User">
@@ -176,6 +188,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         <result property="createTime" column="CREATE_TIME"/>
         <result property="modifyTime" column="MODIFY_TIME"/>
         <result property="messagingToken" column="MESSAGING_TOKEN"/>
+        <result property="operatingSystem" column="OPERATING_SYSTEM"/>
+        <result property="operatingSystemSub" column="OPERATING_SYSTEM_SUB"/>
 	</resultMap>
 
 	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
@@ -204,6 +218,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,CREATE_TIME
         	,MODIFY_TIME
         	,MESSAGING_TOKEN
+        	,OPERATING_SYSTEM
+        	,OPERATING_SYSTEM_SUB
         ) VALUES (
         	#{id}
         	,#{username}
@@ -228,6 +244,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,#{createTime}
         	,#{modifyTime}
         	,#{messagingToken}
+        	,#{operatingSystem}
+        	,#{operatingSystemSub}
         )
 	</insert>
 	
@@ -281,6 +299,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,CREATE_TIME
 			,MODIFY_TIME
 			,MESSAGING_TOKEN
+			,OPERATING_SYSTEM
+			,OPERATING_SYSTEM_SUB
 		FROM
 			USER 
 		WHERE 
@@ -312,6 +332,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,CREATE_TIME
 			,MODIFY_TIME
 			,MESSAGING_TOKEN
+			,OPERATING_SYSTEM
+			,OPERATING_SYSTEM_SUB
 		FROM
 			USER
 		WHERE
@@ -346,6 +368,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,CREATE_TIME
 			,MODIFY_TIME
 			,MESSAGING_TOKEN
+			,OPERATING_SYSTEM
+			,OPERATING_SYSTEM_SUB
 		FROM
 			USER 
 		ORDER BY

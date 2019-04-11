@@ -15,14 +15,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=type">
     		AND TYPE = #{type}
     	</if>
+    	<if test="null!=operatingSystem">
+    		AND OPERATING_SYSTEM = #{operatingSystem}
+    	</if>
+    	<if test="null!=operatingSystemSub">
+    		AND OPERATING_SYSTEM_SUB = #{operatingSystemSub}
+    	</if>
+    	<if test="null!=messagingToken">
+    		AND MESSAGING_TOKEN = #{messagingToken}
+    	</if>
     	<if test="null!=content">
     		AND CONTENT = #{content}
     	</if>
     	<if test="null!=dataId">
     		AND DATA_ID = #{dataId}
-    	</if>
-    	<if test="null!=messagingToken">
-    		AND MESSAGING_TOKEN = #{messagingToken}
     	</if>
     	<if test="null!=status">
     		AND STATUS = #{status}
@@ -42,14 +48,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=type">
 		    TYPE = #{type},
 		    </if>
+		    <if test="null!=operatingSystem">
+		    OPERATING_SYSTEM = #{operatingSystem},
+		    </if>
+		    <if test="null!=operatingSystemSub">
+		    OPERATING_SYSTEM_SUB = #{operatingSystemSub},
+		    </if>
+		    <if test="null!=messagingToken">
+		    MESSAGING_TOKEN = #{messagingToken},
+		    </if>
 		    <if test="null!=content">
 		    CONTENT = #{content},
 		    </if>
 		    <if test="null!=dataId">
 		    DATA_ID = #{dataId},
-		    </if>
-		    <if test="null!=messagingToken">
-		    MESSAGING_TOKEN = #{messagingToken},
 		    </if>
 		    <if test="null!=status">
 		    STATUS = #{status},
@@ -65,9 +77,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<resultMap id="noticeResultMap" type="com.zcsoft.rc.notice.model.entity.Notice">
         <result property="id" column="ID"/>
         <result property="type" column="TYPE"/>
+        <result property="operatingSystem" column="OPERATING_SYSTEM"/>
+        <result property="operatingSystemSub" column="OPERATING_SYSTEM_SUB"/>
+        <result property="messagingToken" column="MESSAGING_TOKEN"/>
         <result property="content" column="CONTENT"/>
         <result property="dataId" column="DATA_ID"/>
-        <result property="messagingToken" column="MESSAGING_TOKEN"/>
         <result property="status" column="STATUS"/>
         <result property="createTime" column="CREATE_TIME"/>
         <result property="modifyTime" column="MODIFY_TIME"/>
@@ -78,18 +92,22 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         INSERT INTO NOTICE (
         	ID
         	,TYPE
+        	,OPERATING_SYSTEM
+        	,OPERATING_SYSTEM_SUB
+        	,MESSAGING_TOKEN
         	,CONTENT
         	,DATA_ID
-        	,MESSAGING_TOKEN
         	,STATUS
         	,CREATE_TIME
         	,MODIFY_TIME
         ) VALUES (
         	#{id}
         	,#{type}
+        	,#{operatingSystem}
+        	,#{operatingSystemSub}
+        	,#{messagingToken}
         	,#{content}
         	,#{dataId}
-        	,#{messagingToken}
         	,#{status}
         	,#{createTime}
         	,#{modifyTime}
@@ -125,9 +143,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			ID
 			,TYPE
+			,OPERATING_SYSTEM
+			,OPERATING_SYSTEM_SUB
+			,MESSAGING_TOKEN
 			,CONTENT
 			,DATA_ID
-			,MESSAGING_TOKEN
 			,STATUS
 			,CREATE_TIME
 			,MODIFY_TIME
@@ -141,9 +161,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			ID
 			,TYPE
+			,OPERATING_SYSTEM
+			,OPERATING_SYSTEM_SUB
+			,MESSAGING_TOKEN
 			,CONTENT
 			,DATA_ID
-			,MESSAGING_TOKEN
 			,STATUS
 			,CREATE_TIME
 			,MODIFY_TIME
@@ -160,9 +182,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			ID
 			,TYPE
+			,OPERATING_SYSTEM
+			,OPERATING_SYSTEM_SUB
+			,MESSAGING_TOKEN
 			,CONTENT
 			,DATA_ID
-			,MESSAGING_TOKEN
 			,STATUS
 			,CREATE_TIME
 			,MODIFY_TIME
@@ -186,9 +210,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			ID
 			,TYPE
+			,OPERATING_SYSTEM
+			,OPERATING_SYSTEM_SUB
+			,MESSAGING_TOKEN
 			,CONTENT
 			,DATA_ID
-			,MESSAGING_TOKEN
 			,STATUS
 			,CREATE_TIME
 			,MODIFY_TIME

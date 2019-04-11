@@ -162,6 +162,14 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
      * 消息推送Token			db_column: MESSAGING_TOKEN 
      */	
 	private String messagingToken;
+    /**
+     * 操作系统(ANDROID:Android、IOS:ios)			db_column: OPERATING_SYSTEM 
+     */	
+	private String operatingSystem;
+    /**
+     * 操作系统子版本			db_column: OPERATING_SYSTEM_SUB 
+     */	
+	private String operatingSystemSub;
 	//columns END
 
 	private TreeMap<String, String> authorities;
@@ -305,6 +313,18 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 	public String getMessagingToken() {
 		return this.messagingToken;
 	}
+	public void setOperatingSystem(String operatingSystem) {
+		this.operatingSystem = operatingSystem;
+	}
+	public String getOperatingSystem() {
+		return this.operatingSystem;
+	}
+	public void setOperatingSystemSub(String operatingSystemSub) {
+		this.operatingSystemSub = operatingSystemSub;
+	}
+	public String getOperatingSystemSub() {
+		return this.operatingSystemSub;
+	}
 
 	@Override
 	public String getUniqueId() {
@@ -383,7 +403,9 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 					.append("UserPicture=").append(getUserPicture()).append(", ")
 					.append("CreateTime=").append(getCreateTime()).append(", ")
 					.append("ModifyTime=").append(getModifyTime()).append(", ")
-					.append("MessagingToken=").append(getMessagingToken())
+					.append("MessagingToken=").append(getMessagingToken()).append(", ")
+					.append("OperatingSystem=").append(getOperatingSystem()).append(", ")
+					.append("OperatingSystemSub=").append(getOperatingSystemSub())
 		.append("]").toString();
 	}
 	
