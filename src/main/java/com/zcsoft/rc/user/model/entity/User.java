@@ -68,7 +68,6 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 	 */
 	public static final String BUILDER_USER_TYPE_OTHER = "07";
 
-
 	//columns START
     /**
      * id			db_column: ID 
@@ -100,7 +99,7 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
      */	
 	private String userType;
     /**
-     * 施工人员类型(00:机车、01:列车、02:作业人员、03:作业负责人、04:安全员、05:防护员、06:监理、07:其它人员)			db_column: BUILDER_USER_TYPE
+     * 施工人员类型(00:机车、01:列车、02:施工人员、03:安全防护员、04:作业负责人、05:监理、06:其它人员)			db_column: BUILDER_USER_TYPE 
      */	
 	private String builderUserType;
     /**
@@ -159,6 +158,10 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
      * 修改时间			db_column: MODIFY_TIME 
      */	
 	private Date modifyTime;
+    /**
+     * 消息推送Token			db_column: MESSAGING_TOKEN 
+     */	
+	private String messagingToken;
 	//columns END
 
 	private TreeMap<String, String> authorities;
@@ -296,6 +299,12 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 	public Date getModifyTime() {
 		return this.modifyTime;
 	}
+	public void setMessagingToken(String messagingToken) {
+		this.messagingToken = messagingToken;
+	}
+	public String getMessagingToken() {
+		return this.messagingToken;
+	}
 
 	@Override
 	public String getUniqueId() {
@@ -350,33 +359,33 @@ public class User implements java.io.Serializable, IObjectDateOperationHistory, 
 		return true;
 	}
 
-	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("User{");
-		sb.append("id='").append(id).append('\'');
-		sb.append(", username='").append(username).append('\'');
-		sb.append(", password='").append(password).append('\'');
-		sb.append(", nick='").append(nick).append('\'');
-		sb.append(", mobilePrefix='").append(mobilePrefix).append('\'');
-		sb.append(", mobile='").append(mobile).append('\'');
-		sb.append(", userType='").append(userType).append('\'');
-		sb.append(", builderUserType='").append(builderUserType).append('\'');
-		sb.append(", builderStatus='").append(builderStatus).append('\'');
-		sb.append(", admissionDate=").append(admissionDate);
-		sb.append(", leaveDate=").append(leaveDate);
-		sb.append(", wristStrapCode='").append(wristStrapCode).append('\'');
-		sb.append(", status='").append(status).append('\'');
-		sb.append(", loginToken='").append(loginToken).append('\'');
-		sb.append(", loginTokenExpiratTime=").append(loginTokenExpiratTime);
-		sb.append(", loginDeviceCode='").append(loginDeviceCode).append('\'');
-		sb.append(", lastLoginIp='").append(lastLoginIp).append('\'');
-		sb.append(", failLoginCounter=").append(failLoginCounter);
-		sb.append(", organizationId='").append(organizationId).append('\'');
-		sb.append(", userPicture='").append(userPicture).append('\'');
-		sb.append(", createTime=").append(createTime);
-		sb.append(", modifyTime=").append(modifyTime);
-		sb.append('}');
-		return sb.toString();
+		return new StringBuilder("User [")
+			.append("Id=").append(getId()).append(", ")
+					.append("Username=").append(getUsername()).append(", ")
+					.append("Password=").append(getPassword()).append(", ")
+					.append("Nick=").append(getNick()).append(", ")
+					.append("MobilePrefix=").append(getMobilePrefix()).append(", ")
+					.append("Mobile=").append(getMobile()).append(", ")
+					.append("UserType=").append(getUserType()).append(", ")
+					.append("BuilderUserType=").append(getBuilderUserType()).append(", ")
+					.append("BuilderStatus=").append(getBuilderStatus()).append(", ")
+					.append("AdmissionDate=").append(getAdmissionDate()).append(", ")
+					.append("LeaveDate=").append(getLeaveDate()).append(", ")
+					.append("WristStrapCode=").append(getWristStrapCode()).append(", ")
+					.append("Status=").append(getStatus()).append(", ")
+					.append("LoginToken=").append(getLoginToken()).append(", ")
+					.append("LoginTokenExpiratTime=").append(getLoginTokenExpiratTime()).append(", ")
+					.append("LoginDeviceCode=").append(getLoginDeviceCode()).append(", ")
+					.append("LastLoginIp=").append(getLastLoginIp()).append(", ")
+					.append("FailLoginCounter=").append(getFailLoginCounter()).append(", ")
+					.append("OrganizationId=").append(getOrganizationId()).append(", ")
+					.append("UserPicture=").append(getUserPicture()).append(", ")
+					.append("CreateTime=").append(getCreateTime()).append(", ")
+					.append("ModifyTime=").append(getModifyTime()).append(", ")
+					.append("MessagingToken=").append(getMessagingToken())
+		.append("]").toString();
 	}
+	
 }
 

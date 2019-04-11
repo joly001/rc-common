@@ -75,6 +75,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=modifyTime">
     		AND MODIFY_TIME = #{modifyTime}
     	</if>
+    	<if test="null!=messagingToken">
+    		AND MESSAGING_TOKEN = #{messagingToken}
+    	</if>
 	</sql>
 	
 	<sql id="userSetColumns">
@@ -144,6 +147,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=modifyTime">
 		    MODIFY_TIME = #{modifyTime},
 		    </if>
+		    <if test="null!=messagingToken">
+		    MESSAGING_TOKEN = #{messagingToken},
+		    </if>
 	</sql>
 
 	<resultMap id="userResultMap" type="com.zcsoft.rc.user.model.entity.User">
@@ -169,6 +175,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         <result property="userPicture" column="USER_PICTURE"/>
         <result property="createTime" column="CREATE_TIME"/>
         <result property="modifyTime" column="MODIFY_TIME"/>
+        <result property="messagingToken" column="MESSAGING_TOKEN"/>
 	</resultMap>
 
 	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
@@ -196,6 +203,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,USER_PICTURE
         	,CREATE_TIME
         	,MODIFY_TIME
+        	,MESSAGING_TOKEN
         ) VALUES (
         	#{id}
         	,#{username}
@@ -219,6 +227,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,#{userPicture}
         	,#{createTime}
         	,#{modifyTime}
+        	,#{messagingToken}
         )
 	</insert>
 	
@@ -271,6 +280,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,USER_PICTURE
 			,CREATE_TIME
 			,MODIFY_TIME
+			,MESSAGING_TOKEN
 		FROM
 			USER 
 		WHERE 
@@ -301,6 +311,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,USER_PICTURE
 			,CREATE_TIME
 			,MODIFY_TIME
+			,MESSAGING_TOKEN
 		FROM
 			USER
 		WHERE
@@ -334,17 +345,18 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,USER_PICTURE
 			,CREATE_TIME
 			,MODIFY_TIME
+			,MESSAGING_TOKEN
 		FROM
 			USER 
 		ORDER BY
 			ID
 	</select>
-	
+
 	<select id="queryPaginationListCount" resultType="Integer">
 		SELECT
-			COUNT(0)
+		COUNT(0)
 		FROM
-			USER
+		USER
 		<where>
 			USER_TYPE = #{userType}
 			<if test="null!=organizationId">
@@ -366,33 +378,33 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 	</select>
-	
+
 	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="userResultMap">
 		SELECT
-			ID
-			,USERNAME
-			,PASSWORD
-			,NICK
-			,MOBILE_PREFIX
-			,MOBILE
-			,USER_TYPE
-			,BUILDER_USER_TYPE
-			,BUILDER_STATUS
-			,ADMISSION_DATE
-			,LEAVE_DATE
-			,WRIST_STRAP_CODE
-			,STATUS
-			,LOGIN_TOKEN
-			,LOGIN_TOKEN_EXPIRAT_TIME
-			,LOGIN_DEVICE_CODE
-			,LAST_LOGIN_IP
-			,FAIL_LOGIN_COUNTER
-			,ORGANIZATION_ID
-			,USER_PICTURE
-			,CREATE_TIME
-			,MODIFY_TIME
+		ID
+		,USERNAME
+		,PASSWORD
+		,NICK
+		,MOBILE_PREFIX
+		,MOBILE
+		,USER_TYPE
+		,BUILDER_USER_TYPE
+		,BUILDER_STATUS
+		,ADMISSION_DATE
+		,LEAVE_DATE
+		,WRIST_STRAP_CODE
+		,STATUS
+		,LOGIN_TOKEN
+		,LOGIN_TOKEN_EXPIRAT_TIME
+		,LOGIN_DEVICE_CODE
+		,LAST_LOGIN_IP
+		,FAIL_LOGIN_COUNTER
+		,ORGANIZATION_ID
+		,USER_PICTURE
+		,CREATE_TIME
+		,MODIFY_TIME
 		FROM
-			USER
+		USER
 		<where>
 			USER_TYPE = #{userType}
 			<if test="null!=organizationId">
@@ -414,7 +426,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			</if>
 		</where>
 		ORDER BY
-			ID
+		ID
 	</select>
 
 	<select id="queryUserFollowListByUserId" resultMap="userResultMap">
