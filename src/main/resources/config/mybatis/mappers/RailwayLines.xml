@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="railwayLines">
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="railwayLinesColumns">
+    	<if test="null!=id">
+    		AND ID = #{id}
+    	</if>
+    	<if test="null!=railwayLinesName">
+    		AND RAILWAY_LINES_NAME = #{railwayLinesName}
+    	</if>
+    	<if test="null!=type">
+    		AND TYPE = #{type}
+    	</if>
+    	<if test="null!=startMileageId">
+    		AND START_MILEAGE_ID = #{startMileageId}
+    	</if>
+    	<if test="null!=startMileageName">
+    		AND START_MILEAGE_NAME = #{startMileageName}
+    	</if>
+    	<if test="null!=endMileageId">
+    		AND END_MILEAGE_ID = #{endMileageId}
+    	</if>
+    	<if test="null!=endMileageName">
+    		AND END_MILEAGE_NAME = #{endMileageName}
+    	</if>
+    	<if test="null!=startLongitude">
+    		AND START_LONGITUDE = #{startLongitude}
+    	</if>
+    	<if test="null!=startLatitude">
+    		AND START_LATITUDE = #{startLatitude}
+    	</if>
+    	<if test="null!=endLongitude">
+    		AND END_LONGITUDE = #{endLongitude}
+    	</if>
+    	<if test="null!=endLatitude">
+    		AND END_LATITUDE = #{endLatitude}
+    	</if>
+    	<if test="null!=previousStationId">
+    		AND PREVIOUS_STATION_ID = #{previousStationId}
+    	</if>
+    	<if test="null!=previousStationName">
+    		AND PREVIOUS_STATION_NAME = #{previousStationName}
+    	</if>
+    	<if test="null!=createTime">
+    		AND CREATE_TIME = #{createTime}
+    	</if>
+    	<if test="null!=modifyTime">
+    		AND MODIFY_TIME = #{modifyTime}
+    	</if>
+	</sql>
+	
+	<sql id="railwayLinesSetColumns">
+		    <if test="null!=id">
+		    ID = #{id},
+		    </if>
+		    <if test="null!=railwayLinesName">
+		    RAILWAY_LINES_NAME = #{railwayLinesName},
+		    </if>
+		    <if test="null!=type">
+		    TYPE = #{type},
+		    </if>
+		    <if test="null!=startMileageId">
+		    START_MILEAGE_ID = #{startMileageId},
+		    </if>
+		    <if test="null!=startMileageName">
+		    START_MILEAGE_NAME = #{startMileageName},
+		    </if>
+		    <if test="null!=endMileageId">
+		    END_MILEAGE_ID = #{endMileageId},
+		    </if>
+		    <if test="null!=endMileageName">
+		    END_MILEAGE_NAME = #{endMileageName},
+		    </if>
+		    <if test="null!=startLongitude">
+		    START_LONGITUDE = #{startLongitude},
+		    </if>
+		    <if test="null!=startLatitude">
+		    START_LATITUDE = #{startLatitude},
+		    </if>
+		    <if test="null!=endLongitude">
+		    END_LONGITUDE = #{endLongitude},
+		    </if>
+		    <if test="null!=endLatitude">
+		    END_LATITUDE = #{endLatitude},
+		    </if>
+		    <if test="null!=previousStationId">
+		    PREVIOUS_STATION_ID = #{previousStationId},
+		    </if>
+		    <if test="null!=previousStationName">
+		    PREVIOUS_STATION_NAME = #{previousStationName},
+		    </if>
+		    <if test="null!=createTime">
+		    CREATE_TIME = #{createTime},
+		    </if>
+		    <if test="null!=modifyTime">
+		    MODIFY_TIME = #{modifyTime},
+		    </if>
+	</sql>
+
+	<resultMap id="railwayLinesResultMap" type="com.zcsoft.rc.railway.model.entity.RailwayLines">
+        <result property="id" column="ID"/>
+        <result property="railwayLinesName" column="RAILWAY_LINES_NAME"/>
+        <result property="type" column="TYPE"/>
+        <result property="startMileageId" column="START_MILEAGE_ID"/>
+        <result property="startMileageName" column="START_MILEAGE_NAME"/>
+        <result property="endMileageId" column="END_MILEAGE_ID"/>
+        <result property="endMileageName" column="END_MILEAGE_NAME"/>
+        <result property="startLongitude" column="START_LONGITUDE"/>
+        <result property="startLatitude" column="START_LATITUDE"/>
+        <result property="endLongitude" column="END_LONGITUDE"/>
+        <result property="endLatitude" column="END_LATITUDE"/>
+        <result property="previousStationId" column="PREVIOUS_STATION_ID"/>
+        <result property="previousStationName" column="PREVIOUS_STATION_NAME"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="modifyTime" column="MODIFY_TIME"/>
+	</resultMap>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert">
+        INSERT INTO RAILWAY_LINES (
+        	ID
+        	,RAILWAY_LINES_NAME
+        	,TYPE
+        	,START_MILEAGE_ID
+        	,START_MILEAGE_NAME
+        	,END_MILEAGE_ID
+        	,END_MILEAGE_NAME
+        	,START_LONGITUDE
+        	,START_LATITUDE
+        	,END_LONGITUDE
+        	,END_LATITUDE
+        	,PREVIOUS_STATION_ID
+        	,PREVIOUS_STATION_NAME
+        	,CREATE_TIME
+        	,MODIFY_TIME
+        ) VALUES (
+        	#{id}
+        	,#{railwayLinesName}
+        	,#{type}
+        	,#{startMileageId}
+        	,#{startMileageName}
+        	,#{endMileageId}
+        	,#{endMileageName}
+        	,#{startLongitude}
+        	,#{startLatitude}
+        	,#{endLongitude}
+        	,#{endLatitude}
+        	,#{previousStationId}
+        	,#{previousStationName}
+        	,#{createTime}
+        	,#{modifyTime}
+        )
+	</insert>
+	
+	<delete id="deleteById">
+	    DELETE FROM
+	    	RAILWAY_LINES 
+	    WHERE
+	    ID = #{id} 
+    </delete>
+    
+    <delete id="deleteByCondition">
+	    DELETE FROM
+	    	RAILWAY_LINES 
+	    WHERE
+	    	1=1
+		    <include refid="railwayLinesColumns" />
+    </delete>
+    
+	<update id="updateById">
+	    UPDATE
+	    	RAILWAY_LINES 
+        <set>
+	        <include refid="railwayLinesSetColumns" />
+		</set>
+	    WHERE
+	    ID = #{id} 
+	</update>
+	
+    <select id="queryById" resultMap="railwayLinesResultMap">
+		SELECT
+			ID
+			,RAILWAY_LINES_NAME
+			,TYPE
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,PREVIOUS_STATION_ID
+			,PREVIOUS_STATION_NAME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			RAILWAY_LINES 
+		WHERE 
+			ID = #{id} 
+	</select>
+	
+	<select id="queryList" resultMap="railwayLinesResultMap">
+		SELECT
+			ID
+			,RAILWAY_LINES_NAME
+			,TYPE
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,PREVIOUS_STATION_ID
+			,PREVIOUS_STATION_NAME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			RAILWAY_LINES
+		WHERE
+			1=1
+			<include refid="railwayLinesColumns" />
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryAll" resultMap="railwayLinesResultMap">
+		SELECT
+			ID
+			,RAILWAY_LINES_NAME
+			,TYPE
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,PREVIOUS_STATION_ID
+			,PREVIOUS_STATION_NAME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			RAILWAY_LINES 
+		ORDER BY
+			ID
+	</select>
+	
+	<select id="queryPaginationListCount" resultType="Integer">
+		SELECT
+			COUNT(0)
+		FROM
+			RAILWAY_LINES 
+		<where>
+			<include refid="railwayLinesColumns" />
+		</where>
+	</select>
+	
+	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="railwayLinesResultMap">
+		SELECT
+			ID
+			,RAILWAY_LINES_NAME
+			,TYPE
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,PREVIOUS_STATION_ID
+			,PREVIOUS_STATION_NAME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			RAILWAY_LINES
+		<where>
+			<include refid="railwayLinesColumns" />
+		</where>
+		ORDER BY
+			ID
+	</select>
+	
+</mapper>
+
