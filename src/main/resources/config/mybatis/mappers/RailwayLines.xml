@@ -262,7 +262,12 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			RAILWAY_LINES 
 		<where>
-			<include refid="railwayLinesColumns" />
+			<if test="null!=railwayLinesName">
+				RAILWAY_LINES_NAME LIKE #{railwayLinesName}"%"
+			</if>
+			<if test="null!=type">
+				AND TYPE = #{type}
+			</if>
 		</where>
 	</select>
 	
@@ -286,7 +291,12 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			RAILWAY_LINES
 		<where>
-			<include refid="railwayLinesColumns" />
+			<if test="null!=railwayLinesName">
+				RAILWAY_LINES_NAME LIKE #{railwayLinesName}"%"
+			</if>
+			<if test="null!=type">
+				AND TYPE = #{type}
+			</if>
 		</where>
 		ORDER BY
 			ID
