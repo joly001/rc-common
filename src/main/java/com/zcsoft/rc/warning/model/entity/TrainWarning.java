@@ -7,7 +7,16 @@ import com.sharingif.cube.components.sequence.Sequence;
 import java.util.Date;
 
 public class TrainWarning implements java.io.Serializable, IObjectDateOperationHistory {
-	
+
+	/**
+	 * 类型(00:列车临站)
+	 */
+	public static final String TYPE_TEMPORARY_STATION = "00";
+	/**
+	 * 类型(01:列车接近)
+	 */
+	public static final String TYPE_TRAIN_APPROACHING = "01";
+
 	//columns START
     /**
      * id			db_column: ID 

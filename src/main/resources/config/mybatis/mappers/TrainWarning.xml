@@ -289,7 +289,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<include refid="trainWarningColumns" />
 		</where>
 		ORDER BY
-			ID
+			CREATE_TIME DESC
 	</select>
 	
 </mapper>
