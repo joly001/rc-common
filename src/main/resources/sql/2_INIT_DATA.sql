@@ -105,6 +105,7 @@ INSERT INTO AUTHORITY VALUES('sys.controller.SysParameterController.all','参数
 INSERT INTO AUTHORITY VALUES('sysParameter.all','参数查询菜单','C668562DBE244DD1815EA63F4193578C',NOW(),NOW());
 
 INSERT INTO AUTHORITY VALUES('railway.controller.RailwayLinesController.add','线路添加','AD660D5911B141149C5FFF7A9E81FA3B',NOW(),NOW());
+INSERT INTO AUTHORITY VALUES('railway.controller.RailwayLinesController.all','线路查询所有','AD660D5911B141149C5FFF7A9E81FA3B',NOW(),NOW());
 INSERT INTO AUTHORITY VALUES('railway.controller.RailwayLinesController.delete','线路删除','BF31B3066A9042BDACFC98652BD6F750',NOW(),NOW());
 INSERT INTO AUTHORITY VALUES('railway.controller.RailwayLinesController.update','线路修改','37213170AEFF4BDF8E2AA0405A17FDFE',NOW(),NOW());
 INSERT INTO AUTHORITY VALUES('railway.controller.RailwayLinesController.list','线路分页查询','5BA7FE90872C4EACA961711A0A8167A1',NOW(),NOW());

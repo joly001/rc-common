@@ -230,7 +230,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			1=1
 			<include refid="railwayLinesColumns" />
 		ORDER BY
-			ID
+			START_MILEAGE_NAME
 	</select>
 	
 	<select id="queryAll" resultMap="railwayLinesResultMap">
@@ -298,8 +298,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				AND TYPE = #{type}
 			</if>
 		</where>
-		ORDER BY
-			ID
+			ORDER BY
+			START_MILEAGE_NAME
 	</select>
 	
 </mapper>
