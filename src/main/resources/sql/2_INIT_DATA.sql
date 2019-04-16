@@ -92,6 +92,7 @@ INSERT INTO AUTHORITY VALUES('mileage.controller.WorkSegmentController.delete','
 INSERT INTO AUTHORITY VALUES('mileage.controller.WorkSegmentController.update','作业面修改','53DDA994EAE546658D3999A199EAE2E1',NOW(),NOW());
 INSERT INTO AUTHORITY VALUES('mileage.controller.WorkSegmentController.list','作业面分页查询','69226B3E9B0240DBB54F1979597DB089',NOW(),NOW());
 INSERT INTO AUTHORITY VALUES('workSegment.list','作业面分页查询菜单','69226B3E9B0240DBB54F1979597DB089',NOW(),NOW());
+INSERT INTO AUTHORITY VALUES('mileage.controller.WorkSegmentController.workSegmentDataTimeList','作业面作业时间查询','69226B3E9B0240DBB54F1979597DB089',NOW(),NOW());
 INSERT INTO AUTHORITY VALUES('mileage.controller.WorkSegmentController.mileageWorkSegment','作业面列表，根据里程查询','69226B3E9B0240DBB54F1979597DB089',NOW(),NOW());
 
 INSERT INTO AUTHORITY VALUES('machinery.controller.MachineryController.add','机械添加','C545DF9618654AFF9C5EC8E8ECCCADE6',NOW(),NOW());
