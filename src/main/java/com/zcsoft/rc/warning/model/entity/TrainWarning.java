@@ -9,6 +9,15 @@ import java.util.Date;
 public class TrainWarning implements java.io.Serializable, IObjectDateOperationHistory {
 
 	/**
+	 * 状态(CREATE:创建)
+	 */
+	public static final String STATUS_CREATE = "CREATE";
+	/**
+	 * 状态(FINISH:结束)
+	 */
+	public static final String STATUS_FINISH = "FINISH";
+
+	/**
 	 * 类型(00:列车临站)
 	 */
 	public static final String TYPE_TEMPORARY_STATION = "00";

@@ -7,4 +7,11 @@ import com.zcsoft.rc.common.dao.BaseDAO;
 
 public interface RailwayLinesDAO extends BaseDAO<RailwayLines,java.lang.String> {
 
+    /**
+     * 查询区间经度车站信息
+     * @param longitude
+     * @return
+     */
+    RailwayLines queryByStartLongitudeEndLongitude(double longitude);
+
 }

@@ -5,6 +5,7 @@ import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
 import com.sharingif.cube.components.sequence.Sequence;
 
 import java.util.Date;
+import java.util.List;
 
 public class WorkSegment implements java.io.Serializable, IObjectDateOperationHistory {
 	
@@ -95,6 +96,8 @@ public class WorkSegment implements java.io.Serializable, IObjectDateOperationHi
      */	
 	private Date modifyTime;
 	//columns END
+
+	private List<WorkSegmentDataTime> workSegmentDataTimeList;
 
 	public void setId(String id) {
 		this.id = id;
@@ -223,31 +226,41 @@ public class WorkSegment implements java.io.Serializable, IObjectDateOperationHi
 		return this.modifyTime;
 	}
 
-	public String toString() {
-		return new StringBuilder("WorkSegment [")
-			.append("Id=").append(getId()).append(", ")
-					.append("WorkSegmentName=").append(getWorkSegmentName()).append(", ")
-					.append("MileageSegmentId=").append(getMileageSegmentId()).append(", ")
-					.append("MileageSegmentName=").append(getMileageSegmentName()).append(", ")
-					.append("StartMileageId=").append(getStartMileageId()).append(", ")
-					.append("StartMileageName=").append(getStartMileageName()).append(", ")
-					.append("EndMileageId=").append(getEndMileageId()).append(", ")
-					.append("EndMileageName=").append(getEndMileageName()).append(", ")
-					.append("StartLongitude=").append(getStartLongitude()).append(", ")
-					.append("StartLatitude=").append(getStartLatitude()).append(", ")
-					.append("EndLongitude=").append(getEndLongitude()).append(", ")
-					.append("EndLatitude=").append(getEndLatitude()).append(", ")
-					.append("WorkType=").append(getWorkType()).append(", ")
-					.append("WorkDate=").append(getWorkDate()).append(", ")
-					.append("SafetyProtectionPersonnel=").append(getSafetyProtectionPersonnel()).append(", ")
-					.append("WorkPersonnel=").append(getWorkPersonnel()).append(", ")
-					.append("SubmitUserId=").append(getSubmitUserId()).append(", ")
-					.append("SubmitUserName=").append(getSubmitUserName()).append(", ")
-					.append("SubmitTime=").append(getSubmitTime()).append(", ")
-					.append("CreateTime=").append(getCreateTime()).append(", ")
-					.append("ModifyTime=").append(getModifyTime())
-		.append("]").toString();
+	public List<WorkSegmentDataTime> getWorkSegmentDataTimeList() {
+		return workSegmentDataTimeList;
 	}
-	
+
+	public void setWorkSegmentDataTimeList(List<WorkSegmentDataTime> workSegmentDataTimeList) {
+		this.workSegmentDataTimeList = workSegmentDataTimeList;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("WorkSegment{");
+		sb.append("id='").append(id).append('\'');
+		sb.append(", workSegmentName='").append(workSegmentName).append('\'');
+		sb.append(", mileageSegmentId='").append(mileageSegmentId).append('\'');
+		sb.append(", mileageSegmentName='").append(mileageSegmentName).append('\'');
+		sb.append(", startMileageId='").append(startMileageId).append('\'');
+		sb.append(", startMileageName='").append(startMileageName).append('\'');
+		sb.append(", endMileageId='").append(endMileageId).append('\'');
+		sb.append(", endMileageName='").append(endMileageName).append('\'');
+		sb.append(", startLongitude=").append(startLongitude);
+		sb.append(", startLatitude=").append(startLatitude);
+		sb.append(", endLongitude=").append(endLongitude);
+		sb.append(", endLatitude=").append(endLatitude);
+		sb.append(", workType='").append(workType).append('\'');
+		sb.append(", workDate=").append(workDate);
+		sb.append(", safetyProtectionPersonnel=").append(safetyProtectionPersonnel);
+		sb.append(", workPersonnel=").append(workPersonnel);
+		sb.append(", submitUserId='").append(submitUserId).append('\'');
+		sb.append(", submitUserName='").append(submitUserName).append('\'');
+		sb.append(", submitTime=").append(submitTime);
+		sb.append(", createTime=").append(createTime);
+		sb.append(", modifyTime=").append(modifyTime);
+		sb.append(", workSegmentDataTimeList=").append(workSegmentDataTimeList);
+		sb.append('}');
+		return sb.toString();
+	}
 }
 

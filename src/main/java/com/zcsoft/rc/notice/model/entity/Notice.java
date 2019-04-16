@@ -12,6 +12,14 @@ public class Notice implements java.io.Serializable, IObjectDateOperationHistory
 	 * 通知类型(00:接近警告线)
 	 */
 	public static final String TYPE_CORDON = "00";
+	/**
+	 * 通知类型(01:列车临站)
+	 */
+	public static final String TYPE_TEMPORARY_STATION = "01";
+	/**
+	 * 通知类型(02:列车接近)
+	 */
+	public static final String TYPE_TRAIN_APPROACHING = "02";
 
 	/**
 	 * 状态(UNTREATED:未处理)

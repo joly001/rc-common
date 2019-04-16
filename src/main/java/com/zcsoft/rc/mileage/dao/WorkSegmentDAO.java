@@ -11,7 +11,7 @@ import java.util.List;
 public interface WorkSegmentDAO extends BaseDAO<WorkSegment,java.lang.String> {
 
     /**
-     * 查询区间纬度作业面信息
+     * 查询区间经度作业面信息
      * @param longitude
      * @return
      */
