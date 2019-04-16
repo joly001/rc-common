@@ -16,6 +16,10 @@ public class SysParameter implements java.io.Serializable, IObjectDateOperationH
 	 * 火车接近作业面人员报警距离
 	 */
 	public static final String KEY_TRAIN_APPROACHING_DISTANCE = "TRAIN_APPROACHING_DISTANCE";
+	/**
+	 * 临站报警提前站数
+	 */
+	public static final String KEY_NUMBER_ALARM_ADVANCE_STATIONS = "NUMBER_ALARM_ADVANCE_STATIONS";
 	
 	//columns START
     /**
