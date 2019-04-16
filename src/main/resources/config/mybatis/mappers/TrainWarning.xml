@@ -12,6 +12,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=id">
     		AND ID = #{id}
     	</if>
+    	<if test="null!=workWarningId">
+    		AND WORK_WARNING_ID = #{workWarningId}
+    	</if>
     	<if test="null!=nick">
     		AND NICK = #{nick}
     	</if>
@@ -60,6 +63,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=id">
 		    ID = #{id},
 		    </if>
+		    <if test="null!=workWarningId">
+		    WORK_WARNING_ID = #{workWarningId},
+		    </if>
 		    <if test="null!=nick">
 		    NICK = #{nick},
 		    </if>
@@ -106,6 +112,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 	<resultMap id="trainWarningResultMap" type="com.zcsoft.rc.warning.model.entity.TrainWarning">
         <result property="id" column="ID"/>
+        <result property="workWarningId" column="WORK_WARNING_ID"/>
         <result property="nick" column="NICK"/>
         <result property="mobile" column="MOBILE"/>
         <result property="userId" column="USER_ID"/>
@@ -126,6 +133,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<insert id="insert">
         INSERT INTO TRAIN_WARNING (
         	ID
+        	,WORK_WARNING_ID
         	,NICK
         	,MOBILE
         	,USER_ID
@@ -142,6 +150,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,MODIFY_TIME
         ) VALUES (
         	#{id}
+        	,#{workWarningId}
         	,#{nick}
         	,#{mobile}
         	,#{userId}
@@ -187,6 +196,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     <select id="queryById" resultMap="trainWarningResultMap">
 		SELECT
 			ID
+			,WORK_WARNING_ID
 			,NICK
 			,MOBILE
 			,USER_ID
@@ -210,6 +220,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="queryList" resultMap="trainWarningResultMap">
 		SELECT
 			ID
+			,WORK_WARNING_ID
 			,NICK
 			,MOBILE
 			,USER_ID
@@ -236,6 +247,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="queryAll" resultMap="trainWarningResultMap">
 		SELECT
 			ID
+			,WORK_WARNING_ID
 			,NICK
 			,MOBILE
 			,USER_ID
@@ -269,6 +281,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="queryPaginationList" parameterType="PaginationCondition" resultMap="trainWarningResultMap">
 		SELECT
 			ID
+			,WORK_WARNING_ID
 			,NICK
 			,MOBILE
 			,USER_ID

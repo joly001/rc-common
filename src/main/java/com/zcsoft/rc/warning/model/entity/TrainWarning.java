@@ -2,7 +2,6 @@ package com.zcsoft.rc.warning.model.entity;
 
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
-import com.sharingif.cube.components.sequence.Sequence;
 
 import java.util.Date;
 
@@ -29,9 +28,12 @@ public class TrainWarning implements java.io.Serializable, IObjectDateOperationH
 	//columns START
     /**
      * id			db_column: ID 
-     */
-	@Sequence(ref="uuidSequenceGenerator")
+     */	
 	private String id;
+    /**
+     * 警告id			db_column: WORK_WARNING_ID 
+     */	
+	private String workWarningId;
     /**
      * 昵称			db_column: NICK 
      */	
@@ -95,6 +97,12 @@ public class TrainWarning implements java.io.Serializable, IObjectDateOperationH
 	}
 	public String getId() {
 		return this.id;
+	}
+	public void setWorkWarningId(String workWarningId) {
+		this.workWarningId = workWarningId;
+	}
+	public String getWorkWarningId() {
+		return this.workWarningId;
 	}
 	public void setNick(String nick) {
 		this.nick = nick;
@@ -184,6 +192,7 @@ public class TrainWarning implements java.io.Serializable, IObjectDateOperationH
 	public String toString() {
 		return new StringBuilder("TrainWarning [")
 			.append("Id=").append(getId()).append(", ")
+					.append("WorkWarningId=").append(getWorkWarningId()).append(", ")
 					.append("Nick=").append(getNick()).append(", ")
 					.append("Mobile=").append(getMobile()).append(", ")
 					.append("UserId=").append(getUserId()).append(", ")
