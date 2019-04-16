@@ -12,6 +12,10 @@ public class SysParameter implements java.io.Serializable, IObjectDateOperationH
 	 * 安全红线
 	 */
 	public static final String KEY_CORDON = "CORDON";
+	/**
+	 * 火车接近作业面人员报警距离
+	 */
+	public static final String KEY_TRAIN_APPROACHING_DISTANCE = "TRAIN_APPROACHING_DISTANCE";
 	
 	//columns START
     /**
