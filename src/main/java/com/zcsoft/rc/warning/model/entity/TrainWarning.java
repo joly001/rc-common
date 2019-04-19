@@ -2,6 +2,7 @@ package com.zcsoft.rc.warning.model.entity;
 
 
 import com.sharingif.cube.components.monitor.IObjectDateOperationHistory;
+import com.sharingif.cube.components.sequence.Sequence;
 
 import java.util.Date;
 
@@ -37,7 +38,8 @@ public class TrainWarning implements java.io.Serializable, IObjectDateOperationH
 	//columns START
     /**
      * id			db_column: ID 
-     */	
+     */
+	@Sequence(ref="uuidSequenceGenerator")
 	private String id;
     /**
      * 警告id			db_column: WORK_WARNING_ID 
