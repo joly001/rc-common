@@ -8,6 +8,15 @@ import java.util.Date;
 public class TrainWarning implements java.io.Serializable, IObjectDateOperationHistory {
 
 	/**
+	 * 上/下行(0:上行)
+	 */
+	public static final String DIRECTION_UP = "0";
+	/**
+	 * 上/下行(1:下行)
+	 */
+	public static final String DIRECTION_DOWN = "1";
+
+	/**
 	 * 状态(CREATE:创建)
 	 */
 	public static final String STATUS_CREATE = "CREATE";
