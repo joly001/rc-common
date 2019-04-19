@@ -304,7 +304,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 	<select id="queryByStartLongitudeEndLongitude" resultMap="railwayLinesResultMap">
 		<![CDATA[
-		ID
+		SELECT
+			ID
 			,RAILWAY_LINES_NAME
 			,TYPE
 			,START_MILEAGE_ID
