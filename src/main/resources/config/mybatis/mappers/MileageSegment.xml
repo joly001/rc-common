@@ -265,6 +265,32 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			MILEAGE_SEGMENT_NAME
 	</select>
+
+	<select id="queryByStartLongitudeEndLongitude" resultMap="mileageSegmentResultMap">
+		<![CDATA[
+		SELECT
+			ID
+			,MILEAGE_SEGMENT_NAME
+			,START_MILEAGE_ID
+			,START_MILEAGE_NAME
+			,END_MILEAGE_ID
+			,END_MILEAGE_NAME
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,WORKING_CYCLE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			MILEAGE_SEGMENT
+		WHERE
+				(START_LONGITUDE >= #{longitude} AND END_LONGITUDE < #{longitude})
+			OR
+				(START_LONGITUDE <= #{longitude} AND END_LONGITUDE > #{longitude})
+		LIMIT 1
+		]]>
+	</select>
 	
 </mapper>
 
