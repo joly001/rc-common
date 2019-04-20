@@ -11,5 +11,9 @@ import com.zcsoft.rc.common.dao.impl.BaseDAOImpl;
 
 @Repository
 public class MileageDAOImpl extends BaseDAOImpl<Mileage,java.lang.String> implements MileageDAO {
-	
+
+    @Override
+    public Mileage queryByStartLongitudeEndLongitude(double longitude) {
+        return selectOne("queryByStartLongitudeEndLongitude", longitude);
+    }
 }

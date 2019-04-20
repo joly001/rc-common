@@ -405,9 +405,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			WORK_SEGMENT
 		WHERE
-				START_LONGITUDE >= #{longitude}
-			AND
-				END_LONGITUDE <= #{longitude}
+				(START_LONGITUDE >= #{longitude} AND END_LONGITUDE <= #{longitude})
+			OR
+				(START_LONGITUDE <= #{longitude} AND END_LONGITUDE >= #{longitude})
 		ORDER BY
 			WORK_DATE DESC
 		LIMIT 1

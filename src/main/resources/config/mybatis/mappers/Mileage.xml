@@ -217,6 +217,28 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			MILEAGE_NAME
 	</select>
+
+	<select id="queryByStartLongitudeEndLongitude" resultMap="workSegmentResultMap">
+		<![CDATA[
+		SELECT
+			ID
+			,MILEAGE_NAME
+			,MILEAGE_TYPE
+			,START_LONGITUDE
+			,START_LATITUDE
+			,END_LONGITUDE
+			,END_LATITUDE
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			MILEAGE
+		WHERE
+				(START_LONGITUDE > #{longitude} AND END_LONGITUDE < #{longitude})
+			OR
+				(START_LONGITUDE < #{longitude} AND END_LONGITUDE > #{longitude})
+		LIMIT 1
+		]]>
+	</select>
 	
 </mapper>
 
