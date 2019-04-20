@@ -20,6 +20,13 @@ public class SysParameter implements java.io.Serializable, IObjectDateOperationH
 	 * 临站报警提前站数
 	 */
 	public static final String KEY_NUMBER_ALARM_ADVANCE_STATIONS = "NUMBER_ALARM_ADVANCE_STATIONS";
+	/**
+	 * 碾压限定距离
+	 */
+	public static final String KEY_ROLLING_LIMIT_DISTANCE = "ROLLING_LIMIT_DISTANCE";/**
+	 * 碾压报警机械类型
+	 */
+	public static final String KEY_TYPE_ROLLING_ALARM_MACHINERY = "TYPE_ROLLING_ALARM_MACHINERY";
 	
 	//columns START
     /**
