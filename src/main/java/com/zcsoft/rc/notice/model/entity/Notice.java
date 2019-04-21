@@ -20,6 +20,10 @@ public class Notice implements java.io.Serializable, IObjectDateOperationHistory
 	 * 通知类型(02:列车接近)
 	 */
 	public static final String TYPE_TRAIN_APPROACHING = "02";
+	/**
+	 * 通知类型(03:碾压光缆)
+	 */
+	public static final String TYPE_ROLLING_CABLE = "03";
 
 	/**
 	 * 状态(UNTREATED:未处理)

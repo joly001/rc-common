@@ -21,6 +21,10 @@ public class WorkWarning implements java.io.Serializable, IObjectDateOperationHi
 	 * 类型(00:接近警告线)
 	 */
 	public static final String TYPE_APPROACHING_THE_WARNING_LINE = "00";
+	/**
+	 * 类型(01:碾压光缆)
+	 */
+	public static final String TYPE_ROLLING_CABLE = "01";
 
 	//columns START
     /**
