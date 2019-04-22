@@ -334,7 +334,15 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			WORK_SEGMENT 
 		<where>
-			<include refid="workSegmentColumns" />
+			<if test="null!=workSegmentName">
+				AND WORK_SEGMENT_NAME LIKE #{workSegmentName}"%"
+			</if>
+			<if test="null!=mileageSegmentName">
+				AND MILEAGE_SEGMENT_NAME LIKE #{mileageSegmentName}"%"
+			</if>
+			<if test="null!=workDate">
+				AND WORK_DATE = #{workDate}
+			</if>
 		</where>
 	</select>
 	
@@ -365,13 +373,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			WORK_SEGMENT
 		<where>
 			<if test="null!=workSegmentName">
-				OR WORK_SEGMENT_NAME LIKE #{workSegmentName}"%"
+				AND WORK_SEGMENT_NAME LIKE #{workSegmentName}"%"
 			</if>
 			<if test="null!=mileageSegmentName">
-				OR MILEAGE_SEGMENT_NAME LIKE #{mileageSegmentName}"%"
+				AND MILEAGE_SEGMENT_NAME LIKE #{mileageSegmentName}"%"
 			</if>
 			<if test="null!=submitTime">
-				OR SUBMIT_TIME >= #{submitTime}
+				AND WORK_DATE = #{workDate}
 			</if>
 		</where>
 		ORDER BY
