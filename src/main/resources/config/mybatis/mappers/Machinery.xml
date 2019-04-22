@@ -294,7 +294,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				M.USER_ID = U.ID
 		<where>
 			<if test="null!=nick">
-				NICK LIKE "%"#{nick}"%"
+				M.NICK LIKE "%"#{nick}"%"
 			</if>
 		</where>
 		ORDER BY
