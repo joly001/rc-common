@@ -263,7 +263,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			RAILWAY_LINES 
 		<where>
 			<if test="null!=railwayLinesName">
-				RAILWAY_LINES_NAME LIKE #{railwayLinesName}"%"
+				RAILWAY_LINES_NAME LIKE "%"#{railwayLinesName}"%"
 			</if>
 			<if test="null!=type">
 				AND TYPE = #{type}
@@ -292,7 +292,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			RAILWAY_LINES
 		<where>
 			<if test="null!=railwayLinesName">
-				RAILWAY_LINES_NAME LIKE #{railwayLinesName}"%"
+				RAILWAY_LINES_NAME LIKE "%"#{railwayLinesName}"%"
 			</if>
 			<if test="null!=type">
 				AND TYPE = #{type}

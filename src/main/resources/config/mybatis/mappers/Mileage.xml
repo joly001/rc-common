@@ -191,7 +191,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			MILEAGE 
 		<where>
 			<if test="null!=mileageName">
-				AND MILEAGE_NAME LIKE #{mileageName}"%"
+				AND MILEAGE_NAME LIKE "%"#{mileageName}"%"
 			</if>
 		</where>
 	</select>
@@ -211,7 +211,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			MILEAGE
 		<where>
 			<if test="null!=mileageName">
-				AND MILEAGE_NAME LIKE #{mileageName}"%"
+				AND MILEAGE_NAME LIKE "%"#{mileageName}"%"
 			</if>
 		</where>
 		ORDER BY

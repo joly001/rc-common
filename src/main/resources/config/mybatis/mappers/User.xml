@@ -387,13 +387,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				AND ORGANIZATION_ID = #{organizationId}
 			</if>
 			<if test="null!=nick">
-				AND NICK LIKE #{nick}"%"
+				AND NICK LIKE "%"#{nick}"%"
 			</if>
 			<if test="null!=mobile">
-				AND MOBILE LIKE #{mobile}"%"
+				AND MOBILE LIKE "%"#{mobile}"%"
 			</if>
 			<if test="null!=wristStrapCode">
-				AND WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+				AND WRIST_STRAP_CODE LIKE "%"#{wristStrapCode}"%"
 			</if>
 		</where>
 	</select>
@@ -433,13 +433,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				AND ORGANIZATION_ID = #{organizationId}
 			</if>
 			<if test="null!=nick">
-				AND NICK LIKE #{nick}"%"
+				AND NICK LIKE "%"#{nick}"%"
 			</if>
 			<if test="null!=mobile">
-				AND MOBILE LIKE #{mobile}"%"
+				AND MOBILE LIKE "%"#{mobile}"%"
 			</if>
 			<if test="null!=wristStrapCode">
-				AND WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+				AND WRIST_STRAP_CODE LIKE "%"#{wristStrapCode}"%"
 			</if>
 		</where>
 		ORDER BY
@@ -508,8 +508,14 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				) UF
 			ON
 				U.ID = UF.USER_FOLLOW_ID
-		WHERE
-			U.ORGANIZATION_ID = #{organizationId}
+		<where>
+			<if test="null==nick">
+				U.ORGANIZATION_ID = #{organizationId}
+			</if>
+			<if test="null!=nick">
+			  	AND NICK LIKE "%"#{nick}"%"
+			</if>
+		</where>
 		ORDER BY
 			ADMISSION_DATE
 	</select>

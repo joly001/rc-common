@@ -217,13 +217,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			MACHINERY
 		<where>
 			<if test="null!=machineryName">
-				AND MACHINERY_NAME LIKE #{machineryName}"%"
+				AND MACHINERY_NAME LIKE "%"#{machineryName}"%"
 			</if>
 			<if test="null!=wristStrapCode">
-				AND WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+				AND WRIST_STRAP_CODE LIKE "%"#{wristStrapCode}"%"
 			</if>
 			<if test="null!=nick">
-				AND NICK LIKE #{nick}"%"
+				AND NICK LIKE "%"#{nick}"%"
 			</if>
 		</where>
 	</select>
@@ -245,13 +245,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			MACHINERY
 		<where>
 			<if test="null!=machineryName">
-				OR MACHINERY_NAME LIKE #{machineryName}"%"
+				AND MACHINERY_NAME LIKE "%"#{machineryName}"%"
 			</if>
 			<if test="null!=wristStrapCode">
-				OR WRIST_STRAP_CODE LIKE #{wristStrapCode}"%"
+				AND WRIST_STRAP_CODE LIKE "%"#{wristStrapCode}"%"
 			</if>
 			<if test="null!=nick">
-				OR NICK LIKE #{nick}"%"
+				AND NICK LIKE "%"#{nick}"%"
 			</if>
 		</where>
 		ORDER BY
@@ -292,6 +292,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				USER U
 			ON
 				M.USER_ID = U.ID
+		<where>
+			<if test="null!=nick">
+				NICK LIKE "%"#{nick}"%"
+			</if>
+		</where>
 		ORDER BY
 			M.CREATE_TIME
 	</select>

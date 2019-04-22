@@ -23,11 +23,12 @@ public class UserDAOImpl extends BaseDAOImpl<User,java.lang.String> implements U
     }
 
     @Override
-    public List<User> queryUserFollowListByOrganizationId(String userId, String organizationId, String followType) {
+    public List<User> queryUserFollowListByOrganizationId(String userId, String organizationId, String followType, String nick) {
         Map<String, String> parameter = new HashMap<>();
         parameter.put("userId", userId);
         parameter.put("organizationId", organizationId);
         parameter.put("followType", followType);
+        parameter.put("nick", nick);
 
         return selectList("queryUserFollowListByOrganizationId", parameter);
     }

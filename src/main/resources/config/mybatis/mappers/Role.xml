@@ -156,7 +156,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		WHERE
 			1=1
 			<if test="null!=roleName">
-				AND ROLE_NAME LIKE #{roleName}"%"
+				AND ROLE_NAME LIKE "%"#{roleName}"%"
 			</if>
 	</select>
 	
@@ -173,7 +173,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		WHERE
 			1=1
 			<if test="null!=roleName">
-				AND ROLE_NAME LIKE #{roleName}"%"
+				AND ROLE_NAME LIKE "%"#{roleName}"%"
 			</if>
 		ORDER BY
 			ROLE_TYPE DESC

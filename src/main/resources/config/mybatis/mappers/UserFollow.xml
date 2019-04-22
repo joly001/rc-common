@@ -176,6 +176,25 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			AND
 				U.ORGANIZATION_ID = #{organizationId}
 	</delete>
+
+	<select id="queryListByUserIdOrganizationId" resultMap="userFollowResultMap">
+		SELECT
+		UF.USER_ID
+		,UF.USER_FOLLOW_ID
+		,UF.FOLLOW_TYPE
+		,UF.CREATE_TIME
+		,UF.MODIFY_TIME
+		FROM
+				USER_FOLLOW UF
+			JOIN
+				USER U
+			ON
+				FU.USER_FOLLOW_ID = U.ID
+		WHERE
+				U.ORGANIZATION_ID = #{organizationId}
+			AND
+				UF.USER_ID = #{userId}
+	</select>
 	
 </mapper>
 

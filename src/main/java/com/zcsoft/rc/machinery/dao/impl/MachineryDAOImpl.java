@@ -17,10 +17,11 @@ import java.util.Map;
 public class MachineryDAOImpl extends BaseDAOImpl<Machinery,java.lang.String> implements MachineryDAO {
 
     @Override
-    public List<Machinery> queryUserFollowList(String userId, String followType) {
+    public List<Machinery> queryUserFollowList(String userId, String followType, String nick) {
         Map<String, String> parameter = new HashMap<>();
         parameter.put("userId", userId);
         parameter.put("followType", followType);
+        parameter.put("nick", nick);
 
         return selectList("queryUserFollowList", parameter);
     }

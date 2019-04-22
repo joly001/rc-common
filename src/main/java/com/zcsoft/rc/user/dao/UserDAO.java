@@ -21,8 +21,9 @@ public interface UserDAO extends BaseDAO<User,java.lang.String> {
      * @param userId
      * @param organizationId
      * @param followType
+     * @param nick
      * @return
      */
-    List<User> queryUserFollowListByOrganizationId(String userId, String organizationId, String followType);
+    List<User> queryUserFollowListByOrganizationId(String userId, String organizationId, String followType, String nick);
 
 }
