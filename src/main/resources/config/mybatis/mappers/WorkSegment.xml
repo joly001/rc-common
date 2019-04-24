@@ -332,16 +332,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		SELECT
 			COUNT(0)
 		FROM
-			WORK_SEGMENT 
+			WORK_SEGMENT
 		<where>
 			<if test="null!=workSegmentName">
-				AND WORK_SEGMENT_NAME LIKE "%"#{workSegmentName}"%"
+				OR WORK_SEGMENT_NAME LIKE "%"#{workSegmentName}"%"
 			</if>
 			<if test="null!=mileageSegmentName">
-				AND MILEAGE_SEGMENT_NAME LIKE "%"#{mileageSegmentName}"%"
-			</if>
-			<if test="null!=workDate">
-				AND WORK_DATE = #{workDate}
+				OR MILEAGE_SEGMENT_NAME LIKE "%"#{mileageSegmentName}"%"
 			</if>
 		</where>
 	</select>
@@ -373,13 +370,10 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			WORK_SEGMENT
 		<where>
 			<if test="null!=workSegmentName">
-				AND WORK_SEGMENT_NAME LIKE "%"#{workSegmentName}"%"
+				OR WORK_SEGMENT_NAME LIKE "%"#{workSegmentName}"%"
 			</if>
 			<if test="null!=mileageSegmentName">
-				AND MILEAGE_SEGMENT_NAME LIKE "%"#{mileageSegmentName}"%"
-			</if>
-			<if test="null!=submitTime">
-				AND WORK_DATE = #{workDate}
+				OR MILEAGE_SEGMENT_NAME LIKE "%"#{mileageSegmentName}"%"
 			</if>
 		</where>
 		ORDER BY

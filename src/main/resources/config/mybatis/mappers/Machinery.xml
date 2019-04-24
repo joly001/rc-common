@@ -217,13 +217,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			MACHINERY
 		<where>
 			<if test="null!=machineryName">
-				AND MACHINERY_NAME LIKE "%"#{machineryName}"%"
+				OR MACHINERY_NAME LIKE "%"#{machineryName}"%"
 			</if>
 			<if test="null!=wristStrapCode">
-				AND WRIST_STRAP_CODE LIKE "%"#{wristStrapCode}"%"
+				OR WRIST_STRAP_CODE LIKE "%"#{wristStrapCode}"%"
 			</if>
 			<if test="null!=nick">
-				AND NICK LIKE "%"#{nick}"%"
+				OR NICK LIKE "%"#{nick}"%"
 			</if>
 		</where>
 	</select>
@@ -245,13 +245,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			MACHINERY
 		<where>
 			<if test="null!=machineryName">
-				AND MACHINERY_NAME LIKE "%"#{machineryName}"%"
+				OR MACHINERY_NAME LIKE "%"#{machineryName}"%"
 			</if>
 			<if test="null!=wristStrapCode">
-				AND WRIST_STRAP_CODE LIKE "%"#{wristStrapCode}"%"
+				OR WRIST_STRAP_CODE LIKE "%"#{wristStrapCode}"%"
 			</if>
 			<if test="null!=nick">
-				AND NICK LIKE "%"#{nick}"%"
+				OR NICK LIKE "%"#{nick}"%"
 			</if>
 		</where>
 		ORDER BY
