@@ -25,6 +25,10 @@ public class WorkWarning implements java.io.Serializable, IObjectDateOperationHi
 	 * 类型(01:碾压光缆)
 	 */
 	public static final String TYPE_ROLLING_CABLE = "01";
+	/**
+	 * 类型(02:线缆附近动土)
+	 */
+	public static final String TYPE_MOVING_SOIL_NEAR_CABLES = "02";
 
 	//columns START
     /**

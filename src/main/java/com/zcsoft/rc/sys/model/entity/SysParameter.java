@@ -27,6 +27,14 @@ public class SysParameter implements java.io.Serializable, IObjectDateOperationH
 	 * 碾压报警机械类型
 	 */
 	public static final String KEY_TYPE_ROLLING_ALARM_MACHINERY = "TYPE_ROLLING_ALARM_MACHINERY";
+	/**
+	 * 判定线缆附近动土报警距离
+	 */
+	public static final String KEY_CABLE_LIMIT_DISTANCE = "CABLE_LIMIT_DISTANCE";
+	/**
+	 * 判定线缆附近动土报警时间
+	 */
+	public static final String KEY_CABLE_LIMIT_TIME = "CABLE_LIMIT_TIME";
 	
 	//columns START
     /**

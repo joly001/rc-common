@@ -24,6 +24,10 @@ public class Notice implements java.io.Serializable, IObjectDateOperationHistory
 	 * 通知类型(03:碾压光缆)
 	 */
 	public static final String TYPE_ROLLING_CABLE = "03";
+	/**
+	 * 类型(04:线缆附近动土)
+	 */
+	public static final String TYPE_MOVING_SOIL_NEAR_CABLES = "04";
 
 	/**
 	 * 状态(UNTREATED:未处理)
