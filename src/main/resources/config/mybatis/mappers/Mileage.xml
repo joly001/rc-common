@@ -233,9 +233,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			MILEAGE
 		WHERE
-				(START_LONGITUDE >= #{longitude} AND END_LONGITUDE < #{longitude})
+				(START_LONGITUDE > #{longitude} AND END_LONGITUDE < #{longitude})
 			OR
-				(START_LONGITUDE <= #{longitude} AND END_LONGITUDE > #{longitude})
+				(START_LONGITUDE < #{longitude} AND END_LONGITUDE > #{longitude})
 		LIMIT 1
 		]]>
 	</select>
