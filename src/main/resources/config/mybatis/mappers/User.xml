@@ -485,6 +485,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<result property="builderStatus" column="BUILDER_STATUS"/>
 		<result property="admissionDate" column="ADMISSION_DATE"/>
 		<result property="leaveDate" column="LEAVE_DATE"/>
+		<result property="wristStrapCode" column="WRIST_STRAP_CODE"/>
 		<result property="follow" column="FOLLOW"/>
 		<result property="userPicture" column="USER_PICTURE"/>
 		<result property="builderUserType" column="BUILDER_USER_TYPE"/>
