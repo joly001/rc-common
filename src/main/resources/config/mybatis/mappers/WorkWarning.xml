@@ -419,6 +419,54 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		AND
 			STATUS = #{currentStatus}
 	</update>
-	
+
+	<select id="queryPaginationListByUserId" parameterType="PaginationCondition" resultMap="workWarningResultMap">
+		SELECT
+			WW.ID
+			,WW.WORK_WARNING_ID
+			,WW.MILEAGE_SEGMENT_ID
+			,WW.MILEAGE_SEGMENT_NAME
+			,WW.WORK_SEGMENT_ID
+			,WW.WORK_SEGMENT_NAME
+			,WW.WORK_SEGMENT_START_LONGITUDE
+			,WW.WORK_SEGMENT_START_LATITUDE
+			,WW.WORK_SEGMENT_END_LONGITUDE
+			,WW.WORK_SEGMENT_END_LATITUDE
+			,WW.USER_ID
+			,WW.BUILDER_USER_TYPE
+			,WW.DEP_ID
+			,WW.DEP_NAME
+			,WW.ORG_ID
+			,WW.ORG_NAME
+			,WW.NICK
+			,WW.MOBILE
+			,WW.STATUS
+			,WW.TYPE
+			,WW.LONGITUDE
+			,WW.LATITUDE
+			,WW.CREATE_TIME
+			,WW.MODIFY_TIME
+		FROM
+			WORK_WARNING AS WW
+		WHERE
+			EXISTS
+			(
+				SELECT
+					UF.USER_FOLLOW_ID
+				FROM
+					USER_FOLLOW AS UF
+				WHERE
+					WW.WORK_WARNING_ID = UF.USER_FOLLOW_ID
+				AND
+					UF.USER_ID=#{userId}
+			)
+			OR
+				WW.USER_ID = #{userId}
+		ORDER BY
+			CREATE_TIME DESC
+	</select>
+
+
+
 </mapper>
 

@@ -1,6 +1,8 @@
 package com.zcsoft.rc.warning.dao.impl;
 
 
+import com.sharingif.cube.persistence.database.pagination.PaginationCondition;
+import com.sharingif.cube.persistence.database.pagination.PaginationRepertory;
 import org.springframework.stereotype.Repository;
 
 
@@ -24,4 +26,11 @@ public class WorkWarningDAOImpl extends BaseDAOImpl<WorkWarning,java.lang.String
 
         return update("updateStatusByWorkWarningIdStatus", parameter);
     }
+
+    @Override
+    public PaginationRepertory<WorkWarning> queryPaginationListByUserId(PaginationCondition<WorkWarning> paginationCondition) {
+        return queryPagination("queryPaginationListByUserId", paginationCondition);
+    }
+
+
 }

@@ -304,6 +304,44 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			CREATE_TIME DESC
 	</select>
+
+	<select id="queryPaginationListByUserId" parameterType="PaginationCondition" resultMap="trainWarningResultMap">
+		SELECT
+			ID
+			,WORK_WARNING_ID
+			,NICK
+			,MOBILE
+			,USER_ID
+			,DIRECTION
+			,STATUS
+			,TYPE
+			,LONGITUDE
+			,LATITUDE
+			,WORK_SEGMENT_ID
+			,WORK_SEGMENT_NAME
+			,RAILWAY_LINES_ID
+			,RAILWAY_LINES_NAME
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			TRAIN_WARNING AS TW
+		WHERE
+			EXISTS
+			(
+				SELECT
+					UF.USER_FOLLOW_ID
+				FROM
+					USER_FOLLOW AS UF
+				WHERE
+						TW.WORK_WARNING_ID = UF.USER_FOLLOW_ID
+					AND
+						UF.USER_ID=#{userId}
+			)
+			OR
+				TW.USER_ID =#{userId}
+		ORDER BY
+			CREATE_TIME DESC
+	</select>
 	
 </mapper>
 
