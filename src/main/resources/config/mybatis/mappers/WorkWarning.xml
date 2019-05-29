@@ -449,19 +449,23 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			WORK_WARNING AS WW
 		WHERE
-			EXISTS
 			(
-				SELECT
-					UF.USER_FOLLOW_ID
-				FROM
-					USER_FOLLOW AS UF
-				WHERE
-					WW.WORK_WARNING_ID = UF.USER_FOLLOW_ID
-				AND
-					UF.USER_ID=#{userId}
+				EXISTS
+				(
+					SELECT
+						UF.USER_FOLLOW_ID
+					FROM
+						USER_FOLLOW AS UF
+					WHERE
+						WW.WORK_WARNING_ID = UF.USER_FOLLOW_ID
+					AND
+						UF.USER_ID=#{userId}
+				)
+				OR
+					WW.USER_ID = #{userId}
 			)
-			OR
-				WW.USER_ID = #{userId}
+			AND
+				WW.NICK LIKE "%"#{nick}"%"
 		ORDER BY
 			CREATE_TIME DESC
 	</select>
