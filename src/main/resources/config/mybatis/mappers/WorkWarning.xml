@@ -464,8 +464,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				OR
 					WW.USER_ID = #{userId}
 			)
-			AND
-				WW.NICK LIKE "%"#{nick}"%"
+			<if test="null!=nick">
+				AND WW.NICK LIKE "%"#{nick}"%"
+			</if>
 		ORDER BY
 			CREATE_TIME DESC
 	</select>
