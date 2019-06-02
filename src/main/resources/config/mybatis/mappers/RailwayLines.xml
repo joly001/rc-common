@@ -303,7 +303,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="queryByStartLongitudeEndLongitude" resultMap="railwayLinesResultMap">
-		<![CDATA[
 		SELECT
 			ID
 			,RAILWAY_LINES_NAME
@@ -326,23 +325,23 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			(
 					START_LONGITUDE >= #{startLongitude}
 				AND
-					END_LONGITUDE <= #{startLongitude}
+	  <![CDATA[		END_LONGITUDE <= #{startLongitude}	]]>
 				<if test="null!=endLongitude">
 				AND
 					START_LONGITUDE >= #{endLongitude}
 				AND
-					END_LONGITUDE <= #{endLongitude}
+	  <![CDATA[		END_LONGITUDE <= #{endLongitude}	]]>
 				</if>
 
 			)
 			OR
 			(
-					START_LONGITUDE <= #{startLongitude}
+	  <![CDATA[		START_LONGITUDE <= #{startLongitude}	]]>
 				AND
 					END_LONGITUDE >= #{startLongitude}
 				<if test="null!=endLongitude">
 				AND
-					START_LONGITUDE <= #{endLongitude}
+		<![CDATA[		START_LONGITUDE <= #{endLongitude}	]]>
 				AND
 					END_LONGITUDE >= #{endLongitude}
 				</if>
@@ -350,7 +349,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		ORDER BY
 			START_MILEAGE_NAME
 		LIMIT 1
-		]]>
 	</select>
 	
 </mapper>
