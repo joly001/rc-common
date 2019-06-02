@@ -9,9 +9,10 @@ public interface RailwayLinesDAO extends BaseDAO<RailwayLines,java.lang.String> 
 
     /**
      * 查询区间经度车站信息
-     * @param longitude
+     * @param startLongitude
+     * @param endLongitude
      * @return
      */
-    RailwayLines queryByStartLongitudeEndLongitude(double longitude);
+    RailwayLines queryByStartLongitudeEndLongitude(double startLongitude, double endLongitude);
 
 }

@@ -323,9 +323,25 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		FROM
 			RAILWAY_LINES
 		WHERE
-				START_LONGITUDE >= #{longitude}
-			AND
-				END_LONGITUDE <= #{longitude}
+			(
+					START_LONGITUDE >= #{startLongitude}
+				AND
+					END_LONGITUDE <= #{startLongitude}
+				AND
+					START_LONGITUDE >= #{endLongitude}
+				AND
+					END_LONGITUDE <= #{endLongitude}
+			)
+			OR
+			(
+					START_LONGITUDE <= #{startLongitude}
+				AND
+					END_LONGITUDE >= #{startLongitude}
+				AND
+					START_LONGITUDE <= #{endLongitude}
+				AND
+					END_LONGITUDE >= #{endLongitude}
+			)
 		ORDER BY
 			START_MILEAGE_NAME
 		LIMIT 1
