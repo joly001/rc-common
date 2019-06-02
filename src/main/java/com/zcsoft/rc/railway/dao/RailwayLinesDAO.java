@@ -13,6 +13,6 @@ public interface RailwayLinesDAO extends BaseDAO<RailwayLines,java.lang.String> 
      * @param endLongitude
      * @return
      */
-    RailwayLines queryByStartLongitudeEndLongitude(double startLongitude, double endLongitude);
+    RailwayLines queryByStartLongitudeEndLongitude(Double startLongitude, Double endLongitude);
 
 }

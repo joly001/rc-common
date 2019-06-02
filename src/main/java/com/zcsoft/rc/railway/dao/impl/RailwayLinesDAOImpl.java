@@ -14,7 +14,7 @@ import java.util.Map;
 public class RailwayLinesDAOImpl extends BaseDAOImpl<RailwayLines,java.lang.String> implements RailwayLinesDAO {
 
     @Override
-    public RailwayLines queryByStartLongitudeEndLongitude(double startLongitude, double endLongitude) {
+    public RailwayLines queryByStartLongitudeEndLongitude(Double startLongitude, Double endLongitude) {
         Map<String,Object> parameterMap = new HashMap<>();
         parameterMap.put("startLongitude",startLongitude);
         parameterMap.put("endLongitude",endLongitude);
