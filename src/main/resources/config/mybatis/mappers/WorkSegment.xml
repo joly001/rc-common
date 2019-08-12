@@ -63,6 +63,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     	<if test="null!=submitUserName">
     		AND SUBMIT_USER_NAME = #{submitUserName}
     	</if>
+		<if test="null!=submitUserOrgId">
+			AND SUBMIT_USER_ORG_ID = #{submitUserOrgId}
+		</if>
     	<if test="null!=submitTime">
     		AND SUBMIT_TIME = #{submitTime}
     	</if>
@@ -129,6 +132,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		    <if test="null!=submitUserName">
 		    SUBMIT_USER_NAME = #{submitUserName},
 		    </if>
+			<if test="null!=submitUserOrgId">
+				SUBMIT_USER_ORG_ID = #{submitUserOrgId}
+			</if>
 		    <if test="null!=submitTime">
 		    SUBMIT_TIME = #{submitTime},
 		    </if>
@@ -159,6 +165,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         <result property="workPersonnel" column="WORK_PERSONNEL"/>
         <result property="submitUserId" column="SUBMIT_USER_ID"/>
         <result property="submitUserName" column="SUBMIT_USER_NAME"/>
+        <result property="submitUserOrgId" column="SUBMIT_USER_ORG_ID"/>
         <result property="submitTime" column="SUBMIT_TIME"/>
         <result property="createTime" column="CREATE_TIME"/>
         <result property="modifyTime" column="MODIFY_TIME"/>
@@ -185,6 +192,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,WORK_PERSONNEL
         	,SUBMIT_USER_ID
         	,SUBMIT_USER_NAME
+        	,SUBMIT_USER_ORG_ID
         	,SUBMIT_TIME
         	,CREATE_TIME
         	,MODIFY_TIME
@@ -207,6 +215,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         	,#{workPersonnel}
         	,#{submitUserId}
         	,#{submitUserName}
+        	,#{submitUserOrgId}
         	,#{submitTime}
         	,#{createTime}
         	,#{modifyTime}
@@ -258,6 +267,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,WORK_PERSONNEL
 			,SUBMIT_USER_ID
 			,SUBMIT_USER_NAME
+			,SUBMIT_USER_ORG_ID
 			,SUBMIT_TIME
 			,CREATE_TIME
 			,MODIFY_TIME
@@ -287,6 +297,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,WORK_PERSONNEL
 			,SUBMIT_USER_ID
 			,SUBMIT_USER_NAME
+			,SUBMIT_USER_ORG_ID
 			,SUBMIT_TIME
 			,CREATE_TIME
 			,MODIFY_TIME
@@ -319,6 +330,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,WORK_PERSONNEL
 			,SUBMIT_USER_ID
 			,SUBMIT_USER_NAME
+			,SUBMIT_USER_ORG_ID
 			,SUBMIT_TIME
 			,CREATE_TIME
 			,MODIFY_TIME
@@ -363,6 +375,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,WORK_PERSONNEL
 			,SUBMIT_USER_ID
 			,SUBMIT_USER_NAME
+			,SUBMIT_USER_ORG_ID
 			,SUBMIT_TIME
 			,CREATE_TIME
 			,MODIFY_TIME
@@ -374,6 +387,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			</if>
 			<if test="null!=mileageSegmentName">
 				OR MILEAGE_SEGMENT_NAME LIKE "%"#{mileageSegmentName}"%"
+			</if>
+			<if test="null!=submitUserOrgId">
+				AND SUBMIT_USER_ORG_ID = #{submitUserOrgId}
 			</if>
 		</where>
 		ORDER BY
@@ -401,6 +417,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,WORK_PERSONNEL
 			,SUBMIT_USER_ID
 			,SUBMIT_USER_NAME
+			,SUBMIT_USER_ORG_ID
 			,SUBMIT_TIME
 			,CREATE_TIME
 			,MODIFY_TIME
@@ -437,6 +454,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			,WORK_PERSONNEL
 			,SUBMIT_USER_ID
 			,SUBMIT_USER_NAME
+			,SUBMIT_USER_ORG_ID
 			,SUBMIT_TIME
 			,CREATE_TIME
 			,MODIFY_TIME

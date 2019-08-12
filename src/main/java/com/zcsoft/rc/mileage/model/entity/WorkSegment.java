@@ -83,6 +83,10 @@ public class WorkSegment implements java.io.Serializable, IObjectDateOperationHi
      * 提交人员名称			db_column: SUBMIT_USER_NAME 
      */	
 	private String submitUserName;
+	/**
+	 * 提交人组织id			db_column: SUBMIT_USER_ORG_ID
+	 */
+	private String submitUserOrgId;
     /**
      * 提交时间			db_column: SUBMIT_TIME 
      */	
@@ -207,6 +211,15 @@ public class WorkSegment implements java.io.Serializable, IObjectDateOperationHi
 	public String getSubmitUserName() {
 		return this.submitUserName;
 	}
+
+	public String getSubmitUserOrgId() {
+		return submitUserOrgId;
+	}
+
+	public void setSubmitUserOrgId(String submitUserOrgId) {
+		this.submitUserOrgId = submitUserOrgId;
+	}
+
 	public void setSubmitTime(Date submitTime) {
 		this.submitTime = submitTime;
 	}
@@ -255,6 +268,7 @@ public class WorkSegment implements java.io.Serializable, IObjectDateOperationHi
 		sb.append(", workPersonnel=").append(workPersonnel);
 		sb.append(", submitUserId='").append(submitUserId).append('\'');
 		sb.append(", submitUserName='").append(submitUserName).append('\'');
+		sb.append(", submitUserOrgId='").append(submitUserOrgId).append('\'');
 		sb.append(", submitTime=").append(submitTime);
 		sb.append(", createTime=").append(createTime);
 		sb.append(", modifyTime=").append(modifyTime);
