@@ -32,4 +32,12 @@ public interface OrganizationDAO extends BaseDAO<Organization,java.lang.String> 
      */
     List<Organization> queryUserFollowOrganizationList(String userId, String followType);
 
+    /**
+     * 根据组织名、父机构查询
+     * @param orgName
+     * @param parentId
+     * @return
+     */
+    Organization queryByOrgNameParentId(String orgName, String parentId);
+
 }

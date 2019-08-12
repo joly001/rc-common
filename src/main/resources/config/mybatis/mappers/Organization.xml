@@ -255,6 +255,27 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			ON
 				ID = UF.USER_FOLLOW_ID
 	</select>
+
+	<select id="queryByOrgNameParentId" resultMap="organizationResultMap">
+		SELECT
+			ID
+			,ORG_NAME
+			,ORG_DESC
+			,SEQUENCE_NUMBER
+			,PARENT_ID
+			,CREATE_TIME
+			,MODIFY_TIME
+		FROM
+			ORGANIZATION
+		WHERE
+			ORG_NAME = #{orgName}
+		<if test="null==parentId">
+			AND PARENT_ID IS NULL
+		</if>
+		<if test="null!=parentId">
+			AND PARENT_ID = #{parentId}
+		</if>
+	</select>
 	
 </mapper>
 

@@ -41,4 +41,13 @@ public class OrganizationDAOImpl extends BaseDAOImpl<Organization,java.lang.Stri
 
         return selectList("queryUserFollowOrganizationList", parameter);
     }
+
+    @Override
+    public Organization queryByOrgNameParentId(String orgName, String parentId) {
+        Organization organization = new Organization();
+        organization.setOrgName(orgName);
+        organization.setParentId(parentId);
+
+        return selectOne("queryByOrgNameParentId", organization);
+    }
 }
